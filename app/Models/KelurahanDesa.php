@@ -9,4 +9,16 @@ class KelurahanDesa extends Model
 {
     use HasFactory;
     protected $table = 'kelurahan_desa';
+    protected $fillable = [
+        'nama_desa',
+        'alamat',
+        'kecamatan_id',
+    ];
+    public function kecamatan(){
+        return $this->belongsTo(Kecamatan::class);
+    }
+    public function posyandu(){
+        return $this->hasMany(KelurahanDesa::class);
+    }
+
 }

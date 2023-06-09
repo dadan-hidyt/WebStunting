@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Dashboard\AuthController;
-//setup
 
 Route::get('login',[AuthController::class,'showLoginForm'])->name('auth.login');
 
