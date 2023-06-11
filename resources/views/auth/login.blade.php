@@ -1,5 +1,6 @@
 @extends('layouts.guest')
 
 @section('content')
-    <h1>Content</h1>
+    <h1>Login Administrator</h1>
+    <input type="text">
 @endsection
