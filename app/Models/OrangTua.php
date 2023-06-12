@@ -9,4 +9,11 @@ class OrangTua extends Model
 {
     use HasFactory;
     protected $table = 'orang_tua';
+
+    public function anak(){
+        return $this->hasMany(Anak::class);
+    }
+    public function kecamatan(){
+        return $this->belongsTo(Kecamatan::class);
+    }
 }

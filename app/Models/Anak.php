@@ -9,4 +9,8 @@ class Anak extends Model
 {
     use HasFactory;
     protected $table = 'anak';
+
+    public function orangTua(){
+        return $this->belongsTo(OrangTua::class);
+    }
 }
