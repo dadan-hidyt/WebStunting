@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('berat_lahir')->nullable();
             $table->string('tinggi');
             $table->string('umur');
-            $table->foreignIdFor(\App\Models\OrangTua::class);
+            $table->enum('jenis_kelamin',['L','P']);
+            $table->foreignIdFor(\App\Models\OrangTua::class)->nullable()->constrained('orang_tua','id')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

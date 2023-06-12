@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_posyandu');
             $table->text('alamat_lengkap');
             $table->string('kontak')->nullable();
-            $table->foreignIdFor(\App\Models\KelurahanDesa::class,'kelurahan_desa_id');
+            $table->foreignIdFor(\App\Models\KelurahanDesa::class)->nullable()->constrained('kelurahan_desa','id')->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

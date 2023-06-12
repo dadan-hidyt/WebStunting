@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_desa');
             $table->text('alamat')->nullable();
-            $table->foreignIdFor(\App\Models\Kecamatan::class,'kecamatan_id');
+            $table->foreignIdFor(\App\Models\Kecamatan::class)->nullable()->constrained('kecamatan','id')->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

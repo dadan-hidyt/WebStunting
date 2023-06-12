@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('pekerjaan')->nullable();
             $table->text('alamat_lengkap');
             $table->string('kontak')->nullable();
-            $table->foreignIdFor(\App\Models\KelurahanDesa::class,'kelurahan_desa_id');
-            $table->foreignIdFor(\App\Models\PosyanduPembina::class,'posyandu_pembina_id');
+            $table->foreignIdFor(\App\Models\KelurahanDesa::class,'kelurahan_desa_id')->nullable()->constrained('kelurahan_desa','id')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(\App\Models\PosyanduPembina::class,'posyandu_pembina_id')->nullable()->constrained('posyandu_pembina','id')->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

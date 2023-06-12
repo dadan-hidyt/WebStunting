@@ -43,7 +43,7 @@ if ($z_score < -3) {
 } else if ($z_score > -3 && $z_score < -2) {
     $string = "Berat badan <b style='color:orange;'>buruk</b>!";
 } else if ($z_score > -2 && $z_score < 1) {
-    $string = "Berat badan sangat <b style='color:green;'>Baik</b>!";
+    $string = "Berat badan sangat <b style='color:#afdcaf;'>Baik</b>!";
 } else {
     $string = "Berat badan berlebihan!";
 }

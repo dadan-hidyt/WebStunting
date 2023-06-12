@@ -867,7 +867,7 @@ $standard_panjang_badan_menurut_umur_perempuan_0_24 = [
     ],
 ];
 //Standar Tinggi Badan menurut Umur (TB/U) Anak perempuan Umur 24-60 Bulan
-$standard_panjang_badan_menurut_umur_perempuan_24_60 = [
+$standard_tinggi_badan_menurut_umur_perempuan_24_60 = [
     0 => [
         0 => "24 *",
         1 => "76.0",
