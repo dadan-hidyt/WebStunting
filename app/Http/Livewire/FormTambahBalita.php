@@ -12,6 +12,8 @@ class FormTambahBalita extends Component
         'data.no_kk' => ['required','max:16','min:16'],
         'data.nama_lengkap' => ['required'],
         'data.tanggal_lahir' => ['required'],
+        'data.jenis_kelamin' => ['required'],
+        'data.anak_ke' => ['required']
     ];
     public function tambah(){
         $this->validate();
