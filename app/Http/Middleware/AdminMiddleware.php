@@ -18,6 +18,8 @@ class AdminMiddleware
         if ($user = auth()->user()) {
             if ($user->role === 'admin') {
                 return $next($request);
+            } else {
+                return redirect()->route('login');
             }
         }
         return response()->json([
