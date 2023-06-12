@@ -13,4 +13,10 @@ class BalitaController extends Controller
         ]);
     }
 
+    public function tambah(){
+        return view('dashboard.balita.tambah',[
+            'title' => "Tambah Balita"
+        ]);
+    }
+
 }

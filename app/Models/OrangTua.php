@@ -16,4 +16,10 @@ class OrangTua extends Model
     public function kecamatan(){
         return $this->belongsTo(Kecamatan::class);
     }
+    public function kelurahanDesa(){
+        return $this->belongsTo(KelurahanDesa::class);
+    }
+    public function posyandu(){
+        return $this->belongsTo(PosyanduPembina::class);
+    }
 }

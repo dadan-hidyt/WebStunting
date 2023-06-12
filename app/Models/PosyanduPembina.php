@@ -13,4 +13,7 @@ class PosyanduPembina extends Model
     public function kelurahanDesa(){
         return $this->belongsTo(KelurahanDesa::class);
     }
+    public function orangTua(){
+        return $this->hasMany(OrangTua::class);
+    }
 }

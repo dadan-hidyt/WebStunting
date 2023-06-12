@@ -20,5 +20,9 @@ class KelurahanDesa extends Model
     public function posyandu(){
         return $this->hasMany(KelurahanDesa::class);
     }
+    public function orangTua(){
+        return $this->hasMany(OrangTua::class);
+    }
+
 
 }

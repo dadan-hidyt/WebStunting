@@ -7,7 +7,7 @@
         <div class="col-12 mt-4">
             <div class="card overflow-hidden">
                 <div class="table-header">
-                    <a href="data-balita-input.html" class="btn-add-data">
+                    <a href="{{route('dashboard.balita.tambah')}}" class="btn-add-data">
                         Input Data Balita
                     </a>
                     <a href="#" class="btn-print">
@@ -21,252 +21,17 @@
                             <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
+                            <th>Anak Ke</th>
                             <th>Jenis Kelamin</th>
                             <th>Tanggal Lahir</th>
+                            <th>Orang  Tua</th>
                             <th>Desa/Kel</th>
                             <th>Posyandu</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>321119008070609
-                            </td>
-                            <td>Raza Razhi Muhammad</td>
-                            <td>L</td>
-                            <td>20-05-2018</td>
-                            <td>Nagarawangi</td>
-                            <td>Cemara</td>
-                            <td class="act-btn-group">
-                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -282,6 +47,21 @@
     <script>
         $(function () {
             $("#example1").DataTable({
+                processing :true,
+                serverSide : true,
+                ajax : "{{ route('ajax.balita.getData') }}" ,
+                columns : [
+                    {data : 'id', name : 'id'},
+                    {data : 'nik',name : 'nik'},
+                    {data : 'nama_lengkap', name : 'nama_lengkap'},
+                    {data:'anak_ke',name : 'anak_ke'},
+                    {data : 'jenis_kelamin', name : 'jenis_kelamin'},
+                    {data : 'tempat_tanggal_lahir', name : 'tempat_tanggal_lahir'},
+                    {data : 'orang_tua', name : 'orang_tua'},
+                    {data:'kelurahan_desa',name : 'kelurahan_desa'},
+                    {data : 'posyandu',name : 'posyandu'},
+                    {data:'action',name : 'action'}
+                ],
                 scrollX: true,
                 "lengthChange": true,
                 "autoWidth": false,

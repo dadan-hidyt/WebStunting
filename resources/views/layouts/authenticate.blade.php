@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
+    @livewireStyles
 </head>
 
 <body @class(['hold-transition sidebar-mini layout-fixed'])>
@@ -145,7 +146,7 @@
         </div>
     </footer>
     </div>
-
+@livewireScripts
 <!-- jQuery -->
 <script src="{{ assets('plugins/jquery/jquery.min.js')  }}"></script>
 <!-- jQuery UI 1.11.4 -->
