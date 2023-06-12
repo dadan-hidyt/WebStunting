@@ -9,7 +9,9 @@ class OrangTua extends Model
 {
     use HasFactory;
     protected $table = 'orang_tua';
-
+    public function scopeGetByNik($query,$nik) {
+        return $query->where('nik',$nik);
+    }
     public function anak(){
         return $this->hasMany(Anak::class);
     }

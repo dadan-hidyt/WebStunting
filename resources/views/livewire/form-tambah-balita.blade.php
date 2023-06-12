@@ -8,10 +8,11 @@
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
+          
             <div class="form-group">
                 <label for="">No KK</label>
-                <input wire:model.lazy="data.no_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('data.no_kk')])>
-                @error('data.no_kk')
+                <input wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
+                @error('orang_tua.nomor_kk')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
@@ -22,6 +23,13 @@
                     'is-invalid' => $errors->has('data.nama_lengkap'),
                 ])>
                 @error('data.nama_lengkap')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="">Tempat Lahir</label>
+                <input wire:model.lazy="data.tempat_lahir" type="number" @class(['form-control', 'is-invalid' => $errors->has('data.tempat_lahir')])>
+                @error('data.tempat_lahir')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
@@ -38,40 +46,52 @@
                         @enderror
                     </div>
                 </div>
+                
                 <div class="col-12 col-lg-6">
                     <div class="form-group">
                         <label for="">Jenis Kelamin</label>
-                        <select wire:model.lazy="data.jenis_kelamin" name="" id="" @class([
-                            'form-control',
-                            'is-invalid' => $errors->has('data.jenis_kelamin'),
-                        ])>
+                        <select wire:model.lazy="data.jenis_kelamin" name="" id=""
+                            @class([
+                                'form-control',
+                                'is-invalid' => $errors->has('data.jenis_kelamin'),
+                            ])>
                             <option value="">--pilih salah satu--</option>
                             <option value="L">Laki - laki</option>
                             <option value="P">Perempuan</option>
                         </select>
                         @error('data.jenis_kelamin')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="">Anak ke -</label>
-                <input wire:model.lazy="data.anak_ke" type="number" @class([
-                            'form-control',
-                            'is-invalid' => $errors->has('data.anak_ke'),
-                        ])>
+                <input wire:model.lazy="data.anak_ke" type="number" @class(['form-control', 'is-invalid' => $errors->has('data.anak_ke')])>
                 @error('data.anak_ke')
-                <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+           
+            <div class="form-group">
+                <label for="">Berat Badan Saat Lahir (kg)</label>
+                <input wire:model.defer='data.berat_lahir' type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('data.berat_lahir'),
+                ])>
+                @error('data.berat_lahir')
+                    <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="">Berat Badan Saat Lahir (kg)</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="form-group">
                 <label for="">Panjang Badan Saat Lahir (cm)</label>
-                <input type="text" class="form-control">
+                <input wire:model.lazy='data.panjang_badan' type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('data.panjang_badan'),
+                ])>
+                @error('data.panjang_badan')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <div class="col-12 col-lg-6">
@@ -81,8 +101,8 @@
                         <label for="">Buku KIA</label>
                         <select name="" id="" class="form-control">
                             <option value="">--pilih salah satu--</option>
-                            <option value="">Ya</option>
-                            <option value="">Tidak</option>
+                            <option value="YA">Ya</option>
+                            <option value="TIDAK">Tidak</option>
                         </select>
                     </div>
                 </div>
@@ -91,8 +111,8 @@
                         <label for="">IMD</label>
                         <select name="" id="" class="form-control">
                             <option value="">--pilih salah satu--</option>
-                            <option value="">Ya</option>
-                            <option value="">Tidak</option>
+                            <option value="YA">Ya</option>
+                            <option value="TIDAK">Tidak</option>
                         </select>
                     </div>
                 </div>
@@ -100,45 +120,81 @@
 
             <div class="form-group">
                 <label for="">NIK Orangtua</label>
-                <input type="text" class="form-control">
+                <input wire:model='orang_tua.nik' type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.nik'),
+                ])>
+                @error('orang_tua.nik')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="">Nama Orangtua</label>
-                <input type="text" class="form-control">
+                <input wire:model.defer='orang_tua.nama' type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.nama'),
+                ])>
+                @error('orang_tua.nama')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="">Telp/Hp Orang Tua</label>
-                <input type="number" class="form-control">
+                <input type="text" wire:model.defer='orang_tua.kontak' @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.kontak'),
+                ])>
+                @error('orang_tua.kontak')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="">Desa/Kelurahan</label>
-                <select name="" id="" class="form-control">
+                <select wire:model.defer='orang_tua.kelurahan_desa_id' name="" id="" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.kelurahan_desa_id'),
+                ])>
                     <option value="">--pilih salah satu--</option>
-                    <option value="">option</option>
+                    <option value="1">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                 </select>
+                @error('orang_tua.kelurahan_desa_id')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="">Posyandu Pembina</label>
-                <select name="" id="" class="form-control">
+                <select wore:model.defer='orang_tua.posyandu_pembina_id' name="" id="" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.posyandu_pembina_id'),
+                ])>
                     <option value="">--pilih salah satu--</option>
-                    <option value="">option</option>
+                    <option value="1">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                     <option value="">option</option>
                 </select>
+                @error('orang_tua.posyandu_pembina_id')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="">Alamat Lengkap</label>
-                <input type="text" class="form-control">
+                <input wire:model.defer='orang_tua.alamat_lengkap' type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.alamat_lengkap'),
+                ])>
+                @error('orang_tua.alamat_lengkap')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-submit d-flex justify-content-end">
                 <a href="data-balita.html" class="btn-cancel">Cancel</a>
