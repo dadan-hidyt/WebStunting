@@ -1,7 +1,7 @@
 @extends('layouts.authenticate')
 @section('page-title', 'Pengukuran');
 @section('content')
-    <div class="row" style="z-index: -99999">
+    <div class="row">
         <div class="col-12 mt-4">
             <div class="card card-count-form overflow-hidden">
                 <div class="card-header">
@@ -55,8 +55,8 @@
                                 <th>Tinggi</th>
                                 <th>BB/U</th>
                                 <th>ZS BB/U</th>
-                                <th>TB/U</th>
-                                <th>ZS TB/U</th>
+                                <th>TB-TB/U</th>
+                                <th>ZS TB-PB/U</th>
                                 <th>ZS BB/TB</th>
                                 <th>Action</th>
                             </tr>
@@ -69,7 +69,7 @@
                                         <td>{{ $item->tanggal_ukur }}</td>
                                         <td>{{ $item->bb }}</td>
                                         <td>{{ $item->tb }} - {{ $item->cara_ukur }}</td>
-                                        <td>{{ $item->bb }}</td>
+                                        <td>{{ $item->bb_zscore }}</td>
                                         <td>{{ kategoriStatusBb($item->bb_zscore) }}</td>
                                         <td>{{ $item->tb_zscore }}</td>
                                         <td>{{ kategoriStatusPbTb($item->tb_zscore) }}</td>

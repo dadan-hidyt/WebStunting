@@ -39,11 +39,11 @@ function kategoriStatusPbTb($zScore)
 function kategoriStatusBb($zScore)
 {
     if ($zScore < -3) {
-        return 'Berat badan sangat kurang (severely underweight)';
+        return 'Sangat kurang (severely underweight)';
     } else if ($zScore >= -3 && $zScore < -2) {
-        return 'Berat badan kurang (underweight)';
+        return 'Kurang (underweight)';
     } else if ($zScore >= -2 && $zScore <= 2) {
-        return "Berat Badan Normal";
+        return "Normal";
     } else if ($zScore > 2) {
         return "Risiko Berat badan lebih";
     }

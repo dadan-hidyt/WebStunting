@@ -39,7 +39,7 @@ class FormInputPengukuran extends Component
         }
 
         if ( Pengukuran::create($data->all()) ) {
-            return redirect()->route('dashboard.pengukuran.ukur');
+            return redirect()->route('dashboard.pengukuran.ukur',$this->balita->id);
         }
     }
     public function render()
