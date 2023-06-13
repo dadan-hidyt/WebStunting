@@ -30,9 +30,10 @@ class DataTableBalitaController extends Controller
                 return hitungBulan($row->tanggal_lahir);
             }
         })->addColumn('action', function ($row) {
-            $update = "<a class='btn-edit' href='".route('dashboard.balita.edit',$row->id)."'><i class='fa fa-edit'></i></a>";
-            $delete = "<a class='btn-delete' href='".route('dashboard.balita.hapus',$row->id)."'><i class='fa fa-trash'></i></a>";
-            return $delete.$update;
+            $update = "<a class='btn btn-sm btn-warning' href='".route('dashboard.balita.edit',$row->id)."'><i class='fa fa-edit'></i></a>";
+            $delete = "<a onclick=\"return confirm('Apakah anda yakin?')\" class='btn btn-sm btn-danger' href='".route('dashboard.balita.hapus',$row->id)."'><i class='fa fa-trash'></i></a>";
+            $ukur = "<a class='btn btn-sm btn-success' href='".route('dashboard.pengukuran.ukur',$row->id)."'><i class='fa fa-calculator'></i></a>";
+            return $ukur."&nbsp;".$delete."&nbsp;".$update;
 
         })->rawColumns(['action'])->make();
     }
