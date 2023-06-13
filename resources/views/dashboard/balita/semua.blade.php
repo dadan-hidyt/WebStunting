@@ -44,7 +44,17 @@
     </div>
 @endsection
 @push('scripts')
-
+    @if (session()->has('notifikasi'))
+        @if (session('notifikasi')['type'] === 'success')
+            <script>
+                notifikasi.success('Data Balita Berhasil Di hapus');
+            </script>
+            @else
+            <script>
+                notifikasi.error('Data Balita Gagal Di hapus');
+            </script>
+        @endif
+    @endif
     <script>
         $(function () {
             $("#example1").DataTable({

@@ -8,13 +8,16 @@ use App\Models\OrangTua;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Anak;
+use App\Models\PosyanduPembina;
+
 class FormTambahBalita extends Component
 {
     public $data = [];
     public $orang_tua = [];
+    public $posyandu = [];
     public $desa_kelurahan = [];
     protected $rules = [
-        'data.nik' => ['required', 'max:16', 'min:16','unique:anak,nik'],
+        'data.nik' => ['required', 'max:16', 'min:16', 'unique:anak,nik'],
         'data.nama_lengkap' => ['required'],
         'data.tanggal_lahir' => ['required'],
         'data.tempat_lahir' => ['required'],
@@ -31,14 +34,25 @@ class FormTambahBalita extends Component
         'orang_tua.alamat_lengkap' => ['required'],
         'orang_tua.nomor_kk' => ['required'],
     ];
-    public function mount(){
+    public function mount()
+    {
         $this->desa_kelurahan = KelurahanDesa::all();
+    }
+    private function reloadPosandu()
+    {
+        $this->posyandu = PosyanduPembina::where('kelurahan_desa_id', $this->orang_tua['kelurahan_desa_id'])->get();
     }
     protected function updated()
     {
+
+        if (isset($this->orang_tua['kelurahan_desa_id'])) {
+            $this->reloadPosandu();
+        }
+
         if (isset($this->orang_tua['nik'])) {
             $nik = $this->orang_tua['nik'];
             if ($orang_tua = OrangTua::getByNik($nik)->first()) {
+                $this->posyandu = PosyanduPembina::where('kelurahan_desa_id', $orang_tua['kelurahan_desa_id'])->get();
                 $this->orang_tua = $orang_tua->toArray();
             }
         }
@@ -46,30 +60,33 @@ class FormTambahBalita extends Component
 
     public function tambah()
     {
+
         $data = collect($this->data);
         $this->validate();
 
-        if ( hitungBulan($this->data['tanggal_lahir']) >= 24 ) {
-            $data->put('tinggi',$this->data['panjang_badan']);
+        if (hitungBulan($this->data['tanggal_lahir']) >= 24) {
+            $data->put('tinggi', $this->data['panjang_badan']);
         }
 
         DB::beginTransaction();
 
         $id_ortu = null;
-        if ( $orang_tua = OrangTua::getByNik($this->orang_tua['nik'])->first() ) {
+        if ($orang_tua = OrangTua::getByNik($this->orang_tua['nik'])->first()) {
             $id_ortu = $orang_tua->id;
         }
 
-        if ( is_null($id_ortu) ) {
+        if (is_null($id_ortu)) {
             $ortu = OrangTua::create($this->orang_tua);
             $id_ortu = $ortu->id;
+        } else {
+            dd($this->orang_tua);
         }
-        $data->put('orang_tua_id',$id_ortu);
+        $data->put('orang_tua_id', $id_ortu);
         $data->put('umur', hitungBulan($data->get('tanggal_lahir')));
         $buatAnak = Anak::create($data->all());
-        if ( $buatAnak ) {
+        if ($buatAnak) {
             DB::commit();
-            $this->reset(['data','orang_tua']);
+            $this->reset(['data', 'orang_tua']);
             $this->dispatchBrowserEvent('notifikasi', [
                 'type' => 'success',
                 'msg' => "Balita berhasil di tambahkan!",

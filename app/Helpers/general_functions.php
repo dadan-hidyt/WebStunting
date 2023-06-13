@@ -13,3 +13,7 @@ function pwaAssets($path){
 function assets($path){
     return asset("assets/{$path}");
 }
+
+function parseJenisKelamin($jenis_kelamin) {
+    return str_replace(['L','P'],['Laki-Laki','Perempuan'],$jenis_kelamin);
+}

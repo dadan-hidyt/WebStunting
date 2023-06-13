@@ -29,7 +29,34 @@
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <style>
+      
+        *::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
 
+        *::-webkit-scrollbar
+        {
+            width: 6px;
+            height: 6px;
+            background-color: #F5F5F5;
+        }
+
+        *::-webkit-scrollbar-thumb
+        {
+            transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+            border-radius: 50px;
+            background-color: #575656;
+        }
+        *::-webkit-scrollbar-thumb:hover{
+            background: #00ccff;
+        }
+
+
+
+    </style>
     @livewireStyles
 </head>
 

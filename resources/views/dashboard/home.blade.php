@@ -60,10 +60,10 @@
             <div class="card small-box">
                 <i class="fas fa-baby"></i>
                 <div class="inner">
-                    <h3>1000</h3>
+                    <h3>{{$total_balita}}</h3>
                     <p>Total Balita</p>
                 </div>
-                <a href="data-balita.html" class="link-btn">Data Balita<i class="fas fa-arrow-right"></i></a>
+                <a href="{{route('dashboard.balita.semua')}}" class="link-btn">Data Balita<i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-12">

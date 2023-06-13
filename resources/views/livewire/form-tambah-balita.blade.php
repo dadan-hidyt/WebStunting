@@ -152,14 +152,14 @@
             </div>
             <div class="form-group">
                 <label for="">Desa/Kelurahan</label>
-                <select wire:model.defer='orang_tua.kelurahan_desa_id' name="" id="" @class([
+                <select wire:model='orang_tua.kelurahan_desa_id' name="" id="" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.kelurahan_desa_id'),
                 ])>
                     <option value="">--pilih salah satu--</option>
                     @if($desa_kelurahan)
                         @foreach($desa_kelurahan as $val)
-                            <option value="{{$val->id}}">{{ $val->nama_desa  }}</option>
+                            <option value="{{$val->id}}">{{ $val->nama_desa  }} - {{ $val->kecamatan->nama_kecamatan ?? '' }}</option>
                         @endforeach
                     @endif
                 </select>
@@ -169,17 +169,16 @@
             </div>
             <div class="form-group">
                 <label for="">Posyandu Pembina</label>
-                <select wore:model.defer='orang_tua.posyandu_pembina_id' name="" id="" @class([
+                <select wire:model.defer='orang_tua.posyandu_pembina_id' name="" id="" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.posyandu_pembina_id'),
                 ])>
                     <option value="">--pilih salah satu--</option>
-                    <option value="1">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
+                    @if ($posyandu)
+                        @foreach ($posyandu as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama_posyandu }}</option>
+                        @endforeach
+                    @endif
                 </select>
                 @error('orang_tua.posyandu_pembina_id')
                     <span class="invalid-feedback">{{ $message }}</span>
@@ -196,7 +195,7 @@
                 @enderror
             </div>
             <div class="form-submit d-flex justify-content-end">
-                <a href="data-balita.html" class="btn-cancel">Cancel</a>
+                <a href="{{ route('dashboard.balita.semua') }}" class="btn-cancel">Cancel</a>
                 <button class="btn-submit" type="submit">Submit</button>
             </div>
         </div>

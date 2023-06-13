@@ -22,15 +22,20 @@ class DataTableBalitaController extends Controller
         })->addColumn('kelurahan_desa', function ($row) {
             return $row->orangTua->kelurahanDesa->nama_desa ?? 'Tidak Di Ketahui';
         })->addColumn('posyandu', function ($row) {
-            return $row->orangTua->posyandu->nama_posyandu ?? 'Tidak Di Ketahui';
-        })->addColumn('umur',function($row){
+            return $row->orangTua->posyandu->nama_posyandu;
+        })->addColumn('jenis_kelamin',fn($row)=>parseJenisKelamin($row->jenis_kelamin))->addColumn('umur',function($row){
             if ( isset($row->umur) ) {
                 return $row->umur." Bulan";
             } else {
                 return hitungBulan($row->tanggal_lahir);
             }
         })->addColumn('action', function ($row) {
-            return 234;
-        })->make();
+            $update = "<a class='btn-edit' href='".route('dashboard.balita.edit',$row->id)."'><i class='fa fa-edit'></i></a>";
+            $delete = "<a class='btn-delete' href='".route('dashboard.balita.hapus',$row->id)."'><i class='fa fa-trash'></i></a>";
+            return $delete.$update;
+
+        })->rawColumns(['action'])->make();
     }
 }
+?>
+
