@@ -203,3 +203,14 @@
         </div>
     </div>
 </form>
+@push('scripts')
+    <script>
+        window.addEventListener('notifikasi',function(e){
+            if ( e.detail.success ) {
+                notifikasi.success(e.detail.msg);
+            } else {
+                notifikasi.error(e.detail.msg);
+            }
+        })
+    </script>
+@endpush

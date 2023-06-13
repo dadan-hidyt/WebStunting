@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
     @livewireStyles
 </head>
 
@@ -147,6 +150,12 @@
     </footer>
     </div>
 @livewireScripts
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<script>
+    const notifikasi = new Notyf();
+</script>
+
 <!-- jQuery -->
 <script src="{{ assets('plugins/jquery/jquery.min.js')  }}"></script>
 <!-- jQuery UI 1.11.4 -->

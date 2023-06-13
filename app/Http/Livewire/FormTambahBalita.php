@@ -64,6 +64,10 @@ class FormTambahBalita extends Component
         $buatAnak = Anak::create($data->all());
         if ( $buatAnak ) {
             DB::commit();
+            $this->dispatchBrowserEvent('notifikasi', [
+                'type' => 'success',
+                'msg' => "Balita berhasil di tambahkan!",
+            ]);
         } else {
             DB::rollback();
         }
