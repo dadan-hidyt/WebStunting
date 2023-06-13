@@ -37,13 +37,23 @@ class FormUpdateBalita extends Component
                     $this->posyandu = PosyanduPembina::where('kelurahan_desa_id', $orang_tua['kelurahan_desa_id'])->get();
                     $this->orang_tua = $orang_tua->toArray();
                 }
-            } 
+            }
         }
 
         public function update()
         {
-            $this->balita->update($this->data);
-            
+           if (  $this->balita->update($this->data) ) {
+               $this->dispatchBrowserEvent('notifikasi', [
+                   'type' => 'success',
+                   'msg' => "Balita berhasil di Update!",
+               ]);
+           } else {
+               $this->dispatchBrowserEvent('notifikasi', [
+                   'type' => 'success',
+                   'msg' => "Balita gagal di Update!",
+               ]);
+           }
+
         }
 
     public function render()
