@@ -9,6 +9,7 @@ class OrangTua extends Model
 {
     use HasFactory;
     protected $table = 'orang_tua';
+    protected $guarded = [];
     public function scopeGetByNik($query,$nik) {
         return $query->where('nik',$nik);
     }

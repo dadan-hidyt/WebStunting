@@ -9,7 +9,7 @@ class Anak extends Model
 {
     use HasFactory;
     protected $table = 'anak';
-
+    protected $guarded = [];
     public function orangTua(){
         return $this->belongsTo(OrangTua::class);
     }

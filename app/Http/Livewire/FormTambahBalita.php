@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\OrangTua;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-
+use App\Models\Anak;
 class FormTambahBalita extends Component
 {
     public $data = [];
@@ -41,21 +41,32 @@ class FormTambahBalita extends Component
 
     public function tambah()
     {
+        $data = collect($this->data);
         $this->validate();
 
         if ( hitungBulan($this->data['tanggal_lahir']) >= 24 ) {
-            $this->data['tinggi'] = $this->data['panjang_badan'];
+            $data->put('tinggi',$this->data['panjang_badan']);
         }
-        dd($this->data);
-
+        
         DB::beginTransaction();
 
         $id_ortu = null;
         if ( $orang_tua = OrangTua::getByNik($this->orang_tua['nik'])->first() ) {
             $id_ortu = $orang_tua->id;
         }
-        dd($id_ortu);
 
+        if ( is_null($id_ortu) ) {
+            $ortu = OrangTua::create($this->orang_tua);
+            $id_ortu = $ortu->id;
+        }
+        $data->put('orang_tua_id',$id_ortu);
+        $data->put('umur', hitungBulan($data->get('tanggal_lahir')));
+        $buatAnak = Anak::create($data->all());
+        if ( $buatAnak ) {
+            DB::commit();
+        } else {
+            DB::rollback();
+        }
     }
 
     public function render()
