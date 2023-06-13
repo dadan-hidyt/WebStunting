@@ -17,3 +17,10 @@ function assets($path){
 function parseJenisKelamin($jenis_kelamin) {
     return str_replace(['L','P'],['Laki-Laki','Perempuan'],$jenis_kelamin);
 }
+
+function parseTanggalLahir($tanggal_lahir){
+    $start = new DateTime(date('Y-m-d',strtotime($tanggal_lahir)));
+    $end = new DateTime(date('Y-m-d',time()));
+    return $end->diff($start);
+}
+
