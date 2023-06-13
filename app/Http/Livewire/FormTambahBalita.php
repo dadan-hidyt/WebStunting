@@ -55,7 +55,7 @@ class FormTambahBalita extends Component
                 $this->posyandu = PosyanduPembina::where('kelurahan_desa_id', $orang_tua['kelurahan_desa_id'])->get();
                 $this->orang_tua = $orang_tua->toArray();
             }
-        }
+        } 
     }
 
     public function tambah()
@@ -68,6 +68,7 @@ class FormTambahBalita extends Component
             $data->put('tinggi', $this->data['panjang_badan']);
         }
 
+
         DB::beginTransaction();
 
         $id_ortu = null;
@@ -78,8 +79,6 @@ class FormTambahBalita extends Component
         if (is_null($id_ortu)) {
             $ortu = OrangTua::create($this->orang_tua);
             $id_ortu = $ortu->id;
-        } else {
-            dd($this->orang_tua);
         }
         $data->put('orang_tua_id', $id_ortu);
         $data->put('umur', hitungBulan($data->get('tanggal_lahir')));

@@ -21,8 +21,31 @@
                     </a>
                 </li>
                 <li class="nav-header">Modul Data</li>
+                  <li class="nav-item">
+                    <a href="javascript:void()" class="nav-link">
+                        <i class="nav-icon fas fa-child"></i>
+                        <p>
+                            Data Master
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.balita.semua')  }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Orang Tua</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="data-balita-stunting.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Posyandu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
-                    <a href="data-balita.html" class="nav-link">
+                    <a href="javascript:void()" class="nav-link">
                         <i class="nav-icon fas fa-child"></i>
                         <p>
                             Data Balita

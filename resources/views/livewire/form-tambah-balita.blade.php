@@ -127,6 +127,9 @@
                 @error('orang_tua.nik')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
+                <p class="form-text text-info" style="font-size: 13px;">
+                    Jika nik orang tua terdaftar di database, data orang tua akan otomatis terisi. Jika ingin merubah data orang tua bisa di menu data orang tua!
+                </p>
             </div>
 
             <div class="form-group">
