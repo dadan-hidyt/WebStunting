@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Middleware\AdminMiddleware;
+use \App\Http\Controllers\Dashboard\Pengukuran;
 use \App\Http\Controllers\Dashboard\BalitaController;
 Route::get('/', HomeController::class)->name('.home');
 Route::name('.balita')->prefix('/balita')->group(function (){
@@ -9,4 +10,8 @@ Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/tambah.html',[BalitaController::class,'tambah'])->name('.tambah');
     Route::get('/{id?}/edit.html', [BalitaController::class,'edit'])->name('.edit');
     Route::get('/{id?}/hapus.html', [BalitaController::class,'hapus'])->name('.hapus');
-})->name('.balita');
+});
+
+Route::name('.pengukuran')->prefix('/pengukuran')->group(function (){
+    Route::get('/{id_balita}.html', [Pengukuran::class,'index'])->name('.ukur');
+});
