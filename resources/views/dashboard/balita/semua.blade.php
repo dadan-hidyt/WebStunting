@@ -24,6 +24,7 @@
                             <th>Anak Ke</th>
                             <th>Jenis Kelamin</th>
                             <th>Tanggal Lahir</th>
+                            <th>Umur</th>
                             <th>Orang  Tua</th>
                             <th>Desa/Kel</th>
                             <th>Posyandu</th>
@@ -31,7 +32,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -57,6 +58,7 @@
                     {data:'anak_ke',name : 'anak_ke'},
                     {data : 'jenis_kelamin', name : 'jenis_kelamin'},
                     {data : 'tempat_tanggal_lahir', name : 'tempat_tanggal_lahir'},
+                    {data:'umur',name : 'umur'},
                     {data : 'orang_tua', name : 'orang_tua'},
                     {data:'kelurahan_desa',name : 'kelurahan_desa'},
                     {data : 'posyandu',name : 'posyandu'},

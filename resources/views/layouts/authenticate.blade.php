@@ -153,7 +153,12 @@
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
 <script>
-    const notifikasi = new Notyf();
+    const notifikasi = new Notyf({
+        position : {
+            x : 'right',
+            y : 'top',
+        }
+    });
 </script>
 
 <!-- jQuery -->

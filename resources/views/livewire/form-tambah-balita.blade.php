@@ -8,7 +8,7 @@
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-          
+
             <div class="form-group">
                 <label for="">No KK</label>
                 <input wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label for="">Tempat Lahir</label>
-                <input wire:model.lazy="data.tempat_lahir" type="number" @class(['form-control', 'is-invalid' => $errors->has('data.tempat_lahir')])>
+                <input wire:model.lazy="data.tempat_lahir" type="text" @class(['form-control', 'is-invalid' => $errors->has('data.tempat_lahir')])>
                 @error('data.tempat_lahir')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -46,7 +46,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-lg-6">
                     <div class="form-group">
                         <label for="">Jenis Kelamin</label>
@@ -72,7 +72,7 @@
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-           
+
             <div class="form-group">
                 <label for="">Berat Badan Saat Lahir (kg)</label>
                 <input wire:model.defer='data.berat_lahir' type="text" @class([
@@ -157,12 +157,11 @@
                     'is-invalid' => $errors->has('orang_tua.kelurahan_desa_id'),
                 ])>
                     <option value="">--pilih salah satu--</option>
-                    <option value="1">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
+                    @if($desa_kelurahan)
+                        @foreach($desa_kelurahan as $val)
+                            <option value="{{$val->id}}">{{ $val->nama_desa  }}</option>
+                        @endforeach
+                    @endif
                 </select>
                 @error('orang_tua.kelurahan_desa_id')
                     <span class="invalid-feedback">{{ $message }}</span>
@@ -206,7 +205,7 @@
 @push('scripts')
     <script>
         window.addEventListener('notifikasi',function(e){
-            if ( e.detail.success ) {
+            if ( e.detail.type == 'success' ) {
                 notifikasi.success(e.detail.msg);
             } else {
                 notifikasi.error(e.detail.msg);

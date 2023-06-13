@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Kecamatan;
+use App\Models\KelurahanDesa;
 use App\Models\OrangTua;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -10,8 +12,9 @@ class FormTambahBalita extends Component
 {
     public $data = [];
     public $orang_tua = [];
+    public $desa_kelurahan = [];
     protected $rules = [
-        'data.nik' => ['required', 'max:16', 'min:16'],
+        'data.nik' => ['required', 'max:16', 'min:16','unique:anak,nik'],
         'data.nama_lengkap' => ['required'],
         'data.tanggal_lahir' => ['required'],
         'data.tempat_lahir' => ['required'],
@@ -28,7 +31,9 @@ class FormTambahBalita extends Component
         'orang_tua.alamat_lengkap' => ['required'],
         'orang_tua.nomor_kk' => ['required'],
     ];
-
+    public function mount(){
+        $this->desa_kelurahan = KelurahanDesa::all();
+    }
     protected function updated()
     {
         if (isset($this->orang_tua['nik'])) {
@@ -47,7 +52,7 @@ class FormTambahBalita extends Component
         if ( hitungBulan($this->data['tanggal_lahir']) >= 24 ) {
             $data->put('tinggi',$this->data['panjang_badan']);
         }
-        
+
         DB::beginTransaction();
 
         $id_ortu = null;
@@ -64,11 +69,16 @@ class FormTambahBalita extends Component
         $buatAnak = Anak::create($data->all());
         if ( $buatAnak ) {
             DB::commit();
+            $this->reset(['data','orang_tua']);
             $this->dispatchBrowserEvent('notifikasi', [
                 'type' => 'success',
                 'msg' => "Balita berhasil di tambahkan!",
             ]);
         } else {
+            $this->dispatchBrowserEvent('notifikasi', [
+                'type' => 'success',
+                'msg' => "Balita gagal di tambahkan!",
+            ]);
             DB::rollback();
         }
     }
