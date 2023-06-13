@@ -10,4 +10,8 @@ class Pengukuran extends Model
     use HasFactory;
     protected $table = 'pengukuran';
     protected $guarded = [];
+
+    public function anak(){
+        return $this->belongsTo(Anak::class);
+    }
 }

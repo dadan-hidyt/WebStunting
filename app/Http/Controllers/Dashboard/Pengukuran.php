@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Pengukuran extends Controller
 {
     public function index($id = null){
-        $balita = Anak::with(['orangTua'])->findOrFail($id)->first();
+        $balita = Anak::with(['orangTua','pengukuran'])->findOrFail($id)->first();
         return view('dashboard.pengukuran.index',compact('balita'));
     }
 }

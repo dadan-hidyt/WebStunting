@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-responsive/css/responsive.bootstrap4.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <style>
@@ -169,7 +171,7 @@
 
     </div>
     <footer class="main-footer">
-        <strong>Copyright &copy; 2023 <a href="https://adminlte.io">ArkaCorp</a>.</strong>
+        <strong>Copyright &copy; 2023 <a href="https://adminlte.io">NusaAgency</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 3.2.0

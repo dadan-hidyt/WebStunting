@@ -13,4 +13,7 @@ class Anak extends Model
     public function orangTua(){
         return $this->belongsTo(OrangTua::class);
     }
+    public function pengukuran(){
+        return $this->hasMany(Pengukuran::class);
+    }
 }

@@ -24,3 +24,27 @@ function parseTanggalLahir($tanggal_lahir){
     return $end->diff($start);
 }
 
+function kategoriStatusPbTb($zScore)
+{
+    if ($zScore < -3) {
+        return 'Sangat pendek (severely stunted)';
+    } else if ($zScore >= -3 && $zScore < -2) {
+        return 'Pendek (stunted)';
+    } else if ($zScore >= -2 && $zScore <= 3) {
+        return "Normal";
+    } else if ($zScore > 3) {
+        return "Tinggi";
+    }
+}
+function kategoriStatusBb($zScore)
+{
+    if ($zScore < -3) {
+        return 'Berat badan sangat kurang (severely underweight)';
+    } else if ($zScore >= -3 && $zScore < -2) {
+        return 'Berat badan kurang (underweight)';
+    } else if ($zScore >= -2 && $zScore <= 2) {
+        return "Berat Badan Normal";
+    } else if ($zScore > 2) {
+        return "Risiko Berat badan lebih";
+    }
+}
