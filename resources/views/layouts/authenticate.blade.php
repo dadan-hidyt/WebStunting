@@ -62,7 +62,7 @@
     @livewireStyles
 </head>
 
-<body @class(['hold-transition sidebar-mini layout-fixed'])>
+<body @class(['hold-transition sidebar-mini layout-fixed']) style="height:auto;">
 
 <div class="wrapper">
     <!-- Navbar -->
@@ -165,7 +165,7 @@
 
         <section class="content">
            <div class="container-fluid">
-               @yield('content')
+             
            </div>
         </section>
 
