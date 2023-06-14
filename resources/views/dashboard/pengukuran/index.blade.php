@@ -1,5 +1,5 @@
 @extends('layouts.authenticate')
-@section('page-title', 'Pengukuran');
+@section('page-title', 'Pengukuran')
 @section('content')
     <div class="row">
         <div class="col-12 mt-4">
@@ -46,16 +46,27 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table id="example1" class="display nowrap table table-striped" style="width: 100%;">
+                    @if (session()->has('notifikasi'))
+                        @if (session('notifikasi')['type'] === 'success')
+                            <p class="alert alert-success">
+                                {{session('notifikasi')['msg']}}
+                            </p>
+                            @else
+                            <p class="alert alert-danger">
+                                {{session('notifikasi')['msg']}}
+                            </p>
+                        @endif
+                    @endif
+                    <table id="example1" class="display nowrap table table-bordered table-striped" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Tanggal</th>
-                                <th>Berat</th>
-                                <th>Tinggi</th>
-                                <th>BB/U</th>
-                                <th>ZS BB/U</th>
-                                <th>TB-TB/U</th>
+                                <th>BB(KG)</th>
+                                <th>TB/PB(CM)</th>
+                                <th>ZS BB/U(Z-Score)</th>
+                                <th>BB/U(Kategori)</th>
+                                <th>TB-PB/U</th>
                                 <th>ZS TB-PB/U</th>
                                 <th>ZS BB/TB</th>
                                 <th>Action</th>
@@ -67,14 +78,26 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->tanggal_ukur }}</td>
-                                        <td>{{ $item->bb }}</td>
-                                        <td>{{ $item->tb }} - {{ $item->cara_ukur }}</td>
-                                        <td>{{ $item->bb_zscore }}</td>
+                                        <!-- BB -->
+                                        <td>{{ $item->bb }} Kg</td>
+                                        <!-- TB -->
+                                        <td>{{ $item->tb ?? $item->pb }} Cm - {{ \Illuminate\Support\Str::ucfirst($item->cara_ukur) }}</td>
+                                        <td>{{ $item->bb_zscore}}</td>
+                                        <!-- ZSCORE-BB -->
                                         <td>{{ kategoriStatusBb($item->bb_zscore) }}</td>
-                                        <td>{{ $item->tb_zscore }}</td>
-                                        <td>{{ kategoriStatusPbTb($item->tb_zscore) }}</td>
-                                        <td>{{ $item->bb_zscore }}</td>
-                                        <td>Aksi</td>
+                                        @if($item->umur >= 24)
+                                                <td>{{ $item->tb_zscore }}</td>
+                                                <td>{{ kategoriStatusPbTb($item->tb_zscore) }}</td>
+                                            @else
+                                                <td>{{ $item->pb_zscore }}</td>
+                                                <td>{{ kategoriStatusPbTb($item->pb_zscore) }}</td>
+                                            @endif
+                                            <td>{{ $item->bb_zscore }}</td>
+                                            <td>
+                                                <a onclick="return confirm('Apakah anda yakin?')" href="{{route('dashboard.pengukuran.delete',[$balita->id,$item->id])}}" class="btn btn-sm btn-danger">
+                                                    <i class="far fa-trash-alt"></i>
+                                                  </a>
+                                            </td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -101,8 +124,8 @@
                       ])
                   </div>
               </div>
-  
-  
+
+
               <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->

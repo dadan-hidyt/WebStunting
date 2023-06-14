@@ -16,4 +16,7 @@ class Anak extends Model
     public function pengukuran(){
         return $this->hasMany(Pengukuran::class);
     }
+    public function pengukurans(){
+        return $this->hasMany(Pengukuran::class);
+    }
 }

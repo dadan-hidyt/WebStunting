@@ -3,25 +3,40 @@
       <div class="col-12 col-lg-6">
         <div class="form-group">
           <label for="">Tanggal Pengukuran</label>
-          <input wire:model='data.tanggal_ukur' type="date" class="form-control" >
+          <input wire:model='data.tanggal_ukur' type="date"  class="form-control" >
+           @error('data.tanggal_ukur')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-group">
           <label for="">Berat Badan (kg)</label>
           <input wire:model.defer='data.berat_badan' type="text" class="form-control" >
+          @error('data.berat_badan')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-group">
           <label for="">Tinggi Badan (cm)</label>
           <input wire:model.defer='data.tinggi' type="text" class="form-control" >
+            @error('data.tinggi')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-group">
           <label for="">Lila (cm)</label>
           <input type="text" wire:model.defer='data.lila' class="form-control" >
+            @error('data.lila')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
       </div>
       <div class="col-12 col-lg-6">
         <div class="form-group">
           <label for="">Lingkar Kepala (cm)</label>
           <input type="text" wire:model.defer='data.lingkar_kepala' class="form-control" >
+            @error('data.lingkar_kepala')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-group">
           <label for="">Cara Ukur Tinggi Badan</label>
@@ -30,6 +45,9 @@
             <option value="berdiri">Berdiri</option>
             <option value="telentang">Terlentang</option>
           </select>
+            @error('data.cara_ukur')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-group">
           <label for="">Vitamin A</label>
@@ -38,6 +56,9 @@
             <option value="YA">YA</option>
             <option value="TIDAK">TIDAK</option>
           </select>
+            @error('data.vitamin_a')
+            <span style="display: block" class="d-block invalid-feedback">{{$message}}</span>
+            @enderror
         </div>
         <div class="form-submit d-flex justify-content-end">
           <a href="data-balita.html" class="btn-cancel">Cancel</a>

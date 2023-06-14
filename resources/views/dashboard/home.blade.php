@@ -16,7 +16,7 @@
                     </label>
                 </div>
                 <div class="d-flex flex-column align-items-center text-center w-50">
-                    <input type="text" class="knob" value="900" data-thickness="0.2" data-max="1000" data-width="100"
+                    <input type="text" class="knob" value="{{$total_pengukuran}}" data-max="{{$total_balita}}" data-width="100"
                            data-height="100" data-fgColor="#0099ff">
                     <label for="" class="mt-3">
                         Jumlah Pengukuran
@@ -71,7 +71,7 @@
             <div class="card small-box">
                 <i class="fas fa-calculator"></i>
                 <div class="inner">
-                    <h3>900</h3>
+                    <h3>{{$total_pengukuran}}</h3>
                     <p>Total Pengukuran</p>
                 </div>
                 <a href="data-balita-stunting.html" class="link-btn">Data Pengukuran<i class="fas fa-arrow-right"></i></a>

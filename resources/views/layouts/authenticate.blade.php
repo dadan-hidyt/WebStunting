@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <style>
-      
+
         *::-webkit-scrollbar-track
         {
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -165,7 +165,7 @@
 
         <section class="content">
            <div class="container-fluid">
-             
+             @yield('content')
            </div>
         </section>
 
