@@ -48,7 +48,7 @@ class DataTableBalitaController extends Controller
             }
             return $berat;
         })->addColumn('action', function ($row) {
-            $info = "<a class='btn btn-sm btn-info' href='".route('dashboard.pengukuran.ukur',$row->id)."'><i class='fa fa-exclamation'></i></a>";
+            $info = "<a class='btn btn-sm btn-info' href='".route('dashboard.balita.grafik',$row->id)."'><i class='fa fa-exclamation'></i></a>";
             return $info;
 
         })->rawColumns(['action','tinggi_badan'])->make();
