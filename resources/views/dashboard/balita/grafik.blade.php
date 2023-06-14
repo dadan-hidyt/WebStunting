@@ -161,15 +161,15 @@ ChartOptions = {
 
 			title: {
 				display: true,
-				text: 'Grafik Tinggi Badan',
+				text: 'Grafik Pertumbuhan Berat Badan',
 				fontColor: '#3498db',
-				fontSize: 32,
+				fontSize: 22,
 				fontStyle: ' bold',
 			},
 			elements: {
 				arc: {
 				},
-				point: { pointStyle: 'triangle', },
+				point: { pointStyle: 'circle', },
 				line: {
 					tension: 0.05, fill: false, borderWidth: 2,
 				},
@@ -210,7 +210,7 @@ ChartOptions = {
 					data: {!! json_encode($sdmin1) !!},
 					backgroundColor: '#ffee00',
 					borderColor: '#ffee00',
-					pointBackgroundColor: '#ff0000',
+					pointBackgroundColor: '#ffee00',
 					label: "-1SD"
 				},
 
@@ -224,11 +224,11 @@ ChartOptions = {
 				},
 
 				{
-					data: {!! json_encode($sd3) !!},
-					backgroundColor: '#ffee00',
-					borderColor: '#ffee00',
-					pointBackgroundColor: '#ffee00',
-					pointBorderColor: 'rgba(255,255,255,0.5)',
+					data: {!! json_encode($sd1) !!},
+					backgroundColor: 'red',
+					borderColor: 'red',
+					pointBackgroundColor: 'red',
+					pointBorderColor: '#ffffff',
 					label: "1SD"
 				},
 
@@ -241,9 +241,9 @@ ChartOptions = {
 				},
 
 				{
-					data: {!! json_encode($sd1) !!},
+					data: {!! json_encode($sd3) !!},
 					backgroundColor: '#ff0000',
-					borderColor: '#ff0000',
+					borderColor: '#ffee00',
 					pointBackgroundColor: '#ff0000',
 					label: "3SD"
 				},
