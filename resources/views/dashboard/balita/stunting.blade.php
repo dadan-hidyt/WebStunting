@@ -17,6 +17,7 @@
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Umur/bulan</th>
+                                <th>Umur Terakhir Pengukuran</th>
                                 <th>TB/U(Terakhir)</th>
                                 <th>BB/U(Terakhir)</th>
                                 <th>Posyandu</th>
@@ -49,6 +50,8 @@
                     {name : 'nik',data : 'nik'},
                     {name : 'nama_lengkap',data : 'nama_lengkap'},
                     {name : 'jenis_kelamin',data : 'jenis_kelamin'},
+                    {name : 'umur',data : 'umur'},
+                    {name : 'umur_terakhir_pengukuran', data : 'umur_terakhir_pengukuran'},
                 ]
                
             })

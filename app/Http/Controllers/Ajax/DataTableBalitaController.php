@@ -14,7 +14,9 @@ class DataTableBalitaController extends Controller
 {
     public function getDataStunting(){
         $anak = Anak::with(['orangTua'])->stunting()->get();
-        return DataTables::of($anak)->addIndexColumn()->addColumn('action',fn()=>'dadam')->make();
+        return DataTables::of($anak)->addIndexColumn()
+        ->addColumn('umur',fn($row)=>hitungBulan($row->tanggal_lahir)." BLN")
+        ->addColumn('umur_terakhir_pengukuran',fn($row)=>$row->pengukuran[0]->umur." BLN")->make();
     }
     public function index()
     {
