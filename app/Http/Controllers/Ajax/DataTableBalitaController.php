@@ -8,9 +8,14 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Contracts\DataTable;
 
 class DataTableBalitaController extends Controller
 {
+    public function getDataStunting(){
+        $anak = Anak::with(['orangTua'])->stunting()->get();
+        return DataTables::of($anak)->addIndexColumn()->addColumn('action',fn()=>'dadam')->make();
+    }
     public function index()
     {
 

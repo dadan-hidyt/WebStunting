@@ -49,11 +49,11 @@
                     @if (session()->has('notifikasi'))
                         @if (session('notifikasi')['type'] === 'success')
                             <p class="alert alert-success">
-                                {{session('notifikasi')['msg']}}
+                                {{ session('notifikasi')['msg'] }}
                             </p>
-                            @else
+                        @else
                             <p class="alert alert-danger">
-                                {{session('notifikasi')['msg']}}
+                                {{ session('notifikasi')['msg'] }}
                             </p>
                         @endif
                     @endif
@@ -62,6 +62,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Tanggal</th>
+                                <th>Umur</th>
                                 <th>BB(KG)</th>
                                 <th>TB/PB(CM)</th>
                                 <th>ZS BB/U(Z-Score)</th>
@@ -78,26 +79,30 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->tanggal_ukur }}</td>
+                                        <td>{{ $item->umur }} Bulan</td>
                                         <!-- BB -->
                                         <td>{{ $item->bb }} Kg</td>
                                         <!-- TB -->
-                                        <td>{{ $item->tb ?? $item->pb }} Cm - {{ \Illuminate\Support\Str::ucfirst($item->cara_ukur) }}</td>
-                                        <td>{{ $item->bb_zscore}}</td>
+                                        <td>{{ $item->tb ?? $item->pb }} Cm -
+                                            {{ \Illuminate\Support\Str::ucfirst($item->cara_ukur) }}</td>
+                                        <td>{{ $item->bb_zscore }}</td>
                                         <!-- ZSCORE-BB -->
-                                        <td>{{ kategoriStatusBb($item->bb_zscore) }}</td>
-                                        @if($item->umur >= 24)
-                                                <td>{{ $item->tb_zscore }}</td>
-                                                <td>{{ kategoriStatusPbTb($item->tb_zscore) }}</td>
-                                            @else
-                                                <td>{{ $item->pb_zscore }}</td>
-                                                <td>{{ kategoriStatusPbTb($item->pb_zscore) }}</td>
-                                            @endif
-                                            <td>{{ $item->bb_zscore }}</td>
-                                            <td>
-                                                <a onclick="return confirm('Apakah anda yakin?')" href="{{route('dashboard.pengukuran.delete',[$balita->id,$item->id])}}" class="btn btn-sm btn-danger">
-                                                    <i class="far fa-trash-alt"></i>
-                                                  </a>
-                                            </td>
+                                        <td>{!! kategoriStatusBb($item->bb_zscore) !!}</td>
+                                        @if ($item->umur >= 24)
+                                            <td>{{ $item->tb_zscore }}</td>
+                                            <td>{!! kategoriStatusPbTb($item->tb_zscore) !!}</td>
+                                        @else
+                                            <td>{{ $item->pb_zscore }}</td>
+                                            <td>{!! kategoriStatusPbTb($item->pb_zscore) !!}</td>
+                                        @endif
+                                        <td>{{ $item->bb_zscore }}</td>
+                                        <td>
+                                            <a onclick="return confirm('Apakah anda yakin?')"
+                                                href="{{ route('dashboard.pengukuran.delete', [$balita->id, $item->id]) }}"
+                                                class="btn btn-sm btn-danger">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -110,26 +115,26 @@
         </div>
         <!-- /.col -->
         <div class="modal fade" id="modal-lg">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title">Form Input Pengukuran</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                      @livewire('form-input-pengukuran', [
-                          'balita' => $balita,
-                      ])
-                  </div>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Form Input Pengukuran</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @livewire('form-input-pengukuran', [
+                            'balita' => $balita,
+                        ])
+                    </div>
+                </div>
 
 
-              <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-      </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
     </div>
 @endsection
 

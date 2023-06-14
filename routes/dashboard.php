@@ -12,6 +12,7 @@ Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/tambah.html',[BalitaController::class,'tambah'])->name('.tambah');
     Route::get('/{id?}/edit.html', [BalitaController::class,'edit'])->name('.edit');
     Route::get('/{id?}/hapus.html', [BalitaController::class,'hapus'])->name('.hapus');
+    Route::get('/stunting.html', [BalitaController::class,'balitaStunting'])->name('.stunting');
 });
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){

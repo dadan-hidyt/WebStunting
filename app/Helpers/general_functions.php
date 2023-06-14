@@ -27,11 +27,11 @@ function parseTanggalLahir($tanggal_lahir){
 function kategoriStatusPbTb($zScore)
 {
     if ($zScore < -3) {
-        return 'Sangat pendek (severely stunted)';
+        return "<span class='text-danger'>Sangat pendek (severely stunted)</span>";
     } else if ($zScore >= -3 && $zScore < -2) {
-        return 'Pendek (stunted)';
+        return "<span class='text-warning'>Pendek (Stunted)</span>";
     } else if ($zScore >= -2 && $zScore <= 3) {
-        return "Normal";
+        return "<span class='text-success'>Normal</span>";
     } else if ($zScore > 3) {
         return "Tinggi";
     }
@@ -39,11 +39,11 @@ function kategoriStatusPbTb($zScore)
 function kategoriStatusBb($zScore)
 {
     if ($zScore < -3) {
-        return 'Sangat kurang (severely underweight)';
+        return "<span class='text-danger'>Sangat kurang (severely underweight)</span>";
     } else if ($zScore >= -3 && $zScore < -2) {
-        return 'Kurang (underweight)';
+        return "<span class='text-danger'>kurang (underweight)</span>";
     } else if ($zScore >= -2 && $zScore <= 2) {
-        return "Normal";
+        return "<span class='text-success'>Normal</span>";
     } else if ($zScore > 2) {
         return "Risiko Berat badan lebih";
     }

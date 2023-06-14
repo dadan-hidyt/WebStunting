@@ -28,6 +28,11 @@ class BalitaController extends Controller
             ]);
         }
     }
+    public function balitaStunting(){
+        return view('dashboard.balita.stunting',[
+            'title' => "Balita Stunting",
+        ]);
+    }
     public function edit($id = null) {
         abort_if($id === null, 404);
 
