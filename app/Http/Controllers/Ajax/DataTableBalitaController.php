@@ -75,10 +75,9 @@ class DataTableBalitaController extends Controller
             $update = "<a class='btn btn-sm btn-warning' href='".route('dashboard.balita.edit',$row->id)."'><i class='fa fa-edit'></i></a>";
             $delete = "<a onclick=\"return confirm('Apakah anda yakin?')\" class='btn btn-sm btn-danger' href='".route('dashboard.balita.hapus',$row->id)."'><i class='fa fa-trash'></i></a>";
             $ukur = "<a class='btn btn-sm btn-success' href='".route('dashboard.pengukuran.ukur',$row->id)."'><i class='fa fa-calculator'></i></a>";
-            return $ukur."&nbsp;".$delete."&nbsp;".$update;
+            $grafik = "<a class='btn btn-sm btn-info' href='".route('dashboard.pengukuran.ukur',$row->id)."'><i class='fas fa-chart-pie mr-1'></i></a>";
+            return $ukur."&nbsp;".$delete."&nbsp;".$update."&nbsp;".$grafik;
 
         })->rawColumns(['action'])->make();
     }
 }
-?>
-
