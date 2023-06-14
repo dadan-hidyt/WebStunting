@@ -13,6 +13,7 @@ Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/{id?}/edit.html', [BalitaController::class,'edit'])->name('.edit');
     Route::get('/{id?}/hapus.html', [BalitaController::class,'hapus'])->name('.hapus');
     Route::get('/stunting.html', [BalitaController::class,'balitaStunting'])->name('.stunting');
+    Route::get('/grafik/{anak}.html', [BalitaController::class, 'grafik'])->name('.grafik')->scopeBindings();
 });
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){
