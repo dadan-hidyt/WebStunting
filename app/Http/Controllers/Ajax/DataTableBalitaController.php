@@ -14,9 +14,44 @@ class DataTableBalitaController extends Controller
 {
     public function getDataStunting(){
         $anak = Anak::with(['orangTua'])->stunting()->get();
+        $anak = collect($anak)->filter(function($e){
+            if (isset($e->pengukuran[0])) {
+                return $e;
+            } else {
+                return [];
+            }
+        });
         return DataTables::of($anak)->addIndexColumn()
         ->addColumn('umur',fn($row)=>hitungBulan($row->tanggal_lahir)." BLN")
-        ->addColumn('umur_terakhir_pengukuran',fn($row)=>$row->pengukuran[0]->umur." BLN")->make();
+        ->addColumn('umur_terakhir_pengukuran',function($row){  
+            $umur = 0;
+            if(isset($row->pengukuran[0])) {
+                $umur = $row->pengukuran[0]->umur ?? 0;
+            }
+            return $umur." Bulan";
+        })
+        ->addColumn('tinggi_badan',function($row){  
+            $tinggi = 0;
+            if(isset($row->pengukuran[0])) {
+                $row = $row->pengukuran[0];
+                if($row->cara_ukur === 'berdiri'){
+                    $tinggi = $row->tb_zscore;
+                } else {
+                    $tinggi = $row->pb_zscore;
+                }
+            }
+            return $tinggi." (<span class='text-danger'>Stunting</span>)";
+        })->addColumn('berat',function($row){  
+            $berat = 0;
+            if(isset($row->pengukuran[0])) {
+                $berat = $row->pengukuran[0]->bb_zscore ?? 0;
+            }
+            return $berat;
+        })->addColumn('action', function ($row) {
+            $info = "<a class='btn btn-sm btn-info' href='".route('dashboard.pengukuran.ukur',$row->id)."'><i class='fa fa-exclamation'></i></a>";
+            return $info;
+
+        })->rawColumns(['action','tinggi_badan'])->make();
     }
     public function index()
     {

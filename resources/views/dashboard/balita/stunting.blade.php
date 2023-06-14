@@ -9,7 +9,7 @@
         <div class="col-12 mt-4">
             <div class="card overflow-hidden">
                 <div class="card-body">
-                    <table id="data-bayi-stunting" class="display nowrap table table-striped" style="width: 100%;">
+                    <table id="data-bayi-stunting" class="display table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -18,10 +18,8 @@
                                 <th>Jenis Kelamin</th>
                                 <th>Umur/bulan</th>
                                 <th>Umur Terakhir Pengukuran</th>
-                                <th>TB/U(Terakhir)</th>
-                                <th>BB/U(Terakhir)</th>
-                                <th>Posyandu</th>
-                                <th>Alamat</th>
+                                <th>ZS TB/U(Terakhir)</th>
+                                <th>ZS BB/U(Terakhir)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,23 +36,25 @@
 
 @push('scripts')
     <script>
-        $(function() {
-            $("#data-bayi-stunting").DataTable({
+        $("#data-bayi-stunting").DataTable({
                 scrollX: false,
                 serverSide : true,
                 processing : true,
                 responsive : true,
                 ajax : "{{ route('ajax.balita.getDataStunting') }}" ,
                 columns : [
-                    {name : 'no',data:'id'},
+                    {name : 'DT_RowIndex',data:'DT_RowIndex'},
                     {name : 'nik',data : 'nik'},
                     {name : 'nama_lengkap',data : 'nama_lengkap'},
                     {name : 'jenis_kelamin',data : 'jenis_kelamin'},
                     {name : 'umur',data : 'umur'},
                     {name : 'umur_terakhir_pengukuran', data : 'umur_terakhir_pengukuran'},
+                    {name : 'tinggi_badan', data : 'tinggi_badan'},
+                    {name : 'berat', data : 'berat'},
+                    {name : 'action', data : 'action'}
+
                 ]
                
             })
-        })
     </script>
 @endpush

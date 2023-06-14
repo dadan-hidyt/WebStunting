@@ -23,7 +23,7 @@
                             <th>Nama</th>
                             <th>Anak Ke</th>
                             <th>Jenis Kelamin</th>
-                            <th>Tanggal Lahir</th>
+                            <th>Tempat Tanggal Lahir</th>
                             <th>Umur</th>
                             <th>Orang  Tua</th>
                             <th>Desa/Kel</th>
@@ -60,9 +60,9 @@
             $("#example1").DataTable({
                 processing :true,
                 serverSide : true,
-                ajax : "{{ route('ajax.balita.getData') }}" ,
+                ajax : "{{ route('ajax.balita.semua') }}" ,
                 columns : [
-                    {data : 'id', name : 'id'},
+                    {data : 'DT_RowIndex', name : 'DT_RowIndex'},
                     {data : 'nik',name : 'nik'},
                     {data : 'nama_lengkap', name : 'nama_lengkap'},
                     {data:'anak_ke',name : 'anak_ke'},
