@@ -61,7 +61,7 @@
             @enderror
         </div>
         <div class="form-submit d-flex justify-content-end">
-          <a href="data-balita.html" class="btn-cancel">Cancel</a>
+          <a href="{{route('dashboard.balita.semua')}}" class="btn-cancel">Cancel</a>
           <button class="btn-submit" type="submit">Submit</button>
         </div>
       </div>
