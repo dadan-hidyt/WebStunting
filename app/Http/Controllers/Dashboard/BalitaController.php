@@ -155,7 +155,7 @@ class BalitaController extends Controller
     {
         abort_if($id === null, 404);
 
-        $balita = Anak::with(['orangTua'])->findOrFail($id)->first();
+        $balita = Anak::with(['orangTua'])->findOrFail($id);
 
         return view('dashboard.balita.edit', [
             'title' => "Edit Balita",
