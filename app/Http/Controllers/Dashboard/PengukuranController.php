@@ -20,8 +20,8 @@ class PengukuranController extends Controller
         ]);
        }
     }
-    public function ukur($id = null){
-        $balita = Anak::with(['orangTua','pengukuran'])->findOrFail($id)->first();
+    public function ukur(Anak $anak){
+        $balita = $anak;
         return view('dashboard.pengukuran.index',compact('balita'));
     }
 }
