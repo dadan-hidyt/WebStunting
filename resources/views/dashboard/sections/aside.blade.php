@@ -20,30 +20,41 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">Modul Data</li>
-                  <li class="nav-item">
-                    <a href="javascript:void()" class="nav-link">
-                        <i class="nav-icon fas fa-child"></i>
-                        <p>
-                            Data Master
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-database"></i>
+                      <p>
+                        Data Master 
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('dashboard.balita.semua')  }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Orang Tua</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="data-balita-stunting.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Posyandu</p>
-                            </a>
-                        </li>
+                      <li class="nav-item">
+                        <a href="data-orangtua.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Data Orangtua</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="data-posyandu.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Data Posyandu</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="{{route('dashboard.data-master.kecamatan')}}" class="nav-link active">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Data Kecamatan</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="data-desa.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Data Desa</p>
+                        </a>
+                      </li>
                     </ul>
-                </li>
+                  </li>
                 <li class="nav-item">
                     <a href="javascript:void()" class="nav-link">
                         <i class="nav-icon fas fa-child"></i>

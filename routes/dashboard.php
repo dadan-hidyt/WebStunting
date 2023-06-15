@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use \App\Http\Controllers\Dashboard\Pengukuran;
 use \App\Http\Controllers\Dashboard\BalitaController;
+use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\PengukuranController;
 
 Route::get('/', HomeController::class)->name('.home');
@@ -14,6 +15,13 @@ Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/{id?}/hapus.html', [BalitaController::class,'hapus'])->name('.hapus');
     Route::get('/stunting.html', [BalitaController::class,'balitaStunting'])->name('.stunting');
     Route::get('/grafik/{anak}.html', [BalitaController::class, 'grafik'])->name('.grafik')->scopeBindings();
+});
+
+
+Route::name('.data-master.')->prefix('data/master')->group(function(){
+    Route::get('/kacamatan.html',[KecamatanController::class,'index'])->name('kecamatan');
+    Route::get('/{kecamatan?}/hapus.html',[KecamatanController::class,'hapus'])->name('kecamatan.hapus');
+    Route::get('/{edit?}/edit.html',[KecamatanController::class,'edit'])->name('kecamatan.edit');
 });
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){
