@@ -35,7 +35,7 @@ class ExportBalitaController extends Controller
 
         for($i = "A"; $i != "M"; $i++){
             $spreadsheet->getActiveSheet()->getStyle($i)->getAlignment()->setHorizontal('center');
-            $spreadsheet->getActiveSheet()->getStyle($i."1")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setARGB("589CDA");
+            $spreadsheet->getActiveSheet()->getStyle($i."1")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setARGB("36B1FC");
             $spreadsheet->getActiveSheet()->getColumnDimension($i)->setAutoSize(true);
         }
 
@@ -60,8 +60,12 @@ class ExportBalitaController extends Controller
         }
 
         $writer = new Xlsx($spreadsheet);
-        $namaFile = "data.xlsx";
-        $filename = storage_path('app/public/'.$namaFile);+
+        $namaFile = "export".date("Y").".xlsx";
+        $filename = storage_path('app/public/'.$namaFile);
+
+        
         $writer->save($filename);
+        echo "Download: <a href='".asset('storage/'.$namaFile)."'>Download</a> ";
+        
     }
 }
