@@ -23,14 +23,14 @@ class DataTableBalitaController extends Controller
         });
         return DataTables::of($anak)->addIndexColumn()
         ->addColumn('umur',fn($row)=>hitungBulan($row->tanggal_lahir)." BLN")
-        ->addColumn('umur_terakhir_pengukuran',function($row){  
+        ->addColumn('umur_terakhir_pengukuran',function($row){
             $umur = 0;
             if(isset($row->pengukuran[0])) {
                 $umur = $row->pengukuran[0]->umur ?? 0;
             }
             return $umur." Bulan";
         })
-        ->addColumn('tinggi_badan',function($row){  
+        ->addColumn('tinggi_badan',function($row){
             $tinggi = 0;
             if(isset($row->pengukuran[0])) {
                 $row = $row->pengukuran[0];
@@ -41,7 +41,7 @@ class DataTableBalitaController extends Controller
                 }
             }
             return $tinggi." (<span class='text-danger'>Stunting</span>)";
-        })->addColumn('berat',function($row){  
+        })->addColumn('berat',function($row){
             $berat = 0;
             if(isset($row->pengukuran[0])) {
                 $berat = $row->pengukuran[0]->bb_zscore ?? 0;
@@ -56,7 +56,7 @@ class DataTableBalitaController extends Controller
     public function index()
     {
 
-        $anak = Anak::with('orangTua')->get();
+        $anak = Anak::with(['orangTua'])->get();
         return DataTables::of($anak)->addIndexColumn()->addColumn('orang_tua', function ($row) {
             return $row->orangTua->nama." - ".$row->orangTua->nik;
         })->addColumn('tempat_tanggal_lahir', function ($row) {
