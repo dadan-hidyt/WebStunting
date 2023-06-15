@@ -29,7 +29,9 @@ class DataTableBalitaController extends Controller
                 $umur = $row->pengukuran[0]->umur ?? 0;
             }
             return $umur." Bulan";
-        })
+        })->addColumn('tanggal_terakhir_pengukuran',function ($row){
+                return $row->pengukuran[0] ?? false ? $row->pengukuran[0]->tanggal_ukur : null;
+            })
         ->addColumn('tinggi_badan',function($row){
             $tinggi = 0;
             if(isset($row->pengukuran[0])) {
