@@ -7,6 +7,8 @@ use App\Http\Controllers\Dashboard\BalitaController;
 use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\PengukuranController;
 use App\Http\Controllers\Dashboard\KelurahanDesaController;
+use App\Http\Controllers\Export\ExportBalitaController;
+
 Route::get('/', HomeController::class)->name('.home');
 Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/semua.html',[BalitaController::class,'index'])->name('.semua');
@@ -17,6 +19,9 @@ Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/grafik/{anak}.html', [BalitaController::class, 'grafik'])->name('.grafik')->scopeBindings();
 });
 
+Route::name('.export.')->prefix('data/export')->group(function(){
+    Route::get('/balita/semua.html',[ExportBalitaController::class,'excel'])->name('semua.excel');
+});
 
 Route::name('.data-master.')->prefix('data/master')->group(function(){
     Route::get('/kacamatan.html',[KecamatanController::class,'index'])->name('kecamatan');

@@ -10,7 +10,7 @@
                     <a href="{{route('dashboard.balita.tambah')}}" class="btn-add-data">
                         Input Data Balita
                     </a>
-                    <a href="#" class="btn-print">
+                    <a href="{{route('dashboard.export.semua.excel')}}" class="btn-print">
                         <i class="fas fa-print"></i>
                     </a>
                 </div>
