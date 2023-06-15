@@ -5,8 +5,18 @@
 @endsection
 
 @section('content')
+
 <div class="row">
     <div class="col-12 mt-4">
+        <div class="col-12 mt-4">
+            @if (session()->has('notifikasi'))
+                @if (session('notifikasi')['type'] === 'success')
+                   <p class="alert alert-success">{{session('notifikasi')['msg']}}</p>
+                @else
+                    <p class="alert alert-danger">{{session('notifikasi')['msg']}}</p>
+
+                @endif
+            @endif
       <div class="card overflow-hidden">
         <div class="table-header">
           <a href="{{route('dashboard.data-master.kecamatan.tambah')}}" class="btn-add-data">
@@ -14,7 +24,7 @@
           </a>
         </div>
         <div class="card-body">
-          <table id="tabel-kecamatan" class="display nowrap table table-striped" style="width: 100%;">
+          <table id="tabel-kecamatan" class="display nowrap table table-bordered table-head-fixed" style="width: 100%;">
             <thead>
               <tr>
                 <th>No</th>
@@ -23,7 +33,7 @@
               </tr>
             </thead>
             <tbody>
-             
+
             </tbody>
           </table>
         </div>
@@ -47,7 +57,7 @@
                     {name : 'no',data : 'DT_RowIndex'},
                     {name : 'nama_kecamatan',data : 'nama_kecamatan'},
                     {name : 'action',data : 'action'},
-                    
+
                 ]
             });
         });

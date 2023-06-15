@@ -280,7 +280,7 @@
             options: ChartOptions1
         });
         document.getElementById('ChartBeratBadan').getContext("2d").stroke();
-		
+
 		ChartOptions2 = {
             responsive: false,
             layout: {
@@ -362,9 +362,81 @@
             },
         };
 
+
+        var ChartDataBeratBadan2 = {
+            labels: {!! json_encode($umur) !!},
+            datasets: [{
+                data: {!! json_encode($tbpbsdmin3) !!},
+                backgroundColor: '#ff0000',
+                borderColor: '#ff0000',
+                pointBackgroundColor: '#ff0000',
+                label: "-3sd"
+            },
+
+                {
+                    data: {!! json_encode($tbpbsdmin2) !!},
+                    backgroundColor: '#d42d2d',
+                    borderColor: '#d42d2d',
+                    pointBackgroundColor: '#ff0000',
+                    label: "-2sd"
+                },
+
+                {
+                    data: {!! json_encode($tbpbsdmin1) !!},
+                    backgroundColor: '#ffee00',
+                    borderColor: '#ffee00',
+                    pointBackgroundColor: '#ffee00',
+                    label: "-1sd"
+                },
+
+                {
+                    data: {!! json_encode($tbpbmedian) !!},
+                    backgroundColor: '#00ff0d',
+                    borderColor: '#00ff0d',
+                    pointBackgroundColor: '#ff0000',
+                    pointBorderColor: '#ffffff',
+                    label: "Median"
+                },
+
+                {
+                    data: {!! json_encode($tbpbsd1) !!},
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    pointBackgroundColor: 'red',
+                    pointBorderColor: '#ffffff',
+                    label: "1sd"
+                },
+
+                {
+                    data: {!! json_encode($tbpbsd2) !!},
+                    backgroundColor: '#d42d2d',
+                    borderColor: '#d42d2d',
+                    pointBackgroundColor: '#ff0000',
+                    label: "2sd"
+                },
+
+                {
+                    data: {!! json_encode($tbpbsd3) !!},
+                    backgroundColor: '#ff0000',
+                    borderColor: '#ffee00',
+                    pointBackgroundColor: '#ff0000',
+                    label: "3sd"
+                },
+
+                {
+                    data: {!! json_encode($tbpbpengukuran) !!},
+                    backgroundColor: '#0044ff',
+                    borderColor: '#0044ff',
+                    pointBackgroundColor: '#ff0000',
+                    label: "Pengukuran"
+                },
+
+            ]
+        };
+
 		var myLine2 = new Chart(document.getElementById('ChartTinggiBadan').getContext("2d"), {
             type: 'line',
-            data: ChartDataBeratBadan,
+            data: ChartDataBeratBadan2,
             options: ChartOptions2
         });
         document.getElementById('ChartTinggiBadan').getContext("2d").stroke();

@@ -62,7 +62,9 @@
         </div>
         <div class="form-submit d-flex justify-content-end">
           <a href="{{route('dashboard.balita.semua')}}" class="btn-cancel">Cancel</a>
-          <button class="btn-submit" type="submit">Submit</button>
+          <button class="btn-submit" wire:loading.remove wire:target="ukur" type="submit">Submit</button>
+            <button class="btn-submit" wire:loading.block wire:target="ukur" type="submit">Mengkalkulasikan...</button>
+
         </div>
       </div>
     </div>
