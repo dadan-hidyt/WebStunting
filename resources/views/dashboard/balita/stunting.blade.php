@@ -17,6 +17,7 @@
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Umur/bulan</th>
+                                <th>Tanggal Terakhir Pengukuran</th>
                                 <th>Umur Terakhir Pengukuran</th>
                                 <th>ZS TB/U(Terakhir)</th>
                                 <th>ZS BB/U(Terakhir)</th>
@@ -48,13 +49,14 @@
                     {name : 'nama_lengkap',data : 'nama_lengkap'},
                     {name : 'jenis_kelamin',data : 'jenis_kelamin'},
                     {name : 'umur',data : 'umur'},
+                    {name : 'tanggal_terakhir_pengukuran', data : 'tanggal_terakhir_pengukuran'},
                     {name : 'umur_terakhir_pengukuran', data : 'umur_terakhir_pengukuran'},
                     {name : 'tinggi_badan', data : 'tinggi_badan'},
                     {name : 'berat', data : 'berat'},
                     {name : 'action', data : 'action'}
 
                 ]
-               
+
             })
     </script>
 @endpush

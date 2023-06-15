@@ -7,9 +7,11 @@
         <div class="card">
             <h2>Statistic</h2>
             <span>Persentase total balita stunting dan jumlah pengukuran</span>
+
             <div class="content">
+
                 <div class="d-flex flex-column align-items-center text-center w-50">
-                    <input type="text" class="knob" value="200" data-thickness="0.2" data-max="1000" data-width="100"
+                    <input type="text" class="knob" value="{{$stunting}}" data-thickness="0.2" data-max="{{$total_balita}}" data-width="100"
                            data-height="100" data-fgColor="#00a65a">
                     <label for="" class="mt-3">
                         Balita Stunting

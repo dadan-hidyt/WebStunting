@@ -2,11 +2,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Middleware\AdminMiddleware;
-use \App\Http\Controllers\Dashboard\Pengukuran;
-use \App\Http\Controllers\Dashboard\BalitaController;
+use App\Http\Controllers\Dashboard\Pengukuran;
+use App\Http\Controllers\Dashboard\BalitaController;
 use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\PengukuranController;
-
+use App\Http\Controllers\Dashboard\KelurahanDesaController;
 Route::get('/', HomeController::class)->name('.home');
 Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/semua.html',[BalitaController::class,'index'])->name('.semua');
@@ -23,6 +23,11 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
     Route::get('/kecamatan/{kecamatan?}/hapus.html',[KecamatanController::class,'hapus'])->name('kecamatan.hapus');
     Route::get('/kecamatan/{kecamatan?}/edit.html',[KecamatanController::class,'edit'])->name('kecamatan.edit');
     Route::get('/kecamatan/tambah.html',[KecamatanController::class,'tambah'])->name('kecamatan.tambah');
+
+
+    Route::prefix('kelurahan-desa')->name('kelurahan_desa')->group(function (){
+        Route::get('/', KelurahanDesaController::class);
+    });
 
 
 
