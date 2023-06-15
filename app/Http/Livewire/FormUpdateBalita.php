@@ -31,6 +31,8 @@ class FormUpdateBalita extends Component
                 $this->reloadPosandu();
             }
 
+
+
             if (isset($this->orang_tua['nik'])) {
                 $nik = $this->orang_tua['nik'];
                 if ($orang_tua = OrangTua::getByNik($nik)->first()) {
@@ -42,6 +44,8 @@ class FormUpdateBalita extends Component
 
         public function update()
         {
+            unset($this->data['orang_tua']);
+            $this->data['umur'] = intval(hitungBulan($this->data['tanggal_lahir']));
            if (  $this->balita->update($this->data) ) {
                $this->dispatchBrowserEvent('notifikasi', [
                    'type' => 'success',
@@ -55,7 +59,6 @@ class FormUpdateBalita extends Component
            }
 
         }
-
     public function render()
     {
         return view('livewire.form-update-balita');
