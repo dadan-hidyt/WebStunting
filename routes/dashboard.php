@@ -30,6 +30,6 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){
     Route::get('/', [PengukuranController::class, 'index'])->name('index');
-    Route::get('/{id_balita}.html', [PengukuranController::class,'ukur'])->name('ukur');
+    Route::get('/{anak}.html', [PengukuranController::class,'ukur'])->name('ukur');
     Route::get('/{anak}/{pengukuran}/delete.html', [PengukuranController::class,'delete'])->scopeBindings()->name('delete');
 });
