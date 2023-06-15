@@ -20,8 +20,12 @@ Route::name('.balita')->prefix('/balita')->group(function (){
 
 Route::name('.data-master.')->prefix('data/master')->group(function(){
     Route::get('/kacamatan.html',[KecamatanController::class,'index'])->name('kecamatan');
-    Route::get('/{kecamatan?}/hapus.html',[KecamatanController::class,'hapus'])->name('kecamatan.hapus');
-    Route::get('/{edit?}/edit.html',[KecamatanController::class,'edit'])->name('kecamatan.edit');
+    Route::get('/kecamatan/{kecamatan?}/hapus.html',[KecamatanController::class,'hapus'])->name('kecamatan.hapus');
+    Route::get('/kecamatan/{edit?}/edit.html',[KecamatanController::class,'edit'])->name('kecamatan.edit');
+    Route::get('/kecamatan/tambah.html',[KecamatanController::class,'tambah'])->name('kecamatan.tambah');
+
+
+
 });
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){

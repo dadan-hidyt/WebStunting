@@ -14,6 +14,9 @@ class KecamatanController extends Controller
     public function hapus(Kecamatan $kecamatan){
         return $kecamatan;
     }
+    public function tambah(){
+        return view('dashboard.data-master.kecamatan.tambah');
+    }
     public function edit(Kecamatan $kecamatan) {
         return $kecamatan;
     }

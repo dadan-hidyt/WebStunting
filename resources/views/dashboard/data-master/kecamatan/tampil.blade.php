@@ -9,7 +9,7 @@
     <div class="col-12 mt-4">
       <div class="card overflow-hidden">
         <div class="table-header">
-          <a href="data-kecamatan-input.html" class="btn-add-data">
+          <a href="{{route('dashboard.data-master.kecamatan.tambah')}}" class="btn-add-data">
             Input Data Kecamatan
           </a>
         </div>
