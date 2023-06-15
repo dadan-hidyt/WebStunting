@@ -65,7 +65,7 @@ class ExportBalitaController extends Controller
 
         
         $writer->save($filename);
-        echo "Download: <a href='".asset('storage/'.$namaFile)."'>Download</a> ";
+        echo "Download: <a href='".asset('storage/'.$namaFile)."'>{$namaFile}</a> ";
         
     }
 }

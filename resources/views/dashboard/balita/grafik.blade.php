@@ -364,7 +364,7 @@
 
 
         var ChartDataBeratBadan2 = {
-            labels: {!! json_encode($umur) !!},
+            labels: {!! json_encode($tbpbumur) !!},
             datasets: [{
                 data: {!! json_encode($tbpbsdmin3) !!},
                 backgroundColor: '#ff0000',

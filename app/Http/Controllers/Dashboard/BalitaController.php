@@ -51,27 +51,17 @@ class BalitaController extends Controller
             }
         }
 
-        for ($i = 0; $i <= 60; $i++) {
-            if ($anak->pengukuran->count() >= 0) {
-                $data = Pengukuran::where('umur', $i)->where('anak_id', $anak->id)->first();
-                $bbpengukuran[$i] = $data->pb ?? 0;
-            }
-        }
+      
         //pb
 
-        $standardArtoTinggiBadan = StandardAntropometriTbByUmur::where(
-            'jenis_kelamin',
-            $anak->jenis_kelamin,
-        )->get()->toArray();
-        $standardArtoPanjangBadan = StandardAntropometriPbByUmur::where(
-            'jenis_kelamin',
-            $anak->jenis_kelamin,
-        )->get()->toArray();
+        $standardArtoTinggiBadan = StandardAntropometriTbByUmur::where('jenis_kelamin',$anak->jenis_kelamin)->get()->toArray();
+        $standardArtoPanjangBadan = StandardAntropometriPbByUmur::where('jenis_kelamin',$anak->jenis_kelamin)->get()->toArray();
 
 
         $standardPbDanTb = array_merge($standardArtoPanjangBadan, $standardArtoTinggiBadan);
 
-        $umur = [];
+
+        $tbpbumur = [];
         $tbpbmin3 = [];
         $tbpbmin2 = [];
         $tbpbsdmin1 = [];
@@ -81,7 +71,7 @@ class BalitaController extends Controller
         $tbpbsd1 = [];
         foreach ($standardPbDanTb as  $value) {
 
-            $umur[] = $value['umur'];
+            $tbpbumur[] = $value['umur'];
             $tbpbsdmin3[] = $value['-3sd'];
             $tbpbsdmin2[] = $value['-2sd'];
             $tbpbsdmin1[] = $value['-1sd'];
@@ -103,16 +93,16 @@ class BalitaController extends Controller
         for ($i = 24; $i <= 60; $i++) {
             if ($anak->pengukuran->count() >= 0) {
                 $data = Pengukuran::where('umur', $i)->where('anak_id', $anak->id)->first();
-                $tbpengukuran[$i] = $data->pb ?? 0;
+                $tbpengukuran[$i] = $data->tb ?? 0;
             }
         }
 
         $tbpbpengukuran = array_merge($pbpengukuran, $tbpengukuran);
-
         return view('dashboard.balita.grafik', compact(
             'anak',
             'umur',
             'bbsd1',
+            'tbpbumur',
             'bbsd2',
             'bbsd3',
             'bbsdmin2',
