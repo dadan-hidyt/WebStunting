@@ -1,5 +1,5 @@
 <?php
-define("BR",false);
+define("BR","<br>");
 function hitungBulan(string $tanggal_lahir){
     $time = strtotime($tanggal_lahir);
     $difference = time() - $time;

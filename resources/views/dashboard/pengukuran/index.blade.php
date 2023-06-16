@@ -97,6 +97,8 @@
                                         @endif
                                         <td>{{ $item->bb_zscore }}</td>
                                         <td>
+                                            <a class="btn btn-sm btn-primary" href="{{route('dashboard.pengukuran.hasil_analisa',[$balita->id,$item->id])}}"><i class="fa fa-list"></i></a>
+                                            &nbsp;
                                             <a onclick="return confirm('Apakah anda yakin?')"
                                                 href="{{ route('dashboard.pengukuran.delete', [$balita->id, $item->id]) }}"
                                                 class="btn btn-sm btn-danger">

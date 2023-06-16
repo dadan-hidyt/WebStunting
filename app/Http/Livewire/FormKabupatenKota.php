@@ -26,11 +26,32 @@ class FormKabupatenKota extends Component
         if (KabupatenKota::create(
             ['nama_kab_kota' =>  $this->kabupaten_kota,]
         )) {
-            dd("Ditambahkan");
+            return redirect()->route('dashboard.data-master.kabupaten_kota')->with('notifikasi',[
+                'type' => 'success',
+                'msg' => "Data Berhasil Di Tambahkan",
+            ]);
+        } else {
+            return redirect()->route('dashboard.data-master.kabupaten_kota')->with('notifikasi',[
+                'type' => 'success',
+                'msg' => "Data Gagal Di Tambahkan",
+            ]);
         }
     }
     public function ubah()
     {
+        if ($this->kabupatenKota->update([
+            'nama_kab_kota' => $this->kabupaten_kota,
+        ])) {
+            return redirect()->route('dashboard.data-master.kabupaten_kota')->with('notifikasi',[
+                'type' => 'success',
+                'msg' => "Data Berhasil Di Update",
+            ]); 
+        } else {
+            return redirect()->route('dashboard.data-master.kabupaten_kota')->with('notifikasi',[
+                'type' => 'success',
+                'msg' => "Data Gagal Di Update",
+            ]);
+        }
     }
     public function render()
     {

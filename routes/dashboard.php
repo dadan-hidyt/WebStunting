@@ -57,6 +57,7 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
 });
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){
+    Route::get('/hasil-analisa/{anak}/{pengukuran}.html',[PengukuranController::class,'hasilAnalisa'])->scopeBindings()->name('hasil_analisa');
     Route::get('/hasil-pengukuran.html', [PengukuranController::class,'hasilPengukuran'])->name('hasil-pengukuran');
     Route::get('/input-pengukuran.html', [PengukuranController::class,'inputPengukuranByNik'])->name('input-pengukuran');
     Route::get('/', [PengukuranController::class, 'index'])->name('index');

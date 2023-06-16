@@ -28,6 +28,9 @@ class PengukuranController extends Controller
         $anak = Anak::all();
         return view('dashboard.pengukuran.input-manual', compact('title'),compact('anak'));
     }
+    public function hasilAnalisa(Anak $anak,Pengukuran $pengukuran) {
+       return view('dashboard.pengukuran.hasil-analisa',compact('pengukuran','anak'));
+    }
     public function ukur(Anak $anak){
         $balita = $anak;
         return view('dashboard.pengukuran.index',compact('balita'));
