@@ -52,8 +52,6 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
         Route::get('/{kelurahanDesa}/edit.html', [OrangTuaController::class,'edit'])->name('.edit');
     });
 
-
-
 });
 
 Route::name('.pengukuran.')->prefix('/pengukuran')->group(function (){
