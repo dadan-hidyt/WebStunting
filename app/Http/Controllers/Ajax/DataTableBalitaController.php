@@ -43,6 +43,8 @@ class DataTableBalitaController extends Controller
                 }
             }
             return $tinggi." (<span class='text-danger'>Stunting</span>)";
+        })->addColumn('rekomendasi',function($row){
+            return rekomendasiDanSaranHidupSehatByZscore($row->tb_zscore ?? $row->pb_zscore);
         })->addColumn('berat',function($row){
             $berat = 0;
             if(isset($row->pengukuran[0])) {
@@ -80,6 +82,6 @@ class DataTableBalitaController extends Controller
             $grafik = "<a class='btn btn-sm btn-info' href='".route('dashboard.balita.grafik',$row->id)."'><i class='fas fa-chart-pie mr-1'></i></a>";
             return $ukur."&nbsp;".$delete."&nbsp;".$update."&nbsp;".$grafik;
 
-        })->rawColumns(['action'])->make();
+        })->rawColumns(['action','rekomendasi'])->make();
     }
 }

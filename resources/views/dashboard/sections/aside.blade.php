@@ -32,7 +32,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="data-orangtua.html" class="nav-link">
+                    <a href="{{ route('dashboard.data-master.orang_tua') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Data Orangtua</p>
                   </a>

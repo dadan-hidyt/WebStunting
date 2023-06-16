@@ -21,6 +21,7 @@
                                 <th>Umur Terakhir Pengukuran</th>
                                 <th>ZS TB/U(Terakhir)</th>
                                 <th>ZS BB/U(Terakhir)</th>
+                                <th>Rekomendasi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -53,6 +54,7 @@
                     {name : 'umur_terakhir_pengukuran', data : 'umur_terakhir_pengukuran'},
                     {name : 'tinggi_badan', data : 'tinggi_badan'},
                     {name : 'berat', data : 'berat'},
+                    {name : 'rekomendasi', data : 'rekomendasi'},
                     {name : 'action', data : 'action'}
 
                 ]
