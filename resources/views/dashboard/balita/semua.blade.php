@@ -26,6 +26,8 @@
                             <th>Tempat Tanggal Lahir</th>
                             <th>Umur</th>
                             <th>Orang  Tua</th>
+                            <th>Kabupaten/Kota</th>
+                            <th>Kecamatan</th>
                             <th>Desa/Kel</th>
                             <th>Posyandu</th>
                             <th>Action</th>
@@ -70,6 +72,8 @@
                     {data : 'tempat_tanggal_lahir', name : 'tempat_tanggal_lahir'},
                     {data:'umur',name : 'umur'},
                     {data : 'orang_tua', name : 'orang_tua'},
+                    {data : 'kab_kota', name : 'kab_kota'},
+                    {data : 'kecamatan', name : 'kecamatan'},
                     {data:'kelurahan_desa',name : 'kelurahan_desa'},
                     {data : 'posyandu',name : 'posyandu'},
                     {data:'action',name : 'action'}

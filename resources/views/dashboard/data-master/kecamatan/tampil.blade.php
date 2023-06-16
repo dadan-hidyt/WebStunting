@@ -29,6 +29,7 @@
               <tr>
                 <th>No</th>
                 <th>Nama Kecamatan</th>
+                <th>Kabupaten/Kota</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -56,6 +57,7 @@
                 columns: [
                     {name : 'no',data : 'DT_RowIndex'},
                     {name : 'nama_kecamatan',data : 'nama_kecamatan'},
+                    {name : 'kab_kota',data : 'kab_kota'},
                     {name : 'action',data : 'action'},
 
                 ]

@@ -16,4 +16,7 @@ class Kecamatan extends Model
     public function orangTua(){
         return $this->hasMany(OrangTua::class);
     }
+    public function kabupatenKota(){
+        return $this->belongsTo(KabupatenKota::class);
+    }
 }

@@ -69,6 +69,10 @@ class DataTableBalitaController extends Controller
             return $row->orangTua->kelurahanDesa->nama_desa ?? 'Tidak Di Ketahui';
         })->addColumn('posyandu', function ($row) {
             return $row->orangTua->posyandu->nama_posyandu;
+        })->addColumn('kab_kota',function($row){
+            return $row->orangTua->kelurahanDesa->kecamatan->kabupatenKota->nama_kab_kota ?? '-';
+        })->addColumn('kecamatan',function($row){
+            return $row->orangTua->kelurahanDesa->kecamatan->nama_kecamatan ?? '-';
         })->addColumn('jenis_kelamin',fn($row)=>parseJenisKelamin($row->jenis_kelamin))->addColumn('umur',function($row){
             if ( isset($row->umur) ) {
                 return $row->umur." Bulan";

@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\Dashboard\Pengukuran;
 use App\Http\Controllers\Dashboard\BalitaController;
+use App\Http\Controllers\Dashboard\KabupatenKotaController;
 use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\PengukuranController;
 use App\Http\Controllers\Dashboard\KelurahanDesaController;
@@ -36,6 +37,14 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
         Route::get('/{kelurahanDesa}/delete.html', [KelurahanDesaController::class,'delete'])->name('.delete');
         Route::get('/{kelurahanDesa}/edit.html', [KelurahanDesaController::class,'edit'])->name('.edit');
     });
+
+    Route::prefix('kabupaten-kota')->name('kabupaten_kota')->group(function (){
+        Route::get('/', [KabupatenKotaController::class,'index']);
+        Route::get('tambah.html',[KabupatenKotaController::class,'tambah'])->name('.tambah');
+        Route::get('/{kabupatenKota}/delete.html', [KabupatenKotaController::class,'delete'])->name('.delete');
+        Route::get('/{kabupatenKota}/edit.html', [KabupatenKotaController::class,'edit'])->name('.edit');
+    });
+
     Route::prefix('orang-tua')->name('orang_tua')->group(function (){
         Route::get('/', [OrangTuaController::class,'index']);
         Route::get('tambah.html',[OrangTuaController::class,'tambah'])->name('.tambah');

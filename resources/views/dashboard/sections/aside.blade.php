@@ -37,6 +37,12 @@
                       <p>Data Orangtua</p>
                   </a>
               </li>
+                    <li class="nav-item">
+                    <a href="{{ route('dashboard.data-master.kabupaten_kota') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Data Kabupaten / Kota</p>
+                  </a>
+              </li>
               <li class="nav-item">
                 <a href="data-posyandu.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
