@@ -33,6 +33,8 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
     Route::prefix('kelurahan-desa')->name('kelurahan_desa')->group(function (){
         Route::get('/', KelurahanDesaController::class);
         Route::get('tambah.html',[KelurahanDesaController::class,'tambah'])->name('.tambah');
+        Route::get('/{kelurahanDesa}/delete.html', [KelurahanDesaController::class,'delete'])->name('.delete');
+        Route::get('/{kelurahanDesa}/edit.html', [KelurahanDesaController::class,'edit'])->name('.edit');
     });
 
 

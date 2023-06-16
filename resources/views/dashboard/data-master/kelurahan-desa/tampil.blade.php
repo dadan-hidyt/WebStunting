@@ -3,6 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-12 mt-4">
+            @if (session()->has('notifikasi'))
+                <p class="alert alert-{{ session('notifikasi')['type'] }}">
+                    {{ session('notifikasi')['msg'] }}
+                </p>
+            @endif
+            
             <div class="card overflow-hidden">
                 <div class="table-header">
                     <a href="{{ route('dashboard.data-master.kelurahan_desa.tambah') }}" class="btn-add-data">

@@ -23,6 +23,7 @@ class HomeController extends Controller
             'total_balita' => Anak::all()->count(),
             'total_pengukuran' => $this->pengukuran()->count(),
             'stunting' => $this->stunting(),
+            'total_kecamatan' => $this->kecamatan(),
         ];
     }
     public function __invoke(Request $request)

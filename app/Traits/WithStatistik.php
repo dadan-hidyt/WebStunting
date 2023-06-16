@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Anak;
+use App\Models\Kecamatan;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pengukuran;
 trait WithStatistik
@@ -17,6 +18,9 @@ trait WithStatistik
             }
         });
         return $anak->count();
+    }
+    public function kecamatan(){
+        return Kecamatan::count();
     }
     public function pengukuran(){
         return Pengukuran::groupBy('anak_id')->select(DB::raw("COUNT(*) as total"))->get();
