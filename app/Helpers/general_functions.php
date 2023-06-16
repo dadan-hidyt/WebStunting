@@ -48,3 +48,9 @@ function kategoriStatusBb($zScore)
         return "Risiko Berat badan lebih";
     }
 }
+
+function rekomendasiDanSaranHidupSehatByZscore($z_score){
+    if ( $z_score <= -2 ) {
+        return "Harus makan Baud dan alat berat";
+    }
+}
