@@ -20,6 +20,14 @@ class PengukuranController extends Controller
         ]);
        }
     }
+    public function hasilPengukuran(){
+        return [];
+    }
+    public function inputPengukuranByNik(){
+        $title = "Input NIK Anak";
+        $anak = Anak::all();
+        return view('dashboard.pengukuran.input-manual', compact('title'),compact('anak'));
+    }
     public function ukur(Anak $anak){
         $balita = $anak;
         return view('dashboard.pengukuran.index',compact('balita'));

@@ -88,9 +88,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="data-pengukuran-input.html" class="nav-link">
+                            <a href="{{route('dashboard.pengukuran.input-pengukuran')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Input Pengukuran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('dashboard.pengukuran.hasil-pengukuran')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Hasil Pengukuran</p>
                             </a>
                         </li>
                     </ul>
