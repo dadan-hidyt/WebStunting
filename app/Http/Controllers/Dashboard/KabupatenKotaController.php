@@ -11,7 +11,7 @@ class KabupatenKotaController extends Controller
         return view('dashboard.data-master.kabupaten_kota.tampil');
     }
     public function tambah(){
-
+        return view('dashboard.data-master.kabupaten_kota.tambah');
     }
     public function edit(){
 

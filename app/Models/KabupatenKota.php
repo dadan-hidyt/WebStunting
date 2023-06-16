@@ -9,7 +9,7 @@ class KabupatenKota extends Model
 {
     use HasFactory;
     protected $table = 'kabupaten_kota';
-
+    protected $guarded = [];
     public function kecamatan(){
         return $this->hasMany(Kecamatan::class,'kabupaten_kota_id');
     }

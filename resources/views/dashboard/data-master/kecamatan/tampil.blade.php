@@ -7,8 +7,8 @@
 @section('content')
 
 <div class="row">
-    <div class="col-12 mt-4">
-        <div class="col-12 mt-4">
+    <div class="col-12">
+        <div class="col-12">
             @if (session()->has('notifikasi'))
                 @if (session('notifikasi')['type'] === 'success')
                    <p class="alert alert-success">{{session('notifikasi')['msg']}}</p>

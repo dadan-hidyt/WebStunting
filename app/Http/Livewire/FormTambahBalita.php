@@ -77,6 +77,7 @@ class FormTambahBalita extends Component
         }
 
         if (is_null($id_ortu)) {
+            $this->orang_tua['id'] = null;
             $ortu = OrangTua::create($this->orang_tua);
             $id_ortu = $ortu->id;
         }

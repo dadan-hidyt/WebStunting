@@ -1,5 +1,5 @@
 @extends('layouts.authenticate')
-@section('page-title','Kabupaten Kota');
+@section('page-title','Kabupaten Kota')
 
 @section('content')
         <div class="row">

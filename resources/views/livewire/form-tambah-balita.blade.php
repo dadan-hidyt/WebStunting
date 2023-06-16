@@ -162,10 +162,11 @@
                     <option value="">--pilih salah satu--</option>
                     @if($desa_kelurahan)
                         @foreach($desa_kelurahan as $val)
-                            <option value="{{$val->id}}">{{ $val->nama_desa  }} - {{ $val->kecamatan->nama_kecamatan ?? '' }}</option>
+                            <option value="{{$val->id}}">{{ $val->nama_desa  }} - {{ $val->kecamatan->nama_kecamatan ?? '' }} - {{ $val->kecamatan->kabupatenKota->nama_kab_kota ?? '' }}</option>
                         @endforeach
                     @endif
                 </select>
+                <div class="form-text"><small><i>Desa - Kecamatan - Kabupaten</i></small></div>
                 @error('orang_tua.kelurahan_desa_id')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
