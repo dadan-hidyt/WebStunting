@@ -14,4 +14,9 @@ class KelurahanDesaController extends Controller
     {
         return view('dashboard.data-master.kelurahan-desa.tampil');
     }
+    public function tambah(){
+        return view('dashboard.data-master.kelurahan-desa.tambah',[
+            'title'=>"Tambah Kelurahan Desa"]
+        );
+    }
 }
