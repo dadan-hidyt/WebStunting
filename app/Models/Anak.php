@@ -13,7 +13,7 @@ class Anak extends Model
     protected $guarded = [];
     public function scopeStunting($query){
         $query->with(['pengukuran'=>function($query){
-            return $query->where('tb_zscore','<','-3')->orWhere('pb_zscore','<','-3')->orderBy('tanggal_ukur','DESC')->take(1);
+            return $query->where('tb_zscore','<','-3')->orWhere('pb_zscore','<','-3')->orderBy('tanggal_ukur','DESC')->get();
         }]);
         return $query;
     }
