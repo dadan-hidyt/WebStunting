@@ -39,7 +39,7 @@
 @push('scripts')
     <script>
         $("#data-bayi-stunting").DataTable({
-                scrollX: false,
+                scrollX: true,
                 serverSide : true,
                 processing : true,
                 responsive : true,

@@ -67,7 +67,6 @@ function rekomendasiDanSaranHidupSehatByZscore($z_score){
         $text .= "Lemak sehat: Sertakan makanan yang mengandung lemak sehat, seperti ikan berlemak (salmon, sarden), alpukat, kacang-kacangan, dan minyak zaitun. Lemak sehat penting untuk perkembangan otak dan penyerapan vitamin yang larut dalam lemak.".BR;
         $text .= "Minum air yang cukup: Pastikan anak mengonsumsi cukup air untuk menjaga hidrasi yang baik.".BR;
 
-
     } 
     return $text;
 }

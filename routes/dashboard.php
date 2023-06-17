@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\PengukuranController;
 use App\Http\Controllers\Dashboard\KelurahanDesaController;
 use App\Http\Controllers\Export\ExportBalitaController;
 use App\Http\Controllers\Dashboard\OrangTuaController;
+use App\Http\Controllers\Dashboard\PosyanduPembinaController;
 Route::get('/', HomeController::class)->name('.home');
 Route::name('.balita')->prefix('/balita')->group(function (){
     Route::get('/semua.html',[BalitaController::class,'index'])->name('.semua');
@@ -43,6 +44,12 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
         Route::get('tambah.html',[KabupatenKotaController::class,'tambah'])->name('.tambah');
         Route::get('/{kabupatenKota}/delete.html', [KabupatenKotaController::class,'delete'])->name('.delete');
         Route::get('/{kabupatenKota}/edit.html', [KabupatenKotaController::class,'edit'])->name('.edit');
+    });
+     Route::prefix('posyandu')->name('posyandu')->group(function (){
+        Route::get('/', [PosyanduPembinaController::class,'index']);
+        Route::get('tambah.html',[PosyanduPembinaController::class,'tambah'])->name('.tambah');
+        Route::get('/{kabupatenKota}/delete.html', [PosyanduPembinaController::class,'delete'])->name('.delete');
+        Route::get('/{kabupatenKota}/edit.html', [PosyanduPembinaController::class,'edit'])->name('.edit');
     });
 
     Route::prefix('orang-tua')->name('orang_tua')->group(function (){

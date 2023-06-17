@@ -15,7 +15,7 @@
         <select wire:model.defer='data.kecamatan_id' class="form-control" name="" id="">
             <option value="">Pilih Kelurahan Desa</option>
             @foreach ($kecamatan as $element)
-            <option value="{{ $element->id }}">{{ $element->nama_kecamatan }}</option>
+            <option value="{{ $element->id }}">{{ $element->nama_kecamatan }} - {{ $element->kabupatenKota->nama_kab_kota }}</option>
             @endforeach
         </select>
         @error('data.kecamatan_id')

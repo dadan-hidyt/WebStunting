@@ -79,9 +79,9 @@
                     {data:'action',name : 'action'}
                 ],
                 scrollX: true,
-                "lengthChange": true,
-                "autoWidth": false,
-                "info": false,
+                lengthChange: true,
+                autoWidth: true,
+                info: true,
             })
         });
     </script>

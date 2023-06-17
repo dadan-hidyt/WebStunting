@@ -29,7 +29,7 @@
                         <tr>
                             <td>Jenis Kelamin</td>
                             <td>:</td>
-                            <td>{{ $anak->jenis_kelamin === 'L' ? 'LAKI-LAKI' : 'PEREMPUAn' }}</td>
+                            <td>{{ $anak->jenis_kelamin === 'L' ? 'LAKI-LAKI' : 'PEREMPUAN' }}</td>
                         </tr>
                         <tr>
                             <td>Tanggal Lahir</td>
