@@ -9,7 +9,7 @@
         <div class="col-12 mt-4">
             <div class="card overflow-hidden">
                 <div class="card-body">
-                    <table id="data-bayi-stunting" class="display table table-bordered table-hover" style="width: 100%;">
+                    <table id="data-bayi-stunting" class="display nowrap  table table-bordered table-hover" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -44,6 +44,10 @@
                 processing : true,
                 lengthChange: true,
                 autoWidth: true,
+                fixedColumns: {
+                    right : 1,
+                    left : 0,
+                },
                 info: true,
                 scrollCollapse: true,
                 ajax : "{{ route('ajax.balita.getDataStunting') }}" ,

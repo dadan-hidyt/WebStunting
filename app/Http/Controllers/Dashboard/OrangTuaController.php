@@ -19,6 +19,8 @@ class OrangTuaController extends Controller
 
     }
     public function tambah(){
-
+        return view('dashboard.data-master.orang-tua.tambah',[
+            'title' => "Tambah Orang Tua"
+        ]);
     }
 }

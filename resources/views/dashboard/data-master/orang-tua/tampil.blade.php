@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card overflow-hidden">
                 <div class="table-header">
-                    <a href="data-orangtua-input.html" class="btn-add-data">
+                    <a href="{{ route('dashboard.data-master.orang_tua.tambah') }}" class="btn-add-data">
                         Input Data Orangtua
                     </a>
                 </div>
@@ -43,6 +43,10 @@
             $('#tabel-orang-tua').DataTable({
             
                 processing: true,
+                scrollX : true,
+                fixedColumns: {
+                    right : 1,
+                },
                 serverSide: true,
                 ajax: "{{ route('ajax.orang-tua.semua') }}",
                 columns: [{
@@ -76,6 +80,10 @@
                     {
                         data : 'kontak',
                         name : 'kontak'
+                    },
+                    {
+                        data : 'action',
+                        name : 'action'
                     },
                     
 
