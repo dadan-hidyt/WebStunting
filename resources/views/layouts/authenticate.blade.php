@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-fixedheader/css/fixedHeader.bootstrap4.css">
+    <link rel="stylesheet" href="{{ assets('plugins') }}/datatables-fixedcolumns/css/fixedColumns.bootstrap4.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <style>
@@ -212,6 +214,8 @@
 <script src="{{ assets('plugins') }}/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ assets('plugins') }}/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ assets('plugins') }}/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="{{ assets('plugins') }}/datatables-fixedheader/js/dataTables.fixedHeader.js"></script>
+<script src="{{ assets('plugins') }}/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
 
 <!-- Bootstrap 4 -->
 <script src="{{ assets('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

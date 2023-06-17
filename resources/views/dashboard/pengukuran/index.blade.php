@@ -149,6 +149,11 @@
             lengthChange: true,
             autoWidth: true,
             info: true,
+            scrollCollapse:true,
+            fixedColumns: {
+                    left: 0,
+                    right: 1
+                }
         })
     </script>
 @endpush
