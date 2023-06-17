@@ -59,7 +59,6 @@ class DataTableBalitaController extends Controller
     }
     public function index()
     {
-
         $anak = Anak::with(['orangTua'])->get();
         return DataTables::of($anak)->addIndexColumn()->addColumn('orang_tua', function ($row) {
             return $row->orangTua->nama." - ".$row->orangTua->nik;

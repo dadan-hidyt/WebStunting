@@ -1,13 +1,17 @@
 @extends('layouts.authenticate')
 @section('page-title', 'Data Posyandu')
-
 @section('content')
     <div class="row">
         <div class="col-12">
+            @if (session()->has('notifikasi'))
+                <p class="alert alert-{{ session('notifikasi')['type'] }}">
+                    {{ session('notifikasi')['msg'] }}
+                </p>
+            @endif
             <div class="card overflow-hidden">
                 <div class="table-header">
-                    <a href="{{ route('dashboard.balita.tambah') }}" class="btn-add-data">
-                        Input Data Balita
+                    <a href="{{ route('dashboard.data-master.posyandu.tambah') }}" class="btn-add-data">
+                        Input Posyandu
                     </a>
                     <a href="{{ route('dashboard.export.semua.excel') }}" class="btn-print">
                         <i class="fas fa-print"></i>
@@ -28,16 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>No</td>
-                                <td>Bunda Harapan</td>
-                                <td>Kab. Sumedang</td>
-                                <td>Sumedang Selatan</td>
-                                <td>Desa. Margalaksana</td>
-                                <td>Jalan Kebon Kol</td>
-                                <td>0888282373652</td>
-                                <td>Action</td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -49,24 +44,49 @@
 
 @push('scripts')
     <script>
-        $(() => {
-            $('#data-table-posyandu').DataTable({
-                scrollX: true,
-                lengthChange: true,
-                autoWidth: true,
-                info: true,
-                ajax : "{{ route('ajax.posyandu.semua') }}",
-                columns : [
-                    {data : 'DT_RowIndex', name : 'DT_RowIndex'},
-                    {data : 'nama_posyandu',name : 'nama_posyandu'},
-                    {data : 'kab_kota', name : 'kab_kota'},
-                    {data:'kecamatan',name : 'kecamatan'},
-                    {data : 'kelurahan_desa', name : 'kelurahan_desa'},
-                    {data : 'alamat', name : 'alamat'},
-                    {data:'kontak',name : 'kontak'},
-                    {data:'action',name : 'action'}
-                ],
-            });
-        })
+        $('#data-table-posyandu').DataTable({
+            scrollX: true,
+            lengthChange: true,
+            autoWidth: true,
+            info: true,
+            fixedColumns: {
+                left: 0,
+                right: 1
+            },
+            ajax: "{{ route('ajax.posyandu.semua') }}",
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex'
+                },
+                {
+                    data: 'nama_posyandu',
+                    name: 'nama_posyandu'
+                },
+                {
+                    data: 'kab_kota',
+                    name: 'kab_kota'
+                },
+                {
+                    data: 'kecamatan',
+                    name: 'kecamatan'
+                },
+                {
+                    data: 'kelurahan_desa',
+                    name: 'kelurahan_desa'
+                },
+                {
+                    data: 'alamat',
+                    name: 'alamat'
+                },
+                {
+                    data: 'kontak',
+                    name: 'kontak'
+                },
+                {
+                    data: 'action',
+                    name: 'action'
+                }
+            ],
+        });
     </script>
 @endpush

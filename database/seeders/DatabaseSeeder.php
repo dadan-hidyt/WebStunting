@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
-             'name' => 'root',
-             'email' => 'root@root.com',
-             'password' => password_hash('root',PASSWORD_DEFAULT),
-         ]);
-//        $this->call(StandardBbByUmurSeeder::class);
-//        $this->call(StandardAntropometriPbByUmurSeeder::class);
-//        $this->call(StandardAntropometriTbByUmurSeeder::class);
+        //  \App\Models\User::factory()->create([
+        //      'name' => 'root',
+        //      'email' => 'root@root.com',
+        //      'password' => password_hash('root',PASSWORD_DEFAULT),
+        //  ]);
+       $this->call(StandardBbByUmurSeeder::class);
+       $this->call(StandardAntropometriPbByUmurSeeder::class);
+       $this->call(StandardAntropometriTbByUmurSeeder::class);
     }
 }

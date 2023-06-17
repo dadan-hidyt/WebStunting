@@ -1,14 +1,13 @@
 @extends('layouts.authenticate')
-@section('page-title')
-    Tambah Balita
-@endsection
+
+@section('page-title', $title)
 
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                   @livewire('form-tambah-balita')
+                    @livewire('form-posyandu', ['type' => 'tambah', 'posyandu' => null])
                 </div>
             </div>
         </div>

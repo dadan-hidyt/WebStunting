@@ -42,7 +42,10 @@
                 scrollX: true,
                 serverSide : true,
                 processing : true,
-                responsive : true,
+                lengthChange: true,
+                autoWidth: true,
+                info: true,
+                scrollCollapse: true,
                 ajax : "{{ route('ajax.balita.getDataStunting') }}" ,
                 columns : [
                     {name : 'DT_RowIndex',data:'DT_RowIndex'},

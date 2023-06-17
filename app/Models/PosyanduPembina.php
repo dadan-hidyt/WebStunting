@@ -9,7 +9,7 @@ class PosyanduPembina extends Model
 {
     use HasFactory;
     protected $table = 'posyandu_pembina';
-
+    protected $fillable = ['nama_posyandu','alamat_lengkap','kontak','kelurahan_desa_id'];
     public function kelurahanDesa(){
         return $this->belongsTo(KelurahanDesa::class);
     }

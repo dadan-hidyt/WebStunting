@@ -48,8 +48,8 @@ Route::name('.data-master.')->prefix('data/master')->group(function(){
      Route::prefix('posyandu')->name('posyandu')->group(function (){
         Route::get('/', [PosyanduPembinaController::class,'index']);
         Route::get('tambah.html',[PosyanduPembinaController::class,'tambah'])->name('.tambah');
-        Route::get('/{kabupatenKota}/delete.html', [PosyanduPembinaController::class,'delete'])->name('.delete');
-        Route::get('/{kabupatenKota}/edit.html', [PosyanduPembinaController::class,'edit'])->name('.edit');
+        Route::get('/{posyanduPembina}/delete.html', [PosyanduPembinaController::class,'delete'])->name('.delete');
+        Route::get('/{posyanduPembina}/edit.html', [PosyanduPembinaController::class,'edit'])->name('.edit');
     });
 
     Route::prefix('orang-tua')->name('orang_tua')->group(function (){
