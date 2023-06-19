@@ -8,7 +8,9 @@ use App\Models\OrangTua;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Anak;
+use App\Models\Pengukuran;
 use App\Models\PosyanduPembina;
+use App\Services\PengukuranService;
 
 class FormTambahBalita extends Component
 {
@@ -55,7 +57,7 @@ class FormTambahBalita extends Component
                 $this->posyandu = PosyanduPembina::where('kelurahan_desa_id', $orang_tua['kelurahan_desa_id'])->get();
                 $this->orang_tua = $orang_tua->toArray();
             }
-        } 
+        }
     }
 
     public function tambah()
@@ -83,7 +85,26 @@ class FormTambahBalita extends Component
         }
         $data->put('orang_tua_id', $id_ortu);
         $data->put('umur', hitungBulan($data->get('tanggal_lahir')));
+
         $buatAnak = Anak::create($data->all());
+
+        //buat pengukuran pertama
+        $pengukuranService = new PengukuranService();
+        $pengukuran = collect([]);
+        $pengukuran->put('bb', $buatAnak->berat_lahir);
+        $pengukuran->put('bb_zscore', $pengukuranService->ukurBeratBadanByUmur($buatAnak->jenis_kelamin, $buatAnak->umur, $pengukuran->get('bb'))->zscore ?? null);
+        $pengukuran->put('tanggal_ukur', now()->format('Y-m-d'));
+        $pengukuran->put('cara_ukur', $buatAnak->umur <= 24 ? 'terlentang' : 'berdiri');
+        $pengukuran->put('umur', $buatAnak->umur);
+        if ($pengukuran->get('cara_ukur') === 'berdiri' && $pengukuran->get('umur') >= 24) {
+            $pengukuran->put('tb', $buatAnak->panjang_badan);
+            $pengukuran->put('tb_zscore', $pengukuranService->ukurTinggiBadanByUmur($buatAnak->jenis_kelamin, $buatAnak->umur, $pengukuran->get('tb'))->zscore);
+        } else {
+            $pengukuran->put('pb', $buatAnak->panjang_badan);
+            $pengukuran->put('pb_zscore', $pengukuranService->ukurPanjangBadanByUmur($buatAnak->jenis_kelamin, $buatAnak->umur, $pengukuran->get('pb'))->zscore);
+        }
+        $pengukuran->put('anak_id', $buatAnak->id);
+        Pengukuran::create($pengukuran->all());
         if ($buatAnak) {
             DB::commit();
             $this->reset(['data', 'orang_tua']);

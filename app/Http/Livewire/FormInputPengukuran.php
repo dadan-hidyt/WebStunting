@@ -36,6 +36,7 @@ class FormInputPengukuran extends Component
         $data->put('bb_zscore',$pengukuran->ukurBeratBadanByUmur($this->balita->jenis_kelamin, $umur,$data->get('bb'))->zscore ?? null);
         $data->put('cara_ukur',$this->getUmur() >= 24 ? 'berdiri' : 'terlentang');
         $data->put('umur',$umur);
+        $data->put('lila',$this->data['lila']);
         $data->put('vitamin_a',$this->data['vitamin_a']);
         $data->put('lingkar_kepala',$this->data['lingkar_kepala']);
         if ( isset($this->data['cara_ukur']) ) {

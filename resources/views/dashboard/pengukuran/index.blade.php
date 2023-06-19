@@ -2,7 +2,7 @@
 @section('page-title', 'Pengukuran')
 @section('content')
     <div class="row">
-        <div class="col-12 mt-4">
+        <div class="col-12">
             <div class="card card-count-form overflow-hidden">
                 <div class="card-header">
                     Data balita
@@ -133,8 +133,6 @@
                         ])
                     </div>
                 </div>
-
-
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
@@ -149,11 +147,11 @@
             lengthChange: true,
             autoWidth: true,
             info: true,
-            scrollCollapse:true,
+            scrollCollapse: true,
             fixedColumns: {
-                    left: 0,
-                    right: 1
-                }
+                left: 0,
+                right: 1
+            }
         })
     </script>
 @endpush

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('lp/css/output.css') }}">
+    <link rel="stylesheet" href="css/output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -72,7 +72,7 @@
                         </a>
                         <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white lg:hidden w-fit">Login</a>
                     </ul>
-                    <a href="{{ route('auth.login') }}" class="py-3 px-7 rounded-lg bg-primary text-sm text-white max-sm:hidden">Login</a>
+                    <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white max-sm:hidden">Login</a>
                     <div class="nav-toggle w-12 h-10 rounded-lg bg-primary bg-opacity-20 flex items-center justify-center cursor-pointer hover:bg-opacity-100 transition-all duration-500 group lg:hidden"
                         onclick="showNavbar()"><i class="fa-solid fa-bars text-primary text-xl group-hover:text-white"></i>
                     </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="image-banner relative flex justify-end max-sm:mb-10">
                         <img class="mx-auto lg:mx-0 w-3/4 lg:w-4/6 object-cover"
-                            src="{{ asset('lp/src/assets/image/Height meter-pana.svg') }}" alt="logo">
+                            src="src/assets/image/Height meter-pana.svg" alt="logo">
                     </div>
                 </div>
             </div>
@@ -537,7 +537,7 @@
             </div>
         </div>
     </footer>
-    <script src="{{ asset('src/js/app.js') }}"></script>
+    <script src="src/js/app.js"></script>
 </body>
 
 </html>

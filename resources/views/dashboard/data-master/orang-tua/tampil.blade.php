@@ -4,6 +4,14 @@
 @section('content')
     <div class="row">
         <div class="col-12">
+			@if (session()->has('notifikasi'))
+                @if (session('notifikasi')['type'] === 'success')
+                   <p class="alert alert-success">{{session('notifikasi')['msg']}}</p>
+                @else
+                    <p class="alert alert-danger">{{session('notifikasi')['msg']}}</p>
+
+                @endif
+            @endif
             <div class="card overflow-hidden">
                 <div class="table-header">
                     <a href="{{ route('dashboard.data-master.orang_tua.tambah') }}" class="btn-add-data">

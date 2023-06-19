@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Dashboard\AuthController;
 use App\Http\Middleware\AdminMiddleware;
 use \App\Http\Controllers\Auth\LoginController;
+Route::view('/','welcome')->name('index');
 //login controller
 Route::get('login',LoginController::class)->middleware('guest')->name('auth.login');
 //dashboard

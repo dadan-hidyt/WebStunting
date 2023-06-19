@@ -18,7 +18,7 @@ class KelurahanDesa extends Model
         return $this->belongsTo(Kecamatan::class);
     }
     public function posyandu(){
-        return $this->hasMany(KelurahanDesa::class);
+        return $this->hasMany(PosyanduPembina::class);
     }
     public function orangTua(){
         return $this->hasMany(OrangTua::class);

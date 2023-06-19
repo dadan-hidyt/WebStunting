@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
         "phpoffice/phpspreadsheet": "^1.29",
+        "rap2hpoutre/fast-excel": "^5.2",
         "yajra/laravel-datatables-oracle": "^10.4"
     },
     "require-dev": {
