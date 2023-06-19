@@ -40,7 +40,7 @@
                                     <input type="file" class="form-control" name="file" id="">
                                 </div>
                                 <div class="btn-group d-flex flex-fill flex-wrap">
-                                    <a href="" class="btn btn-excel">Download template <i
+                                    <a href="{{asset('xlsx/format-import-balita.xlsx')}}" class="btn btn-excel">Download template <i
                                             class="far fa-file-excel"></i></a>
                                     <button class="btn">Upload data balita</button>
                                 </div>
@@ -94,9 +94,6 @@
                 window.open(`{{ route('ajax.export.export-pengukuran') }}?kab_id=${kec}`);
                 export_pengukuran.html("Export Data Balita");
             })
-
-
-
         });
         const form = document.getElementById('form-upload-excel-anak');
         form.addEventListener('submit', function($e) {

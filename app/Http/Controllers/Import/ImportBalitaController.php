@@ -96,8 +96,6 @@ class ImportBalitaController extends Controller
             $log['status']  = false;
             $log['gagal']['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
         }
-      
-      
         return response()->json($log);
     }
 }
