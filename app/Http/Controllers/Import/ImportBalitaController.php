@@ -94,7 +94,7 @@ class ImportBalitaController extends Controller
             });
         } else{
             $log['status']  = false;
-            $log['gagal'][]['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
+            $log['gagal']['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
         }
       
       
