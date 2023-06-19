@@ -13,14 +13,14 @@
             <div class="content">
 
                 <div class="d-flex flex-column align-items-center text-center w-50">
-                    <input type="text" class="knob" value="{{ $stunting }}" data-thickness="0.2"
+                    <input type="text" class="knob" disabled value="{{ $stunting }}" data-thickness="0.2"
                         data-max="{{ $total_balita }}" data-width="100" data-height="100" data-fgColor="#00a65a">
                     <label for="" class="mt-3">
                         Balita Stunting
                     </label>
                 </div>
                 <div class="d-flex flex-column align-items-center text-center w-50">
-                    <input type="text" class="knob" value="{{ $total_pengukuran }}" data-max="{{ $total_balita }}"
+                    <input data-thickness="0.2" disabled type="text" class="knob" value="{{ $total_pengukuran }}" data-max="{{ $total_balita }}"
                         data-width="100" data-height="100" data-fgColor="#0099ff">
                     <label for="" class="mt-3">
                         Jumlah Pengukuran
