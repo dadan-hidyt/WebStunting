@@ -117,6 +117,8 @@
                             }
                         }
                         $('#error').html(err)
+                    } else {
+                        $("#error").html(`<p class='alert alert-success'>Data Berhasil Di import</p>`)
                     }
                 }
             })
