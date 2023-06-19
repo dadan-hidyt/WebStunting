@@ -83,18 +83,18 @@ class ImportBalitaController extends Controller
                         DB::commit();
                     } else {
                         $log['status']  = false;
-                        $log['gagal'][$anak->get('nik') . "-" . $anak->get('nama_lengkap')] = "Gagal saat menyimpan data";
+                        $log['gagal'][] = $anak->get('nik') . "-" . $anak->get('nama_lengkap')." Gagal saat menyimpan data";
                         DB::rollBack();
                     }
                 } else {
                     $log['status']  = false;
-                    $log['gagal'][$anak->get('nik') . "-" . $anak->get('nama_lengkap')] = "Nik sudah di gunakan";
+                    $log['gagal'][] = $anak->get('nik') . "-" . $anak->get('nama_lengkap')." Nik sudah di gunakan";
                     DB::rollBack();
                 }
             });
         } else{
             $log['status']  = false;
-            $log['gagal']['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
+            $log['gagal'][]['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
         }
       
       

@@ -112,12 +112,14 @@
                 cache: false,
                 success: function(e) {
                     if(e.status === false) {
+                        let err = '';
                         for (const key in e.gagal) {
                             if (e.gagal.hasOwnProperty.call(e.gagal, key)) {
                                 const element = e.gagal[key];
-                                console.log(element);
+                                err+= `<p class='alert alert-danger'>${element}</p>`;
                             }
                         }
+                        $('#error').html(err)
                     }
                 }
             })
