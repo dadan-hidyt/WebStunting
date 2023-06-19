@@ -13,6 +13,9 @@ class OrangTua extends Model
     public function scopeGetByNik($query,$nik) {
         return $query->where('nik',$nik);
     }
+    public function scopeGetByNoKk($query, $noKK){
+        return $query->where('nomor_kk',$noKK);
+    }
     public function anak(){
         return $this->hasMany(Anak::class);
     }

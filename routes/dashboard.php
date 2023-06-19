@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\KelurahanDesaController;
 use App\Http\Controllers\Export\ExportBalitaController;
 use App\Http\Controllers\Dashboard\OrangTuaController;
 use App\Http\Controllers\Dashboard\PosyanduPembinaController;
+use App\Http\Controllers\Import\ImportBalitaController;
 use App\Models\KabupatenKota;
 
 Route::get('/', HomeController::class)->name('.home');
@@ -77,4 +78,6 @@ Route::prefix('/export-import')->name('.export-import.')->group(function () {
     Route::view('/', 'dashboard.export-import.index', [
         'kabupaten_kota' => KabupatenKota::all(),
     ])->name('index');
+
+        Route::get('/import/import-balita',[ImportBalitaController::class,'index'])->name('.import-balita');
 });
