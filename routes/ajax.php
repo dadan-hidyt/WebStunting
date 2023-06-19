@@ -7,10 +7,12 @@ use App\Http\Controllers\Ajax\DataTableKecamatanController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Ajax\DataTableKelurahanDesa;
 use App\Http\Controllers\Ajax\DataTableOrangTuaController;
+use App\Http\Controllers\Ajax\DataTablePengukuranController;
 use App\Http\Controllers\Ajax\DataTablePosyanduController;
 use App\Http\Controllers\Dashboard\ExportController;
 
 Route::get('balita',[DataTableBalitaController::class,'index'])->name('.balita.semua');
+Route::get('hasil-pengukuran',[DataTablePengukuranController::class,'index'])->name('.pengukuran.semua');
 Route::get('balita/stunting',[DataTableBalitaController::class,'getDataStunting'])->name('.balita.getDataStunting');
 Route::get('kecamatan', [DataTableKecamatanController::class,'index'])->name('.kecamatan.semua');
 Route::get('kabupaten-kota', [\App\Http\Controllers\Ajax\DataTableKabupatenKota::class,'index'])->name('.kabupaten_kota.semua');

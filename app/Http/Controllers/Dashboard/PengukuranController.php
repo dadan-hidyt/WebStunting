@@ -21,7 +21,9 @@ class PengukuranController extends Controller
        }
     }
     public function hasilPengukuran(){
-        return [];
+        return view('dashboard.pengukuran.hasil-pengukuran',[
+            'data' => Pengukuran::all(),
+        ]);
     }
     public function inputPengukuranByNik(){
         $title = "Input NIK Anak";
