@@ -31,6 +31,7 @@
                     Impor data dari Excel
                 </div>
                 <div class="card-body">
+                    <div id="error"></div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <form id='form-upload-excel-anak' method="POST" action="">
@@ -110,7 +111,14 @@
                 contentType: false,
                 cache: false,
                 success: function(e) {
-                    console.log(e)
+                    if(e.status === false) {
+                        for (const key in e.gagal) {
+                            if (e.gagal.hasOwnProperty.call(e.gagal, key)) {
+                                const element = e.gagal[key];
+                                console.log(element);
+                            }
+                        }
+                    }
                 }
             })
         })

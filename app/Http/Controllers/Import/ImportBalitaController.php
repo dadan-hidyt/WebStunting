@@ -40,51 +40,64 @@ class ImportBalitaController extends Controller
     public function index()
     {
         $log = [];
-        $fastExcel = new FastExcel();
-        $data = $fastExcel->import(base_path('Untitled spreadsheet (5).xlsx'), function ($line) use (&$log) {
-            //orang tua
-            DB::beginTransaction();
-            $orangTua = collect([]);
-            $orangTua->put('nama', $line['NAMA ORANG TUA'] ?? null);
-            $orangTua->put('alamat_lengkap', $line['ALAMAT'] ?? null);
-            $orangTua->put('pekerjaan', $line['PEKERJAAN ORANG TUA'] ?? null);
-            $orangTua->put('kelurahan_desa_id', $this->detecDesa($line['KELURAHAN/DESA'])->id ?? null);
-            $orangTua->put('pekerjaan', $line['PEKERJAAN ORANG TUA'] ?? null);
-            $orangTua->put('kontak', $line['KONTAK'] ?? null);
-            $orangTua->put('nomor_kk', $line['NOMOR KK'] ?? null);
-            $orangTua->put('nik', $line['NIK ORANG TUA'] ?? null);
-            $orangTua->put('posyandu_pembina_id', $this->detectPosyandu($line['POSYANDU'])->id ?? null);
-            if (($ortu = OrangTua::getByNik($orangTua->get('nik'))->first()) || OrangTua::getByNoKk($orangTua->get('nomor_kk'))->first()) {
-                $orang_tua_id = $ortu->id;
-            } else {
-                $ortu = OrangTua::create($orangTua->all());
-                $orang_tua_id = $ortu->id;
-            }
-            $anak = collect([]);
-            $anak->put('orang_tua_id', $orang_tua_id);
-            $anak->put('nik', $line['NIK'] ?? null);
-            $anak->put('nama_lengkap', $line['NAMA LENGKAP'] ?? null);
-            $anak->put('jenis_kelamin', $this->parseJenisKelamin($line['JENIS KELAMIN'] ?? null) ?? null);
-            $anak->put('tanggal_lahir', $line['TANGGAL LAHIR'] ?? null);
-            $anak->put('tempat_lahir', $line['TEMPAT LAHIR'] ?? null);
-            $anak->put('anak_ke', $line['ANAK KE']);
-            $anak->put('tempat_lahir', $line['TEMPAT LAHIR'] ?? null);
-            $anak->put('berat_lahir', $line['BERAT LAHIR'] ?? null);
-            $anak->put('umur', hitungBulan($anak->get('tanggal_lahir')->format('Y-m-d')));
-            $anak->put('tinggi', $line['TINGGI LAHIR'] ?? $line['PANJANG LAHIR'] ?? null);
-            if (!$this->cekNik($anak->get('nik'))) {
-                if (Anak::create($anak->all())) {
-                    $log['sukses'] = true;
-                    DB::commit();
+        $file = request()->file('file');
+        $filename = $file->hashName(storage_path('app/tmp'));
+      
+        if ( $file->extension() == 'xlsx' && $file->store('tmp') && file_exists($filename) ) {
+            $fastExcel = new FastExcel();
+            $data = $fastExcel->import($filename, function ($line) use (&$log,$filename) {
+                //orang tua
+              
+                DB::beginTransaction();
+                $orangTua = collect([]);
+                $orangTua->put('nama', $line['NAMA ORANG TUA'] ?? null);
+                $orangTua->put('alamat_lengkap', $line['ALAMAT'] ?? null);
+                $orangTua->put('pekerjaan', $line['PEKERJAAN ORANG TUA'] ?? null);
+                $orangTua->put('kelurahan_desa_id', $this->detecDesa($line['KELURAHAN/DESA'])->id ?? null);
+                $orangTua->put('pekerjaan', $line['PEKERJAAN ORANG TUA'] ?? null);
+                $orangTua->put('kontak', $line['KONTAK'] ?? null);
+                $orangTua->put('nomor_kk', $line['NOMOR KK'] ?? null);
+                $orangTua->put('nik', $line['NIK ORANG TUA'] ?? null);
+                $orangTua->put('posyandu_pembina_id', $this->detectPosyandu($line['POSYANDU'])->id ?? null);
+                if (($ortu = OrangTua::getByNik($orangTua->get('nik'))->first()) || OrangTua::getByNoKk($orangTua->get('nomor_kk'))->first()) {
+                    $orang_tua_id = $ortu->id;
                 } else {
-                    $log['gagal'][$anak->get('nik') . "-" . $anak->get('nama_lengkap')] = "Gagal saat menyimpan data";
+                    $ortu = OrangTua::create($orangTua->all());
+                    $orang_tua_id = $ortu->id;
+                }
+                $anak = collect([]);
+                $anak->put('orang_tua_id', $orang_tua_id);
+                $anak->put('nik', $line['NIK'] ?? null);
+                $anak->put('nama_lengkap', $line['NAMA LENGKAP'] ?? null);
+                $anak->put('jenis_kelamin', $this->parseJenisKelamin($line['JENIS KELAMIN'] ?? null) ?? null);
+                $anak->put('tanggal_lahir', $line['TANGGAL LAHIR'] ?? null);
+                $anak->put('tempat_lahir', $line['TEMPAT LAHIR'] ?? null);
+                $anak->put('anak_ke', $line['ANAK KE']);
+                $anak->put('tempat_lahir', $line['TEMPAT LAHIR'] ?? null);
+                $anak->put('berat_lahir', $line['BERAT LAHIR'] ?? null);
+                $anak->put('umur', hitungBulan($anak->get('tanggal_lahir')->format('Y-m-d')));
+                $anak->put('tinggi', $line['TINGGI LAHIR'] ?? $line['PANJANG LAHIR'] ?? null);
+                if (!$this->cekNik($anak->get('nik'))) {
+                    if (Anak::create($anak->all())) {
+                        $log['sukses'] = true;
+                        DB::commit();
+                    } else {
+                        $log['status']  = false;
+                        $log['gagal'][$anak->get('nik') . "-" . $anak->get('nama_lengkap')] = "Gagal saat menyimpan data";
+                        DB::rollBack();
+                    }
+                } else {
+                    $log['status']  = false;
+                    $log['gagal'][$anak->get('nik') . "-" . $anak->get('nama_lengkap')] = "Nik sudah di gunakan";
                     DB::rollBack();
                 }
-            } else {
-                $log['gagal'][$anak->get('nik') . "-" . $anak->get('nama_lengkap')] = "Nik sudah di gunakan";
-                DB::rollBack();
-            }
-        });
+            });
+        } else{
+            $log['status']  = false;
+            $log['gagal']['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
+        }
+      
+      
         return response()->json($log);
     }
 }
