@@ -33,17 +33,10 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-lg-6">
-                        <form action="">
+                        <form id='form-upload-excel-anak' action="">
                             <div class="form-group">
-                                <label for="">Pilih Kecamatan</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">--pilih salah satu--</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                </select>
+                                <label for="">Pilih File (excel)</label>
+                                <input type="file" class="form-control" name="file" id="">
                             </div>
                             <div class="btn-group d-flex flex-fill flex-wrap">
                                 <a href="" class="btn btn-excel">Download template <i
@@ -99,8 +92,13 @@
                     const kec = $('#kabupaten').val();
                     window.open(`{{route('ajax.export.export-pengukuran')}}?kab_id=${kec}`);
                     export_pengukuran.html("Export Data Balita");
-
                 })
-            })
+
+
+                const form
+
+            });
+
+
         </script>
         @endpush
