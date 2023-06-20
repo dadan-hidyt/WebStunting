@@ -79,5 +79,5 @@ Route::prefix('/export-import')->name('.export-import.')->group(function () {
         'kabupaten_kota' => KabupatenKota::all(),
     ])->name('index');
         Route::get('/import/import-balita',[ImportBalitaController::class,'index'])->name('import-balita');
-        Route::post('/import/import-balita',[ImportBalitaController::class,'index'])->name('import-balita');
-}); 
+        Route::post('/import/import-balita',[ImportBalitaController::class,'index'])->name('import-balita-post');
+});
