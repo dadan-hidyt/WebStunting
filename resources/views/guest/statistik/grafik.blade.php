@@ -56,10 +56,11 @@
     const input = document.getElementById('select_kota');
 
     input.onchange = function (e) {
-       const carts1 = chartsByJenisKelamin({
+        chartsByJenisKelamin({
             url : '{{route('ajax.statistik.byKabKota')}}?kab_kota_id='+e.target.value,
         }).render();
     }
+
 </script>
 </body>
 </html>

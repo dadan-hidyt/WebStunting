@@ -1,9 +1,7 @@
 const chartsByJenisKelamin = function (data){
     var options = {
-        series: [],
-        dataLables : {
-            enabled : false,
-        },
+        series: []
+       ,
         noData : {
             text : 'Loading...'
         },
@@ -18,15 +16,11 @@ const chartsByJenisKelamin = function (data){
                 columnWidth: "40%"
             }
         },
-      
-      
-        fill: {
-            opacity: 1
-        },
+
+
+
         colors: ["#039dfc", "#fc0313"],
-        legend: {
-            show: false
-        },
+
 
         title: {
             text: 'Statistik Berdasarkan Jenis Kelamin',
@@ -36,14 +30,12 @@ const chartsByJenisKelamin = function (data){
 
     var chart = new ApexCharts(document.querySelector("#byJk"), options);
 
-    const getData = async function(){
-        const response = await fetch(data.url);
-        const jsonData = await response.json();
+
+    fetch(data.url).then(x=>x.json()).then(y=>{
         chart.updateSeries([{
             name : 'Total',
-            data : jsonData.data
-        }])
-    }
-    getData();
+            data : y.data
+        }]);
+    })
     return chart;
 }
