@@ -103,7 +103,7 @@
             data.append('_token', "{{ csrf_token() }}");
             $.ajax({
                 type: "POST",
-                url: "{{ route('dashboard.export-import.import-balita') }}",
+                url: "{{ route('dashboard.export-import.import-balita-post') }}",
                 data: data,
                 processData: false,
                 contentType: false,
