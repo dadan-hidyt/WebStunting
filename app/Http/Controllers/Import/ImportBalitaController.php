@@ -55,12 +55,12 @@ class ImportBalitaController extends Controller
                 $orangTua->put('nama', $line['NAMA ORANG TUA'] ?? null);
                 $orangTua->put('alamat_lengkap', $line['ALAMAT'] ?? null);
                 $orangTua->put('pekerjaan', $line['PEKERJAAN ORANG TUA'] ?? null);
-                $orangTua->put('kelurahan_desa_id', $this->detecDesa($line['KELURAHAN/DESA'])->id ?? null);
+                $orangTua->put('kelurahan_desa_id', $this->detecDesa($line['KELURAHAN/DESA'] ?? null)->id ?? null);
                 $orangTua->put('pekerjaan', $line['PEKERJAAN ORANG TUA'] ?? null);
                 $orangTua->put('kontak', $line['KONTAK'] ?? null);
                 $orangTua->put('nomor_kk', $line['NOMOR KK'] ?? null);
                 $orangTua->put('nik', $line['NIK ORANG TUA'] ?? null);
-                $orangTua->put('posyandu_pembina_id', $this->detectPosyandu($line['POSYANDU'])->id ?? null);
+                $orangTua->put('posyandu_pembina_id', $this->detectPosyandu($line['POSYANDU'] ?? null)->id ?? null);
                 if (($ortu = OrangTua::getByNik($orangTua->get('nik'))->first()) || OrangTua::getByNoKk($orangTua->get('nomor_kk'))->first()) {
                     $orang_tua_id = $ortu->id;
                 } else {

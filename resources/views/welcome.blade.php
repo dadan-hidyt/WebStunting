@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>{{ config('app.name')  }}</title>
 </head>
 
 <body>
@@ -537,7 +537,7 @@
             </div>
         </div>
     </footer>
-    <script src="{{ asset('src/js/app.js') }}"></script>
+    <script src="{{ asset('lp/src/js/app.js') }}"></script>
 </body>
 
 </html>

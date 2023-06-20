@@ -49,20 +49,13 @@
                         <div class="col-12 col-lg-6">
                             <form action="">
                                 <div class="form-group">
-                                    <label for="">Pilih Kecamatan</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">--pilih salah satu--</option>
-                                        <option value="">option</option>
-                                        <option value="">option</option>
-                                        <option value="">option</option>
-                                        <option value="">option</option>
-                                        <option value="">option</option>
-                                    </select>
+                                    <label for="">Pilih File (xlsx)</label>
+                                    <input class="form-control" type="file" name="file">
                                 </div>
                                 <div class="btn-group d-flex flex-fill flex-wrap">
                                     <a href="" class="btn btn-excel">Download template <i
                                             class="far fa-file-excel"></i></a>
-                                    <a href="" class="btn">Upload data pengukuran</a>
+                                    <button class="btn btn-primary">IMPORT</button>
                                 </div>
                             </form>
                         </div>
@@ -108,6 +101,9 @@
                 processData: false,
                 contentType: false,
                 cache: false,
+                error : function (e){
+                    console.log(e)
+                },
                 success: function(e) {
                     $('#import-balita-btn').html('Upload data balita');
                     if(e.status === false) {

@@ -11,7 +11,7 @@
 
             <div class="form-group">
                 <label for="">No KK</label>
-                <input readonly disabled style="background: #dedede;" wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
+                <input readonly disabled style="background: " wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
                 @error('orang_tua.nomor_kk')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
