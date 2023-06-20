@@ -42,10 +42,10 @@ class FormInputPengukuran extends Component
         if ( isset($this->data['cara_ukur']) ) {
             if ( $this->data['cara_ukur'] === 'berdiri' && $umur >= 24 ) {
                 $data->put('tb', $this->data['tinggi']);
-                $data->put('tb_zscore',$pengukuran->ukurTinggiBadanByUmur($this->balita->jenis_kelamin, $umur,$data->get('tb'))->zscore);
+                $data->put('tb_zscore',$pengukuran->ukurTinggiBadanByUmur($this->balita->jenis_kelamin, $umur,$data->get('tb'))->zscore ?? null);
             } else {
                 $data->put('pb', $this->data['tinggi']);
-                $data->put('pb_zscore',$pengukuran->ukurPanjangBadanByUmur($this->balita->jenis_kelamin, $umur,$data->get('pb'))->zscore);
+                $data->put('pb_zscore',$pengukuran->ukurPanjangBadanByUmur($this->balita->jenis_kelamin, $umur,$data->get('pb'))->zscore ?? null);
 
             }
         }
