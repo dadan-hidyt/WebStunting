@@ -97,6 +97,34 @@
             <canvas id="ChartTinggiBadan" class="col-12"></canvas>
         </div>
     </div>
+{{--            <div class="card-header">--}}
+{{--                <div class="card-title">Riwayat Pengukuran</div>--}}
+{{--            </div>--}}
+
+{{--            <div class="card-body">--}}
+{{--                <table class="table table-bordered table-hover">--}}
+{{--                    <thead>--}}
+{{--                        <tr>--}}
+{{--                            <th>BLN</th>--}}
+{{--                            <th>TANGGAL UKUR</th>--}}
+{{--                            <th>BB</th>--}}
+{{--                            <th>BB ZSCORE</th>--}}
+{{--                            <th>BB STATUS</th>--}}
+{{--                            <th>TB</th>--}}
+{{--                            <th>TB ZSCORE</th>--}}
+{{--                            <th>TB STATUS</th>--}}
+{{--                            <th>LINGKAR KEPALA</th>--}}
+{{--                            <th>LILA</th>--}}
+{{--                        </tr>--}}
+{{--                    </thead>--}}
+{{--                    <tbody>--}}
+{{--                        <tr>--}}
+{{--                            <td>0</td>--}}
+{{--                            <td>-</td>--}}
+{{--                        </tr>--}}
+{{--                    </tbody>--}}
+{{--                </table>--}}
+{{--            </div>--}}
 
 </div>
 </div>
