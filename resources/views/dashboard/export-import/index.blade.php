@@ -37,12 +37,12 @@
                             <form id='form-upload-excel-anak' method="POST" action="">
                                 <div class="form-group">
                                     <label for="">Pilih File (excel)</label>
-                                    <input type="file" class="form-control" name="file" id="">
+                                    <input required type="file" class="form-control" name="file" id="">
                                 </div>
                                 <div class="btn-group d-flex flex-fill flex-wrap">
                                     <a href="{{asset('xlsx/format-import-balita.xlsx')}}" class="btn btn-excel">Download template <i
                                             class="far fa-file-excel"></i></a>
-                                    <button class="btn">Upload data balita</button>
+                                    <button id="import-balita-btn" class="btn">Upload data balita</button>
                                 </div>
                             </form>
                         </div>
@@ -98,6 +98,7 @@
         const form = document.getElementById('form-upload-excel-anak');
         form.addEventListener('submit', function($e) {
             $e.preventDefault();
+            $('#import-balita-btn').html("Mengimport...");
             const data = new FormData($e.target);
             data.append('_token', "{{ csrf_token() }}");
             $.ajax({
@@ -108,6 +109,7 @@
                 contentType: false,
                 cache: false,
                 success: function(e) {
+                    $('#import-balita-btn').html('Upload data balita');
                     if(e.status === false) {
                         let err = '';
                         for (const key in e.gagal) {

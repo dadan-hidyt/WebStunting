@@ -63,6 +63,7 @@
                                 <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Umur</th>
+                                <th>Lingkar Kepala (cm)</th>
                                 <th>BB(KG)</th>
                                 <th>TB/PB(CM)</th>
                                 <th>ZS BB/U(Z-Score)</th>
@@ -80,6 +81,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->tanggal_ukur }}</td>
                                         <td>{{ $item->umur }} Bulan</td>
+                                        <td>{{ $item->lingkar_kepala }} Cm</td>
                                         <!-- BB -->
                                         <td>{{ $item->bb }} Kg</td>
                                         <!-- TB -->

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Anak;
 use App\Models\KelurahanDesa;
 use App\Models\OrangTua;
+use App\Models\Pengukuran;
 use App\Models\PosyanduPembina;
+use App\Services\PengukuranService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Rap2hpoutre\FastExcel\FastExcel;
@@ -42,12 +44,12 @@ class ImportBalitaController extends Controller
         $log = [];
         $file = request()->file('file');
         $filename = $file->hashName(storage_path('app/tmp'));
-      
+
         if ( $file->extension() == 'xlsx' && $file->store('tmp') && file_exists($filename) ) {
             $fastExcel = new FastExcel();
             $data = $fastExcel->import($filename, function ($line) use (&$log,$filename) {
                 //orang tua
-              
+
                 DB::beginTransaction();
                 $orangTua = collect([]);
                 $orangTua->put('nama', $line['NAMA ORANG TUA'] ?? null);
@@ -78,7 +80,11 @@ class ImportBalitaController extends Controller
                 $anak->put('umur', hitungBulan($anak->get('tanggal_lahir')->format('Y-m-d')));
                 $anak->put('tinggi', $line['TINGGI LAHIR'] ?? $line['PANJANG LAHIR'] ?? null);
                 if (!$this->cekNik($anak->get('nik'))) {
-                    if (Anak::create($anak->all())) {
+                    if ($anak = Anak::create($anak->all())) {
+                        //jika anak di tambahkan berhasil buat juga pengukuran pertama
+
+                        $this->createPengukuran($anak);
+
                         $log['sukses'] = true;
                         DB::commit();
                     } else {
@@ -97,5 +103,22 @@ class ImportBalitaController extends Controller
             $log['gagal']['error'] = "File Gagal Di upload, Cek extensi atau file terlalu  besar";
         }
         return response()->json($log);
+    }
+
+    private function createPengukuran(Anak $anak)
+    {
+        $pengukuranService = new PengukuranService();
+        $pengukuran = collect([]);
+        $pengukuran->put('bb', $anak->berat_lahir);
+        $pengukuran->put('bb_zscore',$pengukuranService->ukurBeratBadanByUmur($anak->jenis_kelamin, 0,$anak->berat_lahir)->zscore ?? null);
+        $pengukuran->put('pb',$pengukuranService->ukurBeratBadanByUmur($anak->jenis_kelamin, 0,$anak->berat_lahir)->zscore ?? null);
+        $pengukuran->put('pb_zscore',$pengukuranService->ukurPanjangBadanByUmur($anak->jenis_kelamin, 0,(int) $anak->tinggi)->zscore ?? null);
+        $pengukuran->put('umur',0);
+        $pengukuran->put('lila',$anak->lila ?? null);
+        $pengukuran->put('lingkar_kepala',null);
+        $pengukuran->put('tanggal_ukur',now()->format('Y-m-d'));
+        $pengukuran->put('cara_ukur','terlentang');
+        $pengukuran->put('anak_id',$anak->id);
+        Pengukuran::create($pengukuran->all());
     }
 }
