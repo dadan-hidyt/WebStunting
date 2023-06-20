@@ -11,7 +11,7 @@
 
             <div class="form-group">
                 <label for="">No KK</label>
-                <input wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
+                <input readonly disabled style="background: #dedede;" wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
                 @error('orang_tua.nomor_kk')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -120,7 +120,7 @@
 
             <div class="form-group">
                 <label for="">NIK Orangtua</label>
-                <input wire:model='orang_tua.nik' type="text" @class([
+                <input disabled readonly style="background: #dedede;" wire:model='orang_tua.nik' type="text" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.nik'),
                 ])>
@@ -134,7 +134,7 @@
 
             <div class="form-group">
                 <label for="">Nama Orangtua</label>
-                <input wire:model.defer='orang_tua.nama' type="text" @class([
+                <input disabled readonly style="background: #dedede;" wire:model.defer='orang_tua.nama' type="text" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.nama'),
                 ])>
@@ -145,7 +145,7 @@
 
             <div class="form-group">
                 <label for="">Telp/Hp Orang Tua</label>
-                <input type="text" wire:model.defer='orang_tua.kontak' @class([
+                <input disabled readonly style="background: #dedede;" type="text" wire:model.defer='orang_tua.kontak' @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.kontak'),
                 ])>
@@ -155,7 +155,7 @@
             </div>
             <div class="form-group">
                 <label for="">Desa/Kelurahan</label>
-                <select wire:model='orang_tua.kelurahan_desa_id' name="" id="" @class([
+                <select disabled readonly style="background: #dedede;" wire:model='orang_tua.kelurahan_desa_id' name="" id="" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.kelurahan_desa_id'),
                 ])>
@@ -172,7 +172,7 @@
             </div>
             <div class="form-group">
                 <label for="">Posyandu Pembina</label>
-                <select wire:model.defer='orang_tua.posyandu_pembina_id' name="" id="" @class([
+                <select disabled readonly style="background: #dedede;" wire:model.defer='orang_tua.posyandu_pembina_id' name="" id="" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.posyandu_pembina_id'),
                 ])>
@@ -189,7 +189,7 @@
             </div>
             <div class="form-group">
                 <label for="">Alamat Lengkap</label>
-                <input wire:model.defer='orang_tua.alamat_lengkap' type="text" @class([
+                <input disabled readonly style="background: #dedede;" wire:model.defer='orang_tua.alamat_lengkap' type="text" @class([
                     'form-control',
                     'is-invalid' => $errors->has('orang_tua.alamat_lengkap'),
                 ])>

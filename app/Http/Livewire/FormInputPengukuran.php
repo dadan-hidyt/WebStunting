@@ -11,11 +11,11 @@ class FormInputPengukuran extends Component
     public $data = [];
     public $balita;
     protected $rules = [
-        'data.berat_badan' => 'required',
-        'data.tinggi' => ['required'],
+        'data.berat_badan' => 'required|integer',
+        'data.tinggi' => ['required','integer'],
         'data.tanggal_ukur' => ['required'],
         'data.vitamin_a' => ['required'],
-        'data.lingkar_kepala' => ['required'],
+        'data.lingkar_kepala' => ['required','integer'],
     ];
     public function getUmur(){
         return intval(hitungBulan($this->balita->tanggal_lahir));
@@ -52,9 +52,9 @@ class FormInputPengukuran extends Component
         if ( $data->all() ) {
             if ( Pengukuran::create($data->all()) ) {
                 return redirect()->route('dashboard.pengukuran.ukur',$this->balita->id);
-            } 
+            }
         }
-        
+
     }
     public function render()
     {

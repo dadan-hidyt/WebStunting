@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label for="">Cara Ukur Tinggi Badan</label>
-                <select wire:model.defer='data.cara_ukur' name="" id="" class="form-control">
+                <select disabled readonly="true" wire:model.defer='data.cara_ukur' name="" id="" class="form-control">
                     <option value="">--pilih salah satu--</option>
                     <option value="berdiri">Berdiri</option>
                     <option value="telentang">Terlentang</option>

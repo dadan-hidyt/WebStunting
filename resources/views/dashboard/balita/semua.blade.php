@@ -64,6 +64,7 @@
             $("#example1").DataTable({
                 processing: true,
                 serverSide: true,
+                lengthMenu:[5,10,15,20,25,30,50,100,500,1000,1500],
                 ajax: "{{ route('ajax.balita.semua') }}",
                 columns: [{
                         data: 'DT_RowIndex',
