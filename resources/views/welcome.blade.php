@@ -202,7 +202,7 @@
                     <div
                         class="absolute aspect-square w-32 bg-primary -z-10 -top-4 -left-4 lg:-top-4 lg:-left-4 rounded-lg">
                     </div>
-                    <img src="src/assets/image/group-kids-friend-laughing-together 1.png"
+                    <img src="{{ asset('lp/src/assets/image/group-kids-friend-laughing-together 1.png') }}"
                         class="object-cover rounded-lg">
                 </div>
                 <div class="lg:col-span-3">
@@ -516,7 +516,7 @@
                         pencegahan dan pencatatan
                         stunting</p>
                     <a href="" class="relative block overflow-hidden mt-4 w-[160px] h-fit">
-                        <img src="src/assets/image/new-get-it-on-google-play-png-logo-20.png"
+                        <img src="{{ asset('lp/src/assets/image/new-get-it-on-google-play-png-logo-20.png') }}"
                             class="w-full object-cover">
                     </a>
                 </div>
