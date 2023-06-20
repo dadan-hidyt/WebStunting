@@ -17,7 +17,9 @@
                 <label for="" class="form-label">Pilih Kabupaten / Kota</label>
                 <select name="" id="select_kota" class="form-control">
                     <option value="">Pilih</option>
-                    <option value="1">Sumedang</option>
+                    @foreach ($kab_kota as $item)
+                    <option value="{{$item->id}}">{{$item->nama_kab_kota}}</option>
+                    @endforeach
                 </select>
             </form>
         </div>
@@ -54,12 +56,10 @@
     const input = document.getElementById('select_kota');
 
     input.onchange = function (e) {
-        chartsByJenisKelamin({
+       const carts1 = chartsByJenisKelamin({
             url : '{{route('ajax.statistik.byKabKota')}}?kab_kota_id='+e.target.value,
-        });
+        }).render();
     }
-
-
 </script>
 </body>
 </html>

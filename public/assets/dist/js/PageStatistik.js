@@ -18,19 +18,8 @@ const chartsByJenisKelamin = function (data){
                 columnWidth: "40%"
             }
         },
-
-        stroke: {
-            show: true,
-            width: 1
-        },
-        states: {
-            hover: {
-                filter: {
-                    type: "none",
-                    value: 0.1
-                }
-            }
-        },
+      
+      
         fill: {
             opacity: 1
         },
@@ -56,5 +45,5 @@ const chartsByJenisKelamin = function (data){
         }])
     }
     getData();
-    chart.render();
+    return chart;
 }
