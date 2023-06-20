@@ -22,3 +22,6 @@ Route::get('orang-tua', [DataTableOrangTuaController::class,'index'])->name('.or
 Route::get('anak/getAnak/{anak?}', [AnakAjaxController::class,'getAnakById'])->name('.anak.getAnak');
 Route::get('/export/balita',[ExportController::class,'exportBalita'])->name('.export.export-balita');
 Route::get('/export/pengukuran',[ExportController::class,'exportPengukuran'])->name('.export.export-pengukuran');
+
+//ajax statistik
+Route::get('/statistik/grafik/stat_by_kabupaten_kota',[\App\Http\Controllers\Global\StatistikController::class,'getByKabKota'])->name('.statistik.byKabKota');
