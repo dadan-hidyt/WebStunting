@@ -13,6 +13,9 @@ class Kecamatan extends Model
     public function kelurahanDesa(){
         return $this->hasMany(KelurahanDesa::class);
     }
+    public function scopeGetByKabKota($query,$kabKotaId){
+        return $query->where('kabupaten_kota_id',$kabKotaId);
+    }
     public function orangTua(){
         return $this->hasMany(OrangTua::class);
     }

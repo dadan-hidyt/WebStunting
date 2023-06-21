@@ -26,3 +26,5 @@ Route::get('/export/pengukuran',[ExportController::class,'exportPengukuran'])->n
 //ajax statistik
 Route::get('/statistik/grafik/kab-kota/stat_by_umur',[\App\Http\Controllers\Global\StatistikController::class,'getByUmur'])->name('.statistik.byUmur');
 Route::get('/statistik/grafik/kab-kota/stat_by_jenis_kelamin',[\App\Http\Controllers\Global\StatistikController::class,'getByJenisKelamin'])->name('.statistik.byJenisKelamin');
+Route::get('/statistik/grafik/kab-kota/prevalensi',[\App\Http\Controllers\Global\StatistikController::class,'prevalensi'])->name('.statistik.prevalensi');
+Route::get('/statistik/grafik/kab-kota/stat_by_kecamatan',[\App\Http\Controllers\Global\StatistikController::class,'byKecamatan'])->name('.statistik.byKecamatan');

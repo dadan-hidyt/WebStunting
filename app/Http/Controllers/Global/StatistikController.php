@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Global;
 use App\Http\Controllers\Controller;
 use App\Models\Anak;
 use App\Models\KabupatenKota;
+use App\Models\Kecamatan;
 use App\Models\Pengukuran;
 use Illuminate\Http\Request;
 
@@ -16,12 +17,41 @@ class StatistikController extends Controller
             'kab_kota' => KabupatenKota::all(),
         ]);
     }
+    public function byKecamatan(){
+        $kab_kota = \request()->kab_kota_id;
+        $kec = Kecamatan::getByKabKota($kab_kota)->get();
+        $stat = collect([]);
 
+        $stat->push(['Total',"Total"]);
+        foreach($kec as $item){
+            $total = 0;
+            foreach($this->_getPengukuran() as $items){
+                if ($e = $items->orangTua->kelurahanDesa->kecamatan ) {
+                   $total++;
+                }
+            }
+            $stat->push([$item->nama_kecamatan,$total]);
+        }
+
+        return response()->json([
+            'data' => $stat->all(),
+        ]);
+    }
+    public function prevalensi(){
+        $total_anak = Anak::all()->count();
+
+        $total_stunting = $this->_getPengukuran()->count();
+        return response()->json([
+            'prev' => ($total_stunting / $total_anak),
+            'total_anak' => $total_anak,
+            'total_stunting' => $total_stunting,
+        ]);
+    }
     protected function _getPengukuran()
     {
         $kabKota = \request()->kab_kota_id ?? null;
         $kabupaten = KabupatenKota::find($kabKota);
-        $anak = Anak::with(['orangTua'])->whereHas('orangTua.kelurahanDesa.kecamatan.kabupatenKota',function($query) use($kabKota){
+        $anak = Anak::with(['orangTua','orangTua.kelurahanDesa.kecamatan'])->whereHas('orangTua.kelurahanDesa.kecamatan.kabupatenKota',function($query) use($kabKota){
             return $query->where('id',$kabKota);
         })->stunting()->get();
         $anak = collect($anak)->filter(function($e){
