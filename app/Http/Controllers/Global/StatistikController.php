@@ -51,9 +51,13 @@ class StatistikController extends Controller
     {
         $kabKota = \request()->kab_kota_id ?? null;
         $kabupaten = KabupatenKota::find($kabKota);
-        $anak = Anak::with(['orangTua','orangTua.kelurahanDesa.kecamatan'])->whereHas('orangTua.kelurahanDesa.kecamatan.kabupatenKota',function($query) use($kabKota){
-            return $query->where('id',$kabKota);
-        })->stunting()->get();
+        if($kabKota) {
+            $anak = Anak::with(['orangTua','orangTua.kelurahanDesa.kecamatan'])->whereHas('orangTua.kelurahanDesa.kecamatan.kabupatenKota',function($query) use($kabKota){
+                return $query->where('id',$kabKota);
+            })->stunting()->get();
+        } else {
+            $anak = Anak::with(['orangTua','orangTua.kelurahanDesa.kecamatan'])->stunting()->get();
+        }
         $anak = collect($anak)->filter(function($e){
             if (isset($e->pengukuran[0])) {
                 return $e;
