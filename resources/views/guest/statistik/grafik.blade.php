@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-2">
         <div class="card">
             <div class="card-header bg-primary text-white">
                 <div class="card-title">Pilih Kabupaten / Kota</div>
