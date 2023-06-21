@@ -143,6 +143,10 @@
             TotalKeseluruhanPerKecamatan({url: '{{ route('ajax.statistik.byKecamatan') }}?kab_kota_id=' + e.target.value});
 
         }
+        DrawChartJk({url: '{{ route('ajax.statistik.byJenisKelamin') }}?kab_kota_id=1'});
+        drawByUmur({url: '{{ route('ajax.statistik.byUmur') }}?kab_kota_id=1'});
+        PrevalensiChart({url: '{{ route('ajax.statistik.prevalensi') }}?kab_kota_id=1'});
+        TotalKeseluruhanPerKecamatan({url: '{{ route('ajax.statistik.byKecamatan') }}?kab_kota_id=1'});
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript"></script>
