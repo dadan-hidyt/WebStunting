@@ -26,7 +26,7 @@ class StatistikController extends Controller
         foreach($kec as $item){
             $total = 0;
             foreach($this->_getPengukuran() as $items){
-                if ($e = $items->orangTua->kelurahanDesa->kecamatan ) {
+                if ($e = $items->orangTua->kelurahanDesa->kecamatan->id === $item->id ) {
                    $total++;
                 }
             }
