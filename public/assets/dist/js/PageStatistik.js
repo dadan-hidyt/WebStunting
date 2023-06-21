@@ -14,7 +14,9 @@ function barChart(params) {
         function buatChart() {
             var classicChart = new google.visualization.ColumnChart(chartDiv);
             classicChart.draw(data, {
-                width : params.width ?? null,
+                width : params.width ?? '100%',
+                bar: { groupWidth: '25%' },
+
                 is3D : true,
                 series: {
                     0: {
@@ -45,6 +47,7 @@ function donutCharts(params) {
     function drawChart() {
         var data = google.visualization.arrayToDataTable(params.data ?? '');
         var options = {
+            width : params.width ?? '100%',
             is3D : true,
             legend: 'none',
             pieSliceText: 'label',
