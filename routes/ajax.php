@@ -24,4 +24,5 @@ Route::get('/export/balita',[ExportController::class,'exportBalita'])->name('.ex
 Route::get('/export/pengukuran',[ExportController::class,'exportPengukuran'])->name('.export.export-pengukuran');
 
 //ajax statistik
-Route::get('/statistik/grafik/stat_by_kabupaten_kota',[\App\Http\Controllers\Global\StatistikController::class,'getByKabKota'])->name('.statistik.byKabKota');
+Route::get('/statistik/grafik/kab-kota/stat_by_umur',[\App\Http\Controllers\Global\StatistikController::class,'getByUmur'])->name('.statistik.byUmur');
+Route::get('/statistik/grafik/kab-kota/stat_by_jenis_kelamin',[\App\Http\Controllers\Global\StatistikController::class,'getByJenisKelamin'])->name('.statistik.byJenisKelamin');

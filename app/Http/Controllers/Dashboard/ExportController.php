@@ -21,11 +21,9 @@ class ExportController extends Controller
     }
     public function exportPengukuran(){
         $kab_id = request()->kab_id ?? null;
-
         $pengukuran = Pengukuran::with('anak.orangTua.kelurahanDesa.kecamatan.kabupatenKota')->whereHas('anak.orangTua.kelurahanDesa.kecamatan.kabupatenKota',function($query) use($kab_id){
             $query->where('id',$kab_id);
         })->get();
-
         return (new FastExcel($pengukuran))->headerStyle($this->style)->download(md5(now()).".xlsx",function($row){
             return array(
                 'No KK' => $row->anak->orangTua->nomor_kk,
@@ -67,3 +65,4 @@ class ExportController extends Controller
         });
     }
 }
+?>
