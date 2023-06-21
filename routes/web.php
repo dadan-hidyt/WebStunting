@@ -9,7 +9,7 @@ Route::view('/','welcome')->name('index');
 Route::get('login',LoginController::class)->middleware('guest')->name('auth.login');
 
 Route::prefix('statistik')->name('statistik.')->group(function (){
-    Route::get('/grafik.html', \App\Http\Controllers\Global\StatistikController::class);
+    Route::get('/grafik.html', \App\Http\Controllers\Global\StatistikController::class)->name('index');
 });
 
 //dashboard

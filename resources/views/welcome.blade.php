@@ -56,7 +56,7 @@
                                 </div>
                             </li>
                         </a>
-                        <a href="#statistic" class="decoration-transparent group">
+                        <a href="{{ route('statistik.index') }}" class="decoration-transparent group">
                             <li class="text-gray-400 relative w-fit">Statistik
                                 <div
                                     class="underline absolute h-[2px] w-[0px] group-hover:w-full bg-primary -bottom-1 transition-all duration-300">
