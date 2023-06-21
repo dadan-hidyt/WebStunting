@@ -16,6 +16,7 @@ class StatistikController extends Controller
             'kab_kota' => KabupatenKota::all(),
         ]);
     }
+
     protected function _getPengukuran()
     {
         $kabKota = \request()->kab_kota_id ?? null;
@@ -54,6 +55,43 @@ class StatistikController extends Controller
                 ['balita', $total_data_balita],
                 ['baduta', $total_data_baduta],
             ]
+            ]);
+            }
+    public function getByKabKota()
+    {
+        $kabKota = \request()->kab_kota_id ?? null;
+        $pengukuran = Pengukuran::with('anak.orangTua.kelurahanDesa.kecamatan.kabupatenKota')
+            ->whereHas('anak.orangTua.kelurahanDesa.kecamatan.kabupatenKota', function ($query) use ($kabKota) {
+                return $query->where('id', $kabKota);
+            });
+        $total_kasus = 0;
+        $jk_l = 0;
+        $jk_p = 0;
+        foreach ($pengukuran->get() as $data) {
+            if ($data->z_score <= -3) {
+                $total_kasus++;
+                if ($data->anak->jenis_kelamin === 'L') {
+                    $jk_l++;
+                } else if ($data->anak->jenis_kelamin === 'P') {
+                    $jk_p++;
+                }
+            }
+        }
+        return response()->json([
+            'data' => [
+                [
+                    'x' => 'TOTAL KASUS',
+                    'y' => $total_kasus,
+                ],
+                [
+                    'x' => 'LAKI LAKI',
+                    'y' => $jk_p,
+                ], [
+                    'x' => 'PEREMPUAN',
+                    'y' => $jk_l,
+                ],
+
+            ]
         ]);
     }
     public function getByJenisKelamin()
@@ -71,7 +109,7 @@ class StatistikController extends Controller
         }
         return response()->json([
             'result' => true,
-            'kabupatenKota' => $kabupaten->nama_kab_kota ?? '',
+            'kabupatenKota' =>  '',
             'data' => [
                 ['Laki-Laki', 'Total Kasus'],
                 ['Total Kasus', $total_kasus],

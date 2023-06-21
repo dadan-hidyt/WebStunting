@@ -72,6 +72,7 @@
             })
         }
 
+
         const DrawChartJk = async function(data) {
             const response = await fetch(data.url);
             const jsonData = await response.json();
@@ -89,6 +90,7 @@
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript"></script>
+
 </body>
 
 </html>

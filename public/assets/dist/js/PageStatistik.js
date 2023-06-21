@@ -1,3 +1,4 @@
+
 function barChart(params) {
     google.charts.load('current', {
         'packages': ['corechart', 'bar']
@@ -36,13 +37,14 @@ function barChart(params) {
     };
 }
 
+
 function donutCharts(params) {
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
         var data = google.visualization.arrayToDataTable(params.data ?? '');
         var options = {
-            width : '100%',
+            width: '100%',
             legend: 'none',
             pieSliceText: 'label',
             title: params.title ?? '',
