@@ -17,8 +17,7 @@ function barChart(params) {
                     easing: 'in'
                 },
                 width: params.width ?? '100%',
-                bar: { groupWidth: '25%' },
-
+                bar: { groupWidth: '15%' },
                 is3D: true,
                 series: {
                     0: {
@@ -76,7 +75,6 @@ function donutCharts(params) {
             },
             width: params.width ?? '100%',
             is3D: true,
-          
             title: params.title ?? '',
             pieStartAngle: 100,
         };

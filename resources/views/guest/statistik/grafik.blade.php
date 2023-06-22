@@ -170,9 +170,12 @@
         const input = document.getElementById('select_kota');
 
         const drawByUmur = async function(data) {
+            document.getElementById('byUmur').innerHTML = `<div class="spinner-border" role="status">`;
             const response = await fetch(data.url);
             const jsonData = await response.json();
-            console.log(jsonData)
+            if (jsonData.data) {
+                document.getElementById('byUmur').innerHTML = '';
+            }
             donutCharts({
                 element: 'byUmur',
                 data: jsonData.data ?? [],
@@ -180,15 +183,6 @@
             })
         }
 
-        const PersentaseChartByKecamatan = async function(data) {
-            const response = await fetch(data.url);
-            const jsonData = await response.json();
-            donutCharts({
-                element: 'persentaseKecamatan',
-                data: jsonData.data ?? [],
-                title: 'Total Kasus Berdasarkan UMUR',
-            })
-        }
 
         const PrevalensiChart = async function(data) {
             const response = await fetch(data.url);
@@ -201,8 +195,12 @@
             console.log(jsonData)
         }
         const DrawChartJk = async function(data) {
+            document.getElementById('byJk').innerHTML = `<div class="spinner-border" role="status">`;
             const response = await fetch(data.url);
             const jsonData = await response.json();
+            if (jsonData.data) {
+                document.getElementById('byJk').innerHTML = '';
+            }
             barChart({
                 element: 'byJk',
                 data: jsonData.data,
@@ -210,8 +208,12 @@
             });
         }
         async function TotalKeseluruhanPerKecamatan(data) {
+            document.getElementById('byKecamatan').innerHTML = `<div class="spinner-border" role="status">`;
             const response = await fetch(data.url);
             const jsonData = await response.json();
+            if (jsonData.data) {
+                document.getElementById('byKecamatan').innerHTML = '';
+            }
             barChart({
                 element: 'byKecamatan',
                 width: '100%',
