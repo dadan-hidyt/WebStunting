@@ -153,7 +153,7 @@
         </div>
         <div class="col-12 mb-3 mt-3">
             <div class="card">
-                <div class="card-header bg-purple ">
+                <div class="card-header bg-danger text-white ">
                    <span class="card-title"> Total Kasus Berdasarkan Kecamatan</span>
                 </div>
                 <div class="card-body">
