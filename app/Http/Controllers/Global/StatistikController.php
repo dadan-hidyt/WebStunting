@@ -44,6 +44,7 @@ class StatistikController extends Controller
         $total_anak = Anak::getByKabKota($kabKota)->get()->count();
         $total_stunting = $this->_getPengukuran()->count();
         return response()->json([
+            'kabupaten' => KabupatenKota::find($kabKota)->nama_kab_kota ?? null,
             'prev' => round(($total_stunting / $total_anak)),
             'total_anak' => $total_anak,
             'total_stunting' => $total_stunting,

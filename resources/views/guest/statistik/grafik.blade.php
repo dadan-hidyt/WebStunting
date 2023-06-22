@@ -186,6 +186,7 @@
             document.getElementById('prevalensi').innerHTML = jsonData.prev ?? 0;
             document.getElementById('total_anak').innerHTML = jsonData.total_anak ?? 0;
             document.getElementById('total_stunting').innerHTML = jsonData.total_stunting ?? 0;
+            document.title = "Grafik - "+jsonData.kabupaten ?? '';
             console.log(jsonData)
         }
         const DrawChartJk = async function(data) {
