@@ -19,6 +19,7 @@ class ExportBalitaController extends Controller
         ->setShouldWrapText(true)
         ->setFontColor('fffff')->setCellAlignment('center');;
     }
+   
     public function excel(){
         $balita = Anak::with(['orangTua.kelurahanDesa.kecamatan.kabupatenKota'])->get();
         $styleBody = (new Style())->setCellAlignment('center');

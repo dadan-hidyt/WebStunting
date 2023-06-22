@@ -17,27 +17,29 @@ class StatistikController extends Controller
             'kab_kota' => KabupatenKota::all(),
         ]);
     }
-    public function byKecamatan(){
+    public function byKecamatan()
+    {
         $kab_kota = \request()->kab_kota_id;
         $kec = Kecamatan::getByKabKota($kab_kota)->get();
         $stat = collect([]);
 
-        $stat->push(['Total',"Total"]);
-        foreach($kec as $item){
+        $stat->push(['Total', "Total"]);
+        foreach ($kec as $item) {
             $total = 0;
-            foreach($this->_getPengukuran() as $items){
-                if ($e = $items->orangTua->kelurahanDesa->kecamatan->id === $item->id ) {
-                   $total++;
+            foreach ($this->_getPengukuran() as $items) {
+                if ($e = $items->orangTua->kelurahanDesa->kecamatan->id === $item->id) {
+                    $total++;
                 }
             }
-            $stat->push([$item->nama_kecamatan,$total]);
+            $stat->push([$item->nama_kecamatan, $total]);
         }
 
         return response()->json([
             'data' => $stat->all(),
         ]);
     }
-    public function prevalensi(){
+    public function prevalensi()
+    {
         $kabKota = \request()->kab_kota_id ?? null;
         $total_anak = Anak::getByKabKota($kabKota)->get()->count();
         $total_stunting = $this->_getPengukuran()->count();
@@ -51,14 +53,14 @@ class StatistikController extends Controller
     {
         $kabKota = \request()->kab_kota_id ?? null;
         $kabupaten = KabupatenKota::find($kabKota);
-        if($kabKota) {
-            $anak = Anak::with(['orangTua','orangTua.kelurahanDesa.kecamatan'])->whereHas('orangTua.kelurahanDesa.kecamatan.kabupatenKota',function($query) use($kabKota){
-                return $query->where('id',$kabKota);
+        if ($kabKota) {
+            $anak = Anak::with(['orangTua', 'orangTua.kelurahanDesa.kecamatan'])->whereHas('orangTua.kelurahanDesa.kecamatan.kabupatenKota', function ($query) use ($kabKota) {
+                return $query->where('id', $kabKota);
             })->stunting()->get();
         } else {
-            $anak = Anak::with(['orangTua','orangTua.kelurahanDesa.kecamatan'])->stunting()->get();
+            $anak = Anak::with(['orangTua', 'orangTua.kelurahanDesa.kecamatan'])->stunting()->get();
         }
-        $anak = collect($anak)->filter(function($e){
+        $anak = collect($anak)->filter(function ($e) {
             if (isset($e->pengukuran[0])) {
                 return $e;
             } else {
@@ -88,8 +90,8 @@ class StatistikController extends Controller
                 ['balita', $total_data_balita],
                 ['baduta', $total_data_baduta],
             ]
-            ]);
-            }
+        ]);
+    }
     public function getByKabKota()
     {
         $kabKota = \request()->kab_kota_id ?? null;
