@@ -123,7 +123,7 @@
         </div>
         <div class="col-12 mt-4">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="card">
                         <div class="card-header bg-warning text-white">
                             <span class="card-title">Total Kasus Berdasarkan Jenis Kelamin</span>
