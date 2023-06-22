@@ -38,7 +38,6 @@ class StatistikController extends Controller
         ]);
     }
     public function prevalensi(){
-        //get by kab kota
         $kabKota = \request()->kab_kota_id ?? null;
         $total_anak = Anak::getByKabKota($kabKota)->get()->count();
         $total_stunting = $this->_getPengukuran()->count();
@@ -83,7 +82,6 @@ class StatistikController extends Controller
                 $total_data_balita++;
             }
         }
-
         return response()->json([
             'data' => [
                 ['datas', 'data'],
