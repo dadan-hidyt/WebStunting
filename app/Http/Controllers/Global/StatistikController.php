@@ -17,6 +17,7 @@ class StatistikController extends Controller
             'kab_kota' => KabupatenKota::all(),
         ]);
     }
+   
     public function byKecamatan()
     {
         $kab_kota = \request()->kab_kota_id;
@@ -45,7 +46,7 @@ class StatistikController extends Controller
         $total_stunting = $this->_getPengukuran()->count();
         return response()->json([
             'kabupaten' => KabupatenKota::find($kabKota)->nama_kab_kota ?? null,
-            'prev' => round(($total_stunting / $total_anak)),
+            'prev' => $total_stunting != 0 ? round(($total_stunting / $total_anak)) : 0,
             'total_anak' => $total_anak,
             'total_stunting' => $total_stunting,
         ]);

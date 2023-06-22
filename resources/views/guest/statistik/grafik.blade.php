@@ -106,7 +106,21 @@
         <p class="alert alert-info mt-3">
             <span class="card-title">Silahkan pilih Kabupaten / Kota</span>
         </p>
+        <div class="col-md-12">
+            <div class="card" style="height: 100%">
+                <div class="card-header bg-info text-white">
+                    <span class="card-title">Prevalensi</span>
+                </div>
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="prevalensi text-center" style="display: none;">
+                        <div class="fw-bold h5">Prevalensi: <span id="prevalensi">0</span>%</div>
+                        <div>Total Anak: <span id="total_anak"></span></div>
+                        <div>Total Stunting: <span id="total_stunting"></span></div>
+                    </div>
+                </div>
+            </div>
 
+        </div>
         <div class="col-12 mt-4">
             <div class="row">
                 <div class="col-md-6">
@@ -120,7 +134,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header bg-success text-white">
                             <span class="card-title">Total Kasus Berdasarkan Umur</span>
@@ -131,21 +145,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
-                    <div class="card" style="height: 100%">
-                        <div class="card-header bg-info text-white">
-                            <span class="card-title">Prevalensi</span>
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-center">
-                            <div class="prevalensi text-center" style="display: none;">
-                                <div class="fw-bold h5">Prevalensi: <span id="prevalensi">0</span>%</div>
-                                <div>Total Anak: <span id="total_anak"></span></div>
-                                <div>Total Stunting: <span id="total_stunting"></span></div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
             </div>
         </div>
         <div class="col-12 mb-3 mt-3">
@@ -158,6 +158,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
@@ -179,6 +180,16 @@
             })
         }
 
+        const PersentaseChartByKecamatan = async function(data) {
+            const response = await fetch(data.url);
+            const jsonData = await response.json();
+            donutCharts({
+                element: 'persentaseKecamatan',
+                data: jsonData.data ?? [],
+                title: 'Total Kasus Berdasarkan UMUR',
+            })
+        }
+
         const PrevalensiChart = async function(data) {
             const response = await fetch(data.url);
             const jsonData = await response.json();
@@ -186,7 +197,7 @@
             document.getElementById('prevalensi').innerHTML = jsonData.prev ?? 0;
             document.getElementById('total_anak').innerHTML = jsonData.total_anak ?? 0;
             document.getElementById('total_stunting').innerHTML = jsonData.total_stunting ?? 0;
-            document.title = "Grafik - "+jsonData.kabupaten ?? '';
+            document.title = "Grafik - " + jsonData.kabupaten ?? '';
             console.log(jsonData)
         }
         const DrawChartJk = async function(data) {
@@ -221,6 +232,7 @@
             TotalKeseluruhanPerKecamatan({
                 url: '{{ route('ajax.statistik.byKecamatan') }}?kab_kota_id=' + e.target.value
             });
+
 
         }
         DrawChartJk({

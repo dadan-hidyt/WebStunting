@@ -42,6 +42,27 @@ function barChart(params) {
     };
 }
 
+function komboDiagram(params) {
+    google.charts.load('current', {
+        packages: ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(instanceChart);
+
+    function instanceChart() {
+        const data = google.visualization.arrayToDataTable(params.data ?? []);
+        const options = {
+            title: 'Grafik '+params.title ?? '',
+            vAxis: { title: 'Cups' },
+            hAxis: { title: 'Month' },
+            seriesType: 'bars',
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById(params.element ?? ''));
+
+        chart.draw(data, options);
+    }
+}
 
 function donutCharts(params) {
     google.charts.load("current", { packages: ["corechart"] });
@@ -55,8 +76,7 @@ function donutCharts(params) {
             },
             width: params.width ?? '100%',
             is3D: true,
-            legend: 'none',
-            pieSliceText: 'label',
+          
             title: params.title ?? '',
             pieStartAngle: 100,
         };
