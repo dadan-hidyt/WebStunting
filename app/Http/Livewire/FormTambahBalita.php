@@ -98,7 +98,7 @@ class FormTambahBalita extends Component
         $pengukuran->put('umur', $buatAnak->umur);
         if ($pengukuran->get('cara_ukur') === 'berdiri' && $pengukuran->get('umur') >= 24) {
             $pengukuran->put('tb', $buatAnak->panjang_badan);
-            $pengukuran->put('tb_zscore', $pengukuranService->ukurTinggiBadanByUmur($buatAnak->jenis_kelamin, $buatAnak->umur, $pengukuran->get('tb'))->zscore);
+            $pengukuran->put('tb_zscore', $pengukuranService->ukurTinggiBadanByUmur($buatAnak->jenis_kelamin, $buatAnak->umur, $pengukuran->get('tb'))->zscore ?? null);
         } else {
             $pengukuran->put('pb', $buatAnak->panjang_badan);
             $pengukuran->put('pb_zscore', $pengukuranService->ukurPanjangBadanByUmur($buatAnak->jenis_kelamin, $buatAnak->umur, $pengukuran->get('pb'))->zscore);
