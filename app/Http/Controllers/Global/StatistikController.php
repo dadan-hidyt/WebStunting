@@ -46,7 +46,7 @@ class StatistikController extends Controller
         $total_stunting = $this->_getPengukuran()->count();
         return response()->json([
             'kabupaten' => KabupatenKota::find($kabKota)->nama_kab_kota ?? null,
-            'prev' => $total_stunting != 0 ? round(($total_stunting / $total_anak)) : 0,
+            'prev' => $total_stunting != 0 ? round(($total_stunting / $total_anak) * 100) : 0,
             'total_anak' => $total_anak,
             'total_stunting' => $total_stunting,
         ]);
