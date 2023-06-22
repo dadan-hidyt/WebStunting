@@ -1,9 +1,7 @@
 @extends('layouts.authenticate')
-
 @section('page-title')
     Dashboard
 @endsection
-
 @section('content')
     <div class="statistic-wrapper">
         <div class="card">
