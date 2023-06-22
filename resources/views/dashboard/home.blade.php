@@ -9,10 +9,8 @@
         <div class="card">
             <h2>Statistic</h2>
             <span>Persentase total balita stunting dan jumlah pengukuran</span>
-
             <div class="content">
-
-                <div class="d-flex flex-column align-items-center text-center w-50">
+                <div class="d-flex flex-column align-items-center text-center w-full">
                     <input type="text" class="knob" disabled value="{{ $stunting }}" data-thickness="0.2"
                         data-max="{{ $total_balita }}" data-width="100" data-height="100" data-fgColor="#00a65a">
                     <label for="" class="mt-3">
@@ -30,7 +28,7 @@
         </div>
         <div class="card">
             <div class="district-picker">
-                <h2>Kasus Per Kecamatan</h2>
+                <h2>Kasus Per Kabupaten</h2>
                 <select name="" id="">
                     <option value="">Pilih Kecamatan</option>
                     <option value="">Nagarawangi</option>

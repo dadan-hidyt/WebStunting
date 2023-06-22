@@ -45,7 +45,7 @@
                 autoWidth: true,
                 fixedColumns: {
                     right : 0,
-                    left : 2,
+                    left : 3,
                 },
                 info: true,
                 scrollCollapse: true,
