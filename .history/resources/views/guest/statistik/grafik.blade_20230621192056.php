@@ -92,7 +92,7 @@
     <div class="container mt-2">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <span class="card-title">Pilih Kabupaten / Kota</span>
+                <span class="card-title">Pilih Kabupaten / Kota</div>
             </div>
             <div class="card-body">
                 <form action="">
@@ -154,7 +154,7 @@
         <div class="col-12 mb-3 mt-3">
             <div class="card">
                 <div class="card-header bg-purple ">
-                   <span class="card-title"> Total Kasus Berdasarkan Kecamatan</span>
+                   <span class="card-title"> Total Kasus Berdasarkan Kecamatan</div>
                 </div>
                 <div class="card-body">
                     <div id="byKecamatan"></div>

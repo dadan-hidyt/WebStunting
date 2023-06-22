@@ -22,7 +22,7 @@
                          0 10px 8px rgba(0, 0, 0, 0.015);
 }
 
-.spand-body .card-title {
+.card-body .card-title {
                   font-family: 'Lato', sans-serif;
                   font-weight: 700;
                   letter-spacing: 0.3px;
@@ -92,7 +92,7 @@
     <div class="container mt-2">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <span class="card-title">Pilih Kabupaten / Kota</span>
+                <div class="card-title">Pilih Kabupaten / Kota</div>
             </div>
             <div class="card-body">
                 <form action="">
@@ -106,17 +106,13 @@
                 </form>
             </div>
         </div>
-        <p class="alert alert-info mt-3">
-            <span class="card-title">Silahkan pilih Kabupaten / Kota</span>
-        </p>
+        <p class="alert alert-info mt-3">Silahkan pilih Kabupaten / Kota</p>
 
         <div class="col-12 mt-4">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header bg-warning text-white">
-                            <span class="card-title">Total Kasus Berdasarkan Jenis Kelamin</span>
-                        </div>
+                        <div class="card-header bg-warning text-white">Total Kasus Berdasarkan Jenis Kelamin</div>
                         <div class="card-body">
                             <div id="byJk"></div>
                         </div>
@@ -125,9 +121,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card">
-                        <div class="card-header bg-success text-white">
-                            <span class="card-title">Total Kasus Berdasarkan Umur</span>
-                        </div>
+                        <div class="card-header bg-success text-white">Total Kasus Berdasarkan Umur</div>
                         <div class="card-body">
                             <div id="byUmur"></div>
                         </div>
@@ -137,7 +131,7 @@
                 <div class="col-md-3">
                     <div class="card" style="height: 100%">
                         <div class="card-header bg-info text-white">
-                            <span class="card-title">Prevalensi</span>
+                            <div class="card-title">Prevalensi</div>
                         </div>
                         <div class="card-body d-flex align-items-center justify-content-center">
                             <div class="prevalensi text-center" style="display: none;" >
@@ -154,7 +148,7 @@
         <div class="col-12 mb-3 mt-3">
             <div class="card">
                 <div class="card-header bg-purple ">
-                   <span class="card-title"> Total Kasus Berdasarkan Kecamatan</span>
+                   <div class="card-title"> Total Kasus Berdasarkan Kecamatan</div>
                 </div>
                 <div class="card-body">
                     <div id="byKecamatan"></div>

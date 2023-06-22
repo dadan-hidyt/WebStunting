@@ -12,9 +12,7 @@ class Anak extends Model
     protected $table = 'anak';
     protected $guarded = [];
     public function scopeGetByKabKota($query,$kabKota){
-        return $query->whereHas("orangTua.kelurahanDesa.kecamatan.kabupatenKota",function($query) use($kabKota){
-            return $query->where('id',$kabKota);
-        } );
+        $quey
     }
     public function scopeStunting($query){
         $query->with(['pengukuran'=>function($query){

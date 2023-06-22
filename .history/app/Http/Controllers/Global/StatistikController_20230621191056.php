@@ -39,8 +39,8 @@ class StatistikController extends Controller
     }
     public function prevalensi(){
         //get by kab kota
-        $kabKota = \request()->kab_kota_id ?? null;
-        $total_anak = Anak::getByKabKota($kabKota)->get()->count();
+        $kab_kota
+        $total_anak = Anak::all()->count();
         $total_stunting = $this->_getPengukuran()->count();
         return response()->json([
             'prev' => round(($total_stunting / $total_anak)),

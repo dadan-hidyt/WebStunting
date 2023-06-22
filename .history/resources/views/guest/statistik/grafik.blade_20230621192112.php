@@ -92,7 +92,7 @@
     <div class="container mt-2">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <span class="card-title">Pilih Kabupaten / Kota</span>
+                <span class="card-title">Pilih Kabupaten / Kota</div>
             </div>
             <div class="card-body">
                 <form action="">

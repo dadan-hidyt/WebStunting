@@ -6,83 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Info Grafik</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+        .card,.card-header,.card-body {
+            border-radius: 10px!important;
+            border: none!important;
+        }
+        .card-header{
+            box-shadow: 0px 0px 2px #a1a1a1 !important;
+        }
+        .card{
+            box-shadow: 0px 0px 8px #dedede!important;
 
-.card {
-       border-radius: 40px; 
-       overflow: hidden;
-       border: 0;
-       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06),
-                   0 2px 4px rgba(0, 0, 0, 0.07);
-       transition: all 0.15s ease;
-}
-
-.card:hover {
-             box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1),
-                         0 10px 8px rgba(0, 0, 0, 0.015);
-}
-
-.spand-body .card-title {
-                  font-family: 'Lato', sans-serif;
-                  font-weight: 700;
-                  letter-spacing: 0.3px;
-                  font-size: 24px;
-                  color: #121212;
-}
-
-.card-text {
-             font-family: 'Lato', sans-serif;
-             font-weight: 400;
-             font-size: 15px;
-             letter-spacing: 0.3px;
-             color: #4E4E4E;
-  
-}
-
-.card .container {
-           width: 88%;
-          background: #F0EEF8;
-           border-radius: 30px;
-           height: 140px;
-         display: flex;
-        align-items: center;
-         justify-content: center;
-}
-
-.container:hover > img {
-                       transform: scale(1.2);
-}
-
-.container img {
-                padding: 75px;  
-               margin-top: -40px;
-               margin-bottom: -40px;
-              transition: 0.4s ease;
-              cursor: pointer;
-}
-
-.btn {
-      background: #EEECF7;
-      border: 0;
-      color: #5535F0;
-      width: 98%;
-      font-weight: bold;
-      border-radius: 20px;
-      height: 40px;
-      transition: all 0.2s ease;
-}
-
-.btn:hover {
-            background: #441CFF;
-}
-
-.btn:focus {
-            background: #441CFF;
-            outline: 0;  
-}
- 
-
- 
+        }
         </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -92,7 +26,7 @@
     <div class="container mt-2">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <span class="card-title">Pilih Kabupaten / Kota</span>
+                <div class="card-title">Pilih Kabupaten / Kota</div>
             </div>
             <div class="card-body">
                 <form action="">
@@ -106,17 +40,13 @@
                 </form>
             </div>
         </div>
-        <p class="alert alert-info mt-3">
-            <span class="card-title">Silahkan pilih Kabupaten / Kota</span>
-        </p>
+        <p class="alert alert-info mt-3">Silahkan pilih Kabupaten / Kota</p>
 
         <div class="col-12 mt-4">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header bg-warning text-white">
-                            <span class="card-title">Total Kasus Berdasarkan Jenis Kelamin</span>
-                        </div>
+                        <div class="card-header bg-warning text-white">Total Kasus Berdasarkan Jenis Kelamin</div>
                         <div class="card-body">
                             <div id="byJk"></div>
                         </div>
@@ -125,9 +55,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card">
-                        <div class="card-header bg-success text-white">
-                            <span class="card-title">Total Kasus Berdasarkan Umur</span>
-                        </div>
+                        <div class="card-header bg-success text-white">Berdasarkan Umur</div>
                         <div class="card-body">
                             <div id="byUmur"></div>
                         </div>
@@ -136,9 +64,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card" style="height: 100%">
-                        <div class="card-header bg-info text-white">
-                            <span class="card-title">Prevalensi</span>
-                        </div>
+                        <div class="card-header bg-info text-white">Prevalensi</div>
                         <div class="card-body d-flex align-items-center justify-content-center">
                             <div class="prevalensi text-center" style="display: none;" >
                                 <div class="fw-bold h5">Prevalensi: <span id="prevalensi" >0</span>%</div>
@@ -151,10 +77,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mb-3 mt-3">
+        <div class="col-12 mt-3">
             <div class="card">
                 <div class="card-header bg-purple ">
-                   <span class="card-title"> Total Kasus Berdasarkan Kecamatan</span>
+                    Total Kasus Berdasarkan Kecamatan
                 </div>
                 <div class="card-body">
                     <div id="byKecamatan"></div>
