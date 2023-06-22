@@ -12,14 +12,10 @@ function barChart(params) {
         function buatChart() {
             var classicChart = new google.visualization.ColumnChart(chartDiv);
             classicChart.draw(data, {
-                animation: {
-                    duration: 1000,
-                    easing: 'in'
-                },
-                width: params.width ?? '100%',
+                width : params.width ?? '100%',
                 bar: { groupWidth: '25%' },
 
-                is3D: true,
+                is3D : true,
                 series: {
                     0: {
                         targetAxisIndex: 0
@@ -52,9 +48,9 @@ function donutCharts(params) {
             animation: {
                 duration: 1000,
                 easing: 'in'
-            },
-            width: params.width ?? '100%',
-            is3D: true,
+              },
+            width : params.width ?? '100%',
+            is3D : true,
             legend: 'none',
             pieSliceText: 'label',
             title: params.title ?? '',

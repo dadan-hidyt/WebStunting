@@ -15,7 +15,7 @@ function barChart(params) {
                 animation: {
                     duration: 1000,
                     easing: 'in'
-                },
+                  },
                 width: params.width ?? '100%',
                 bar: { groupWidth: '25%' },
 

@@ -12,10 +12,6 @@ function barChart(params) {
         function buatChart() {
             var classicChart = new google.visualization.ColumnChart(chartDiv);
             classicChart.draw(data, {
-                animation: {
-                    duration: 1000,
-                    easing: 'in'
-                },
                 width: params.width ?? '100%',
                 bar: { groupWidth: '25%' },
 
