@@ -75,7 +75,6 @@ class StatistikController extends Controller
     {
         $kabKota = \request()->kab_kota_id ?? null;
         $pengukuran = $this->_getPengukuran();
-        $total_data_balita = 0;
         $nol_ampe_5_bulan  = 0;
         $enam_ampe_11_bulan  = 0;
         $duabelas_ampe_23_bulan = 0;
