@@ -67,7 +67,7 @@ function donutCharts(params) {
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
-        var data = google.visualization.arrayToDataTable(params.data ?? '');
+        var data = google.visualization.arrayToDataTable(params.data ?? []);
         var options = {
             animation: {
                 duration: 1000,
