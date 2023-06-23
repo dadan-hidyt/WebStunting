@@ -76,21 +76,34 @@ class StatistikController extends Controller
         $kabKota = \request()->kab_kota_id ?? null;
         $pengukuran = $this->_getPengukuran();
         $total_data_balita = 0;
-        $total_data_baduta = 0;
+        $nol_ampe_5_bulan  = 0;
+        $enam_ampe_11_bulan  = 0;
+        $duabelas_ampe_23_bulan = 0;
+        $duaempat_ampe_59_bulan = 0;
+        $lima_sembilan_ke_atas = 0;
         $total_data = 0;
         foreach ($pengukuran as $item) {
             $total_data++;
-            if ($item->umur <= 24) {
-                $total_data_baduta++;
-            } else if ($item->umur >= 24) {
-                $total_data_balita++;
+            if ($item->umur >= 0 && $item->umur <= 5) {
+                $nol_ampe_5_bulan++;
+            } elseif($item->umur >= 6 && $item->umur <= 11){
+                $enam_ampe_11_bulan++;
+            } elseif($item->umur >= 12 && $item->umur <= 23){
+                $duabelas_ampe_23_bulan++;
+            } elseif($item->umur >= 24 && $item->umur <= 59){
+                $duaempat_ampe_59_bulan++;
+            }  else if ($item->umur > 59) {
+            $lima_sembilan_ke_atas++;
             }
         }
         return response()->json([
             'data' => [
-                ['datas', 'data'],
-                ['balita', $total_data_balita],
-                ['baduta', $total_data_baduta],
+                ['Umur', 'Umur'],
+                ['0-5 Bulan', $nol_ampe_5_bulan],
+                ['6-11 Bulan', $nol_ampe_5_bulan],
+                ['12-23 Bulan', $duabelas_ampe_23_bulan],
+                ['24-59 Bulan', $duaempat_ampe_59_bulan],
+                [' > 59 ',$lima_sembilan_ke_atas],
             ]
         ]);
     }

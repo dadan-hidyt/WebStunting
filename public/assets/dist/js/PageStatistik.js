@@ -74,7 +74,7 @@ function donutCharts(params) {
                 easing: 'in'
             },
             width: params.width ?? '100%',
-            is3D: true,
+            is3D: false,
             title: params.title ?? '',
             pieStartAngle: 100,
         };
