@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\Ajax\AnakAjaxController;
+use App\Http\Controllers\Ajax\DataTableAkunController;
 use App\Http\Controllers\Ajax\DataTableBalitaController;
 use App\Http\Controllers\Ajax\DataTableKecamatanController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ Route::get('balita',[DataTableBalitaController::class,'index'])->name('.balita.s
 Route::get('hasil-pengukuran',[DataTablePengukuranController::class,'index'])->name('.pengukuran.semua');
 Route::get('balita/stunting',[DataTableBalitaController::class,'getDataStunting'])->name('.balita.getDataStunting');
 Route::get('kecamatan', [DataTableKecamatanController::class,'index'])->name('.kecamatan.semua');
+Route::get('akun/get', [DataTableAkunController::class,'index'])->name('.akun.get');
 Route::get('kabupaten-kota', [\App\Http\Controllers\Ajax\DataTableKabupatenKota::class,'index'])->name('.kabupaten_kota.semua');
 Route::get('kelurahan-desa', [DataTableKelurahanDesa::class,'index'])->name('.kelurahan-desa.semua');
 Route::get('posyandu', [DataTablePosyanduController::class,'index'])->name('.posyandu.semua');

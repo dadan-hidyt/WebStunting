@@ -42,4 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function scopeIsSuperAdmin($query){
+        return $query->where('hak_akses','super_admin')->exists();
+    }
 }

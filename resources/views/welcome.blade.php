@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script>
-    <title>{{ config('app.name')  }}</title>
+    <title>{{ config('app.name') }}</title>
 </head>
 
 <body>
@@ -22,10 +22,11 @@
         class="decoration absolute top-96 -right-[280px] w-[475px] h-[475px] rounded-full blur-[200px] bg-secondary bg-opacity-25 z-50 pointer-events-none">
     </div>
     <section id="">
-    <header>
+        <header>
             <nav class="navbar h-28 w-full fixed left-0 top-0 bg-white z-40">
                 <div class="container flex items-center justify-between border-b border-gray-200 outline-none relative">
-                    <div class="logo text-3xl max-sm:text-2xl font-bold">e<span class="text-primary">Kamb</span>ing</div>
+                    <div class="logo text-3xl max-sm:text-2xl font-bold">e<span class="text-primary">Kamb</span>ing
+                    </div>
                     <ul
                         class="nav-menu text-base flex gap-5 max-sm:flex-col max-sm:absolute max-sm:w-full max-sm:h-screen max-sm:top-28 max-sm:pt-10 max-sm:bg-white max-sm:translate-x-full transition-all duration-300 left-[30px] right-[30px]">
                         <a href="#" class="decoration-transparent group">
@@ -70,11 +71,13 @@
                                 </div>
                             </li>
                         </a>
-                        <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white lg:hidden w-fit">Login</a>
+                        <a href="{{ route('auth.login') }}" class="py-3 px-7 rounded-lg bg-primary text-sm text-white lg:hidden w-fit">Login</a>
                     </ul>
-                    <a href="{{ route('auth.login') }}" class="py-3 px-7 rounded-lg bg-primary text-sm text-white max-sm:hidden">Login</a>
+                    <a href="{{ route('auth.login') }}"
+                        class="py-3 px-7 rounded-lg bg-primary text-sm text-white max-sm:hidden">Login</a>
                     <div class="nav-toggle w-12 h-10 rounded-lg bg-primary bg-opacity-20 flex items-center justify-center cursor-pointer hover:bg-opacity-100 transition-all duration-500 group lg:hidden"
-                        onclick="showNavbar()"><i class="fa-solid fa-bars text-primary text-xl group-hover:text-white"></i>
+                        onclick="showNavbar()"><i
+                            class="fa-solid fa-bars text-primary text-xl group-hover:text-white"></i>
                     </div>
                 </div>
             </nav>
@@ -83,15 +86,18 @@
                     <div class="max-sm:order-2">
                         <div class="title-banner">
                             <span class="text-primary text-sm font-medium">#SaveChildrenWithUs</span>
-                            <h1 class="font-bold text-3xl lg:text-[40px] leading-[45px] lg:leading-[60px] uppercase mt-1">
+                            <h1
+                                class="font-bold text-3xl lg:text-[40px] leading-[45px] lg:leading-[60px] uppercase mt-1">
                                 Aplikasi <span class="text-primary">Pencegahan</span> dan <span
                                     class="text-primary">Pengelolaan</span> Data Stunting</h1>
-                            <p class="text-base text-justify leading-7 mt-1">lorem ipsum is placeholder text commonly used
-                                in the graphic, print, and publishing industries for previewing layouts and visual mockups
+                            <p class="text-base text-justify leading-7 mt-1">lorem ipsum is placeholder text commonly
+                                used
+                                in the graphic, print, and publishing industries for previewing layouts and visual
+                                mockups
                             </p>
                             <div class="flex gap-3 mt-4 flex-wrap">
-                                <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white">Laporkan Kasus</a><a
-                                    href=""
+                                <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white">Laporkan
+                                    Kasus</a><a href=""
                                     class="py-3 px-7 rounded-lg bg-white text-sm text-primary border border-primary hover:bg-primary hover:text-white transition-all duration-500">Download
                                     EduStunting App</a>
                             </div>
@@ -103,8 +109,8 @@
                     </div>
                 </div>
             </div>
-    </header>
-</section>
+        </header>
+    </section>
     <section id="about">
         <div class="container">
             <div class="section-title mt-20 lg:mt-28 text-center lg:w-1/2 lg:mx-auto">
@@ -233,7 +239,8 @@
                     <form action="">
                         <h4 class="text-xl lg:text-3xl font-semibold text-primary max-sm:text-center">Pantau Tumbuh
                             Kembang Balita Anda</h4>
-                        <input type="text" class="rounded-lg border w-full px-3 lg:px-4 h-12 mt-6 text-sm outline-none"
+                        <input type="text"
+                            class="rounded-lg border w-full px-3 lg:px-4 h-12 mt-6 text-sm outline-none"
                             placeholder="Masukan NIK Anak">
                         <button class="text-sm text-white bg-primary rounded-lg h-12 px-3 lg:px-4 mt-4 float-right">Cek
                             Grafik</button>
@@ -269,7 +276,8 @@
                         <li>Promosi dan konseling Pemberian Makan Bayi dan Anak</li>
                     </ol>
                 </div>
-                <div class="bg-secondary bg-opacity-[.15] rounded-lg px-10 py-9 min-h-[300px] relative overflow-hidden">
+                <div
+                    class="bg-secondary bg-opacity-[.15] rounded-lg px-10 py-9 min-h-[300px] relative overflow-hidden">
                     <div
                         class="rounded-full w-[200px] h-[200px] bg-secondary bg-opacity-40 absolute -bottom-16 -left-12 -z-10">
                     </div>
@@ -301,7 +309,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-1">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -309,7 +318,8 @@
                         </button>
                         <div id="accordion-content-1"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak
@@ -330,7 +340,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-2">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -339,7 +350,8 @@
                         </button>
                         <div id="accordion-content-2"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak
@@ -360,7 +372,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-3">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -368,7 +381,8 @@
                         </button>
                         <div id="accordion-content-3"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak
@@ -389,7 +403,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-4">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -398,7 +413,8 @@
                         </button>
                         <div id="accordion-content-4"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak
@@ -419,7 +435,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-5">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -428,7 +445,8 @@
                         </button>
                         <div id="accordion-content-5"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak
@@ -449,7 +467,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-6">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -458,7 +477,8 @@
                         </button>
                         <div id="accordion-content-6"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak
@@ -479,7 +499,8 @@
                             class="flex items-center gap-5 accordion-button text-gray-600 font-medium py-5 w-full text-start bg-white"
                             type="button" data-toggle="accordion-content-7">
                             <div class="ml-4 h-full flex item-center justify-center">
-                                <div class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
+                                <div
+                                    class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center">
                                     <i class="fa-solid fa-plus text-white"></i>
                                 </div>
                             </div>
@@ -488,7 +509,8 @@
                         </button>
                         <div id="accordion-content-7"
                             class="accordion-content hidden transition-all duration-300 pt-3 pb-6">
-                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada anak-anak yang disebabkan
+                            <p class="block text-justify ml-[66px]">Stunting adalah kondisi gagal pertumbuhan pada
+                                anak-anak yang disebabkan
                                 oleh kekurangan gizi yang kronis dan berkelanjutan, biasanya terjadi pada periode 1.000
                                 hari pertama kehidupan anak, yaitu mulai dari konsepsi hingga usia dua tahun. Stunting
                                 ditandai dengan pertumbuhan tubuh yang terhambat, sehingga tinggi badan anak tidak

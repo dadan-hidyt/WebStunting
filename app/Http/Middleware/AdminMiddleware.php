@@ -16,10 +16,10 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if ($user = auth()->user()) {
-            if ($user->role === 'admin') {
+            if ($user->hak_akses === 'super_admin' || $user->hak_akses === 'petugas') {
                 return $next($request);
             } else {
-                return redirect()->route('login');
+                return redirect()->route('index');
             }
         }
         return response()->json([
