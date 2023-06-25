@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\KabupatenKota;
 use App\Models\OrangTua;
 use App\Models\PosyanduPembina;
 use App\Traits\HasWilayah;
@@ -13,6 +14,7 @@ class FormOrangTua extends Component
     public $data;
     public $orangTua = [];
     public $ortu = null;
+    public $kabupaten = [];
     protected $rules = [
         'data.nik' => ['required','unique:orang_tua,nik'],
         'data.nomor_kk' => ['required','unique:orang_tua,nomor_kk'],
@@ -53,6 +55,7 @@ class FormOrangTua extends Component
             if ( $e = $orangTua->kelurahan_desa_id ) {
                 $this->selectPosyandu($e);
             }
+            $this->kabupaten = KabupatenKota::all();
         }
     }
     public function edit(){

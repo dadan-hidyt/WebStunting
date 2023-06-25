@@ -11,7 +11,10 @@
 
             <div class="form-group">
                 <label for="">No KK</label>
-                <input wire:model.defer="orang_tua.nomor_kk" type="text" @class(['form-control', 'is-invalid' => $errors->has('orang_tua.nomor_kk')])>
+                <input wire:model.defer="orang_tua.nomor_kk" type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('orang_tua.nomor_kk'),
+                ])>
                 @error('orang_tua.nomor_kk')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -28,7 +31,10 @@
             </div>
             <div class="form-group">
                 <label for="">Tempat Lahir</label>
-                <input wire:model.lazy="data.tempat_lahir" type="text" @class(['form-control', 'is-invalid' => $errors->has('data.tempat_lahir')])>
+                <input wire:model.lazy="data.tempat_lahir" type="text" @class([
+                    'form-control',
+                    'is-invalid' => $errors->has('data.tempat_lahir'),
+                ])>
                 @error('data.tempat_lahir')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -128,7 +134,8 @@
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
                 <p class="form-text text-info" style="font-size: 13px;">
-                    Jika nik orang tua terdaftar di database, data orang tua akan otomatis terisi. Jika ingin merubah data orang tua bisa di menu data orang tua!
+                    Jika nik orang tua terdaftar di database, data orang tua akan otomatis terisi. Jika ingin merubah
+                    data orang tua bisa di menu data orang tua!
                 </p>
             </div>
 
@@ -155,14 +162,17 @@
             </div>
             <div class="form-group">
                 <label for="">Desa/Kelurahan</label>
-                <select wire:model='orang_tua.kelurahan_desa_id' name="" id="" @class([
-                    'form-control',
-                    'is-invalid' => $errors->has('orang_tua.kelurahan_desa_id'),
-                ])>
+                <select wire:model='orang_tua.kelurahan_desa_id' name="" id=""
+                    @class([
+                        'form-control',
+                        'is-invalid' => $errors->has('orang_tua.kelurahan_desa_id'),
+                    ])>
                     <option value="">--pilih salah satu--</option>
-                    @if($desa_kelurahan)
-                        @foreach($desa_kelurahan as $val)
-                            <option value="{{$val->id}}">{{ $val->nama_desa  }} - {{ $val->kecamatan->nama_kecamatan ?? '' }} - {{ $val->kecamatan->kabupatenKota->nama_kab_kota ?? '' }}</option>
+                    @if ($desa_kelurahan)
+                        @foreach ($desa_kelurahan as $val)
+                            <option value="{{ $val->id }}">{{ $val->nama_desa }} -
+                                {{ $val->kecamatan->nama_kecamatan ?? '' }} -
+                                {{ $val->kecamatan->kabupatenKota->nama_kab_kota ?? '' }}</option>
                         @endforeach
                     @endif
                 </select>
@@ -173,10 +183,11 @@
             </div>
             <div class="form-group">
                 <label for="">Posyandu Pembina</label>
-                <select wire:model.defer='orang_tua.posyandu_pembina_id' name="" id="" @class([
-                    'form-control',
-                    'is-invalid' => $errors->has('orang_tua.posyandu_pembina_id'),
-                ])>
+                <select wire:model.defer='orang_tua.posyandu_pembina_id' name="" id=""
+                    @class([
+                        'form-control',
+                        'is-invalid' => $errors->has('orang_tua.posyandu_pembina_id'),
+                    ])>
                     <option value="">--pilih salah satu--</option>
                     @if ($posyandu)
                         @foreach ($posyandu as $item)
@@ -207,12 +218,22 @@
 </form>
 @push('scripts')
     <script>
-        window.addEventListener('notifikasi',function(e){
-            if ( e.detail.type == 'success' ) {
-                notifikasi.success(e.detail.msg);
-            } else {
-                notifikasi.error(e.detail.msg);
-            }
+        $(document).ready(function() {
+            window.addEventListener('notifikasi', function(e) {
+                if (e.detail.type == 'success') {
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Sukses',
+                        text: e.detail.msg;
+                    })
+                } else {
+                    Toast.fire({
+                        icon: 'danger',
+                        title: 'Gagal',
+                        text: e.detail.msg;
+                    })
+                }
+            })
         })
     </script>
 @endpush

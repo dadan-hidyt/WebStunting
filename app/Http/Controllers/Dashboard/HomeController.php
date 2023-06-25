@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Anak;
+use App\Models\KabupatenKota;
 use App\Traits\WithStatistik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +22,10 @@ class HomeController extends Controller
     public function getStatistik(){
         return [
             'total_balita' => Anak::all()->count(),
-            'total_pengukuran' => $this->pengukuran()->count(),
+            'total_pengukuran' => $this->pengukuran(),
             'stunting' => $this->stunting(),
             'total_kecamatan' => $this->kecamatan(),
+            'kabupatenKota' => KabupatenKota::all(),
         ];
     }
     public function __invoke(Request $request)

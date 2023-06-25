@@ -12,5 +12,10 @@ class LoginController extends Controller
             'title' => "Login"
         ]);
     }
+    public function logout(){
+        auth()->logout();
+        session()->regenerate();
+        return redirect()->route('index');
+    }
 }
 ?>

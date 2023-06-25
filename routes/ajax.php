@@ -10,6 +10,7 @@ use \App\Http\Controllers\Ajax\DataTableKelurahanDesa;
 use App\Http\Controllers\Ajax\DataTableOrangTuaController;
 use App\Http\Controllers\Ajax\DataTablePengukuranController;
 use App\Http\Controllers\Ajax\DataTablePosyanduController;
+use App\Http\Controllers\Ajax\GeneralAjaxHandlerController;
 use App\Http\Controllers\Dashboard\ExportController;
 
 Route::get('balita',[DataTableBalitaController::class,'index'])->name('.balita.semua');
@@ -18,6 +19,7 @@ Route::get('balita/stunting',[DataTableBalitaController::class,'getDataStunting'
 Route::get('kecamatan', [DataTableKecamatanController::class,'index'])->name('.kecamatan.semua');
 Route::get('akun/get', [DataTableAkunController::class,'index'])->name('.akun.get');
 Route::get('kabupaten-kota', [\App\Http\Controllers\Ajax\DataTableKabupatenKota::class,'index'])->name('.kabupaten_kota.semua');
+Route::get('kab-kota/get', [GeneralAjaxHandlerController::class,'getStatPengukuranByKabupaten'])->name('.kabupaten_kota.get');
 Route::get('kelurahan-desa', [DataTableKelurahanDesa::class,'index'])->name('.kelurahan-desa.semua');
 Route::get('posyandu', [DataTablePosyanduController::class,'index'])->name('.posyandu.semua');
 Route::get('orang-tua', [DataTableOrangTuaController::class,'index'])->name('.orang-tua.semua');

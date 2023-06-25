@@ -7,6 +7,7 @@ use \App\Http\Controllers\Auth\LoginController;
 Route::view('/','welcome')->name('index');
 //login controller
 Route::get('login',LoginController::class)->middleware('guest')->name('auth.login');
+Route::get('logout',[LoginController::class,'logout'])->name('auth.logout');
 /**
  * public chart
  */
@@ -20,4 +21,5 @@ Route::prefix('dashboard')->middleware('auth',AdminMiddleware::class)->name('das
 Route::prefix('mobile')->name('mobile')->group(base_path('routes/mobile.php'));
 //route ajax
 Route::prefix('data/ajax')->name('ajax')->group(base_path('routes/ajax.php'));
+
 ?>

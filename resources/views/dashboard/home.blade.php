@@ -30,25 +30,25 @@
         <div class="card">
             <div class="district-picker">
                 <h2>Kasus Per Kabupaten</h2>
-                <select name="" id="">
-                    <option value="">Pilih Kecamatan</option>
-                    <option value="">Nagarawangi</option>
-                    <option value="">Nagarawangi</option>
-                    <option value="">Nagarawangi</option>
-                    <option value="">Nagarawangi</option>
-                    <option value="">Nagarawangi</option>
+                <select name="" class="form-control select2 select2-purple" id="select_kab">
+                    <option value="">--Pilih Kabupaten / Kota--</option>
+                    @if (!empty($kabupatenKota))
+                        @foreach ($kabupatenKota as $item)
+                            <option value="{{ $item->id }}"> {{ $item->nama_kab_kota }} </option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
             <div class="content">
                 <div class="d-flex flex-column align-items-center text-center w-50">
-                    <input type="text" class="knob" value="10" data-thickness="0.2" data-max="100" data-width="100"
+                    <input id="balita_stunting_by_kab" type="text" class="knob" data-thickness="0.2" data-width="100"
                         data-height="100" data-fgColor="#00a65a">
                     <label for="" class="mt-3">
                         Balita Stunting
                     </label>
                 </div>
                 <div class="d-flex flex-column align-items-center text-center w-50">
-                    <input type="text" class="knob" value="80" data-thickness="0.2" data-max="100" data-width="100"
+                    <input id="jumlah_pengukuran_by_kab" type="text" class="knob" data-thickness="0.2" data-width="100"
                         data-height="100" data-fgColor="#0099ff">
                     <label for="" class="mt-3">
                         Jumlah Pengukuran
@@ -98,3 +98,31 @@
     <!-- /.row (main row) -->
 @endsection
 
+@push('scripts')
+    <script>
+        $('#select_kab').select2({
+            placeholder: 'Kab/Kota'
+        });
+
+
+        //request ajax
+
+        $('#balita_stunting_by_kab').val(0);
+
+        $('#jumlah_pengukuran_by_kab').val(0);
+
+
+        $('#select_kab').on('change', (e) => {
+            $.ajax({
+                url: `{{ route('ajax.kabupaten_kota.get') }}?kab_id=${e.target.value}`,
+                type: 'GET',
+                success: function(response) {
+                    $('#balita_stunting_by_kab').val(response.jumlah_stunting);
+
+                    $('#jumlah_pengukuran_by_kab').val(response.jumlah_pengukuran);
+
+                }
+            });
+        })
+    </script>
+@endpush

@@ -15,7 +15,7 @@ class SuperAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ( !auth()->user()->hak_akses !== 'super_admin' ) {
+        if ( auth()->user()->hak_akses !== 'super_admin' ) {
             abort(403);
         }
         return $next($request);
