@@ -5,11 +5,16 @@
 @section('content')
     <div class="row">
         <div class="col-12">
+            @if (session()->has('success'))
+                <p class="alert alert-success">{{ session('success') }}</p>
+            @elseif (session()->has('gagal'))
+                <p class="alert alert-danger">{{ session('gagal') }}</p>
+            @endif
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <button type="button" class="btn btn-default" id="open-modal-tambah">
-                            Launch Default Modal
+                        <button type="button" class="btn btn-success btn-sm" id="open-modal-tambah">
+                            Tambah Baru
                         </button>
                     </div>
 
@@ -56,6 +61,7 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
     <!-- E:modal -->
 @endsection
 @push('scripts')
@@ -106,7 +112,7 @@
             window.addEventListener('sukses', () => {
                 Toast.fire({
                     icon: 'success',
-                    title : 'Sukses',
+                    title: 'Sukses',
                     text: 'User berhasil di buat.'
                 })
                 $('#modal-tambah').modal('hide');

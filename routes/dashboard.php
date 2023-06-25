@@ -85,7 +85,9 @@ Route::prefix('/export-import')->name('.export-import.')->group(function () {
 });
 
 Route::middleware(SuperAdminMiddleware::class)->group(function () {
-    Route::prefix('user/manage')->name('.akun.')->group(function () {
+    Route::prefix('manage/user')->name('.akun.')->group(function () {
         Route::get('/', [AkunController::class, 'index'])->name('index');
+        Route::get('/{user}/edit', [AkunController::class, 'edit'])->scopeBindings()->name('edit');
+        Route::get('/{user}/delete', [AkunController::class, 'delete'])->scopeBindings()->name('delete');
     });
 });
