@@ -29,10 +29,10 @@
         $(() => {
             $('#anak').select2({
                 theme: 'bootstrap4',
-                placeholder : 'Pilih anak yang mau di ukur!',
+                placeholder: 'Pilih anak yang mau di ukur!',
             })
             const anak = $('#anak');
-            
+
             anak.on('change', (event) => {
                 document.getElementById('det-anak').innerHTML = "Loading...";
                 const anak_id = event.target.value ?? null;

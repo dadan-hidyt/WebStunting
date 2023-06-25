@@ -16,7 +16,7 @@ class SuperAdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if ( auth()->user()->hak_akses !== 'super_admin' ) {
-            abort(403);
+            abort(403,"Anda tidak ada akses ke halaman ini!");
         }
         return $next($request);
     }
