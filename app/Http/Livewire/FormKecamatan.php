@@ -42,3 +42,4 @@ class FormKecamatan extends Component
         return view('livewire.form-kecamatan');
     }
 }
+?>
