@@ -72,9 +72,6 @@
 
             });
 
-
-
-
             const table = $('#manage-user').DataTable({
                 processing: true,
                 serverSide: true,
