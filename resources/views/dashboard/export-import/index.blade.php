@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <div id="error"></div>
                     <div class="row">
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-lg-12">
                             <form id='form-upload-excel-anak' method="POST" action="">
                                 <div class="form-group">
                                     <label for="">Pilih File (excel)</label>
@@ -46,7 +46,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-12 col-lg-6">
+                        {{-- <div class="col-12 col-lg-6">
                             <form action="">
                                 <div class="form-group">
                                     <label for="">Pilih File (xlsx)</label>
@@ -58,7 +58,7 @@
                                     <button class="btn btn-primary">IMPORT</button>
                                 </div>
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>

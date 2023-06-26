@@ -16,7 +16,10 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if ($user = auth()->user()) {
-            if ($user->hak_akses === 'super_admin' || $user->hak_akses === 'petugas') {
+
+            if ($user->active == false) {
+                abort(403, "Forbidden! Akun Anda Sudah Tidak Aktif");
+            } else if ($user->hak_akses === 'super_admin' || $user->hak_akses === 'petugas') {
                 return $next($request);
             } else {
                 return redirect()->route('index');

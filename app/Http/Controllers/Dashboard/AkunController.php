@@ -27,4 +27,16 @@ class AkunController extends Controller
         }
         abort(500);
     }
+
+    public function changeActive(User $user){
+        if ( $user->active == true ) {
+            $user->active = false;
+        } else {
+            $user->active = true;
+        }
+
+        if ( $user->save() ) {
+            return redirect()->route('dashboard.akun.index');
+        }
+    }
 }
