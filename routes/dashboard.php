@@ -89,5 +89,6 @@ Route::middleware(SuperAdminMiddleware::class)->group(function () {
         Route::get('/', [AkunController::class, 'index'])->name('index');
         Route::get('/{user}/edit', [AkunController::class, 'edit'])->scopeBindings()->name('edit');
         Route::get('/{user}/delete', [AkunController::class, 'delete'])->scopeBindings()->name('delete');
+    Route::get('/{user}/change_active',[AkunController::class,'changeActive'])->name('change_active');
     });
 });
