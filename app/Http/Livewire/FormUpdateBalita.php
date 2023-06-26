@@ -30,9 +30,6 @@ class FormUpdateBalita extends Component
             if (isset($this->orang_tua['kelurahan_desa_id'])) {
                 $this->reloadPosandu();
             }
-
-
-
             if (isset($this->orang_tua['nik'])) {
                 $nik = $this->orang_tua['nik'];
                 if ($orang_tua = OrangTua::getByNik($nik)->first()) {
@@ -64,3 +61,4 @@ class FormUpdateBalita extends Component
         return view('livewire.form-update-balita');
     }
 }
+?>
