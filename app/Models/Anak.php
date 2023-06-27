@@ -16,6 +16,9 @@ class Anak extends Model
             return $query->where('id',$kabKota);
         } );
     }
+    public function scopeGetByNik($query,$nik){
+        return $query->where('nik',$nik);
+    }
     public function scopeStunting($query){
         $query->with(['pengukuran'=>function($query){
             return $query->where('tb_zscore','<','-3')->orWhere('pb_zscore','<','-3')->orderBy('tanggal_ukur','DESC')->get();

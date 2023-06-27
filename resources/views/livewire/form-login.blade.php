@@ -39,7 +39,7 @@
             </div>
         </div>
         <!-- /.col -->
-        <div class="col-4">
+        <div class="col-12 mt-3 mb-4">
             <button type="submit" class="btn btn-primary btn-block">
                 <span wire:loading.block wire:target="login">Loading...</span>
                 <span wire:loading.remove wire:target="login">Login</span>

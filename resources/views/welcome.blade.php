@@ -236,10 +236,11 @@
             <div class="lg:mx-16 py-10 px-12 rounded-lg bg-white shadow-lg my-14">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-5">
                     <img src="src/assets/image/undraw_growing.svg" alt="">
-                    <form action="">
+                    <form action="{{ route('grafik_pengukuran.cariAnak') }}" method="POST">
+                        @csrf
                         <h4 class="text-xl lg:text-3xl font-semibold text-primary max-sm:text-center">Pantau Tumbuh
                             Kembang Balita Anda</h4>
-                        <input type="text"
+                        <input name="nik" type="text"
                             class="rounded-lg border w-full px-3 lg:px-4 h-12 mt-6 text-sm outline-none"
                             placeholder="Masukan NIK Anak">
                         <button class="text-sm text-white bg-primary rounded-lg h-12 px-3 lg:px-4 mt-4 float-right">Cek
