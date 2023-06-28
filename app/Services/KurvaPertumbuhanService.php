@@ -143,11 +143,11 @@ class KurvaPertumbuhanService
 
                 if ((int) $item['umur'] <= 24) {
                     if ($item['umur'] == $um) {
-                        $ppb = $item['pb'];
+                        $ppb = $item['pb'] ?? $item['tb'] ?? 0;
                     }
                 } elseif ((int) $item['umur'] >= 24 && (int) $item['umur'] <= 60) {
                     if ($item['umur'] == $um) {
-                        $ptb = $item['tb'];
+                        $ptb = $item['tb'] ?? 0;
                     }
                 } else {
                     continue;
@@ -162,7 +162,6 @@ class KurvaPertumbuhanService
         }
 
        $pengukuran = $pengukuransPB->merge($pengukuransTB);
-
 
         return [
             $this->getUmur()->prepend('umur')->all(),
