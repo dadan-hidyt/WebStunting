@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class GrafikPengukuranAnakController extends Controller
 {
-   
-    
+
+
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request, $hash = null, Anak $anak, KurvaPertumbuhanService $kurvaPertumbuhanService)
     {
-        $anak->with(['pengukuran','orangTua']);
+        $anak->with(['pengukuran', 'orangTua']);
         return view('grafik_pertumbuhan_anak', [
             'kurva_bb' => $kurvaPertumbuhanService->getKurvaBb($anak),
             'kurva_pb_tb' => $kurvaPertumbuhanService->getKurvaPbBb($anak),
@@ -28,12 +28,12 @@ class GrafikPengukuranAnakController extends Controller
     public function cariAnak()
     {
         $nik = FacadesRequest::post('nik');
-        abort_if(!$nik, 404);
+        abort_if(!$nik, 404, "Nik Tidak Di temukan");
 
         $anak = Anak::getByNik($nik)->first();
         if ($anak) {
             return redirect()->route('grafik_pengukuran', [md5(uniqid()), $anak->id]);
         }
-        return redirect()->back();
+        abort(404, "Nik tidak di temukan!");
     }
 }
