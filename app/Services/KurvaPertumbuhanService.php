@@ -33,7 +33,7 @@ class KurvaPertumbuhanService
         $median->push('Median');
 
         $sdBB1->push('1SD');
-        $sdBB2->push('22SD');
+        $sdBB2->push('2SD');
         $sdBB3->push('3SD');
 
         foreach (StandardAntropometriBbByUmur::where('jenis_kelamin', $anak->jenis_kelamin)->get()->toArray() as $key => $val) {

@@ -12,6 +12,7 @@ use App\Http\Controllers\Ajax\DataTablePengukuranController;
 use App\Http\Controllers\Ajax\DataTablePosyanduController;
 use App\Http\Controllers\Ajax\GeneralAjaxHandlerController;
 use App\Http\Controllers\Dashboard\ExportController;
+use App\Http\Controllers\Global\StatistikController;
 
 Route::get('balita',[DataTableBalitaController::class,'index'])->name('.balita.semua');
 Route::get('hasil-pengukuran',[DataTablePengukuranController::class,'index'])->name('.pengukuran.semua');
@@ -32,3 +33,7 @@ Route::get('/statistik/grafik/kab-kota/stat_by_umur',[\App\Http\Controllers\Glob
 Route::get('/statistik/grafik/kab-kota/stat_by_jenis_kelamin',[\App\Http\Controllers\Global\StatistikController::class,'getByJenisKelamin'])->name('.statistik.byJenisKelamin');
 Route::get('/statistik/grafik/kab-kota/prevalensi',[\App\Http\Controllers\Global\StatistikController::class,'prevalensi'])->name('.statistik.prevalensi');
 Route::get('/statistik/grafik/kab-kota/stat_by_kecamatan',[\App\Http\Controllers\Global\StatistikController::class,'byKecamatan'])->name('.statistik.byKecamatan');
+
+//get detail kurva
+Route::get('/kurva/get_detail_bb', [StatistikController::class,'getDetailKurvaBb'])->name('.detail_kurva_bb');
+Route::get('/kurva/get_detail_tb', [StatistikController::class,'getDetailKurvaTb'])->name('.detail_kurva_tb');

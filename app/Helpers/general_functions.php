@@ -52,7 +52,7 @@ function kategoriStatusPbTb($zScore, $badge = false)
         } else if ($zScore >= -2 && $zScore <= 3) {
             return "<span class='text-success'>Normal</span>";
         } else if ($zScore > 3) {
-            return "Tinggi";
+            return "<span class='text-info'>Tinggi</span>";
         }
     }
 }

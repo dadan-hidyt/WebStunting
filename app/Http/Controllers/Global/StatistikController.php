@@ -17,7 +17,39 @@ class StatistikController extends Controller
             'kab_kota' => KabupatenKota::all(),
         ]);
     }
-   
+    
+
+    public function getDetailKurvaBb(){
+        $bulan = request()->bulan ?? null;
+        $anak_id = request()->anak_id;
+
+        $pengukuran = Pengukuran::where('anak_id',$anak_id)->where('umur',$bulan)->first();
+        if ( $pengukuran ) {
+            $data = collect($pengukuran);
+            $data->put('status',kategoriStatusBb($pengukuran->bb_zscore,true));
+            $data = $data->all();
+        } else {
+            $data = [];
+        }
+        return response()->json($data);
+    }
+    public function getDetailKurvaTb(){
+        $bulan = request()->bulan ?? null;
+        $anak_id = request()->anak_id;
+
+        $pengukuran = Pengukuran::where('anak_id',$anak_id)->where('umur',$bulan)->first();
+        if ( $pengukuran ) {
+            $data = collect($pengukuran);
+            $data->put('status',kategoriStatusPbTb($pengukuran->tb_zscore ?? $pengukuran->pb_zscore,true));
+            $data->put('tb_zscore',$pengukuran->tb_zscore ?? $pengukuran->bb_zscore);
+            $data->put('tb',$pengukuran->tb ?? $pengukuran->tb);
+            $data = $data->all();
+        } else {
+            $data = [];
+        }
+        return response()->json($data);
+    }
+
     public function byKecamatan()
     {
         $kab_kota = \request()->kab_kota_id;

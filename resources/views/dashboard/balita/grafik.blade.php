@@ -1,31 +1,31 @@
 @extends('layouts.authenticate')
 
 @section('page-title')
-{{ $title ?? 'Grafik' }}
+    {{ $title ?? 'Grafik' }}
 @endsection
 
 @section('content')
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="widget-header widget-header-small">
-                    <h5 class="widget-title lighter green"><i class="ace-icon fa fa-child"></i> <b>Data Balita</b></h5>
-                    <hr>
-                </div>
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <input type="hidden" name="id" value="3315014106210001">
-                        <div class="row row-demo-grid">
-                            <div class="col-xl-4">
-                                <div style="text-align: left; height: 30px;">NIK : {{ $anak->nik ?? null }}</div>
-                            </div>
-                            <div class="col-xl-4">
-                                <div style="text-align: left;  height: 30px;">Umur :
-                                    {{ hitungBulan($anak->tanggal_lahir) ?? null }} Bulan -
-                                    {{ parseTanggalLahir($anak->tanggal_lahir)->y }} Tahun
-                                    {{ parseTanggalLahir($anak->tanggal_lahir)->m }} Bulan
-                                    {{ parseTanggalLahir($anak->tanggal_lahir)->y }} Hari</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="widget-header widget-header-small">
+                        <h5 class="widget-title lighter green"><i class="ace-icon fa fa-child"></i> <b>Data Balita</b></h5>
+                        <hr>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <input type="hidden" name="id" value="3315014106210001">
+                            <div class="row row-demo-grid">
+                                <div class="col-xl-4">
+                                    <div style="text-align: left; height: 30px;">NIK : {{ $anak->nik ?? null }}</div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div style="text-align: left;  height: 30px;">Umur :
+                                        {{ hitungBulan($anak->tanggal_lahir) ?? null }} Bulan -
+                                        {{ parseTanggalLahir($anak->tanggal_lahir)->y }} Tahun
+                                        {{ parseTanggalLahir($anak->tanggal_lahir)->m }} Bulan
+                                        {{ parseTanggalLahir($anak->tanggal_lahir)->y }} Hari</div>
                                 </div>
 
                                 <div class="col-xl-4">
@@ -39,416 +39,236 @@
                                 </div>
                                 <div class="col-xl-4">
                                     <div style="text-align: left;  height: 30px;"> Posyandu :
-                                        <b>{{ $anak->orangTua->posyandu->nama_posyandu ?? '-' }}</b></div>
+                                        <b>{{ $anak->orangTua->posyandu->nama_posyandu ?? '-' }}</b>
                                     </div>
+                                </div>
 
-                                    <div class="col-xl-4">
-                                        <div style="text-align: left;  height: 30px;">Jenis Kelamin :
-                                            {{ $anak->jenis_kelamin === 'L' ? 'LAKI LAKI' : 'WANITA' }}</div>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div style="text-align: left;  height: 30px;"> Anak Ke : {{ $anak->anak_ke }}</div>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div style="text-align: left;  height: 30px;"> Alamat :
-                                                {{ $anak->orangTua->alamat_lengkap ?? '-' }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-xl-4">
+                                    <div style="text-align: left;  height: 30px;">Jenis Kelamin :
+                                        {{ $anak->jenis_kelamin === 'L' ? 'LAKI LAKI' : 'WANITA' }}</div>
                                 </div>
-                            </div>
-                            <br>
-                            <div class="card-header">
-                                <div class="card-title">Grafik Berat Badan</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-container">
-                                    <div class="chartjs-size-monitor"
-                                    style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                    <div class="chartjs-size-monitor-expand"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                <div class="col-xl-4">
+                                    <div style="text-align: left;  height: 30px;"> Anak Ke : {{ $anak->anak_ke }}</div>
                                 </div>
-                                <div class="chartjs-size-monitor-shrink"
-                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                <div class="col-xl-4">
+                                    <div style="text-align: left;  height: 30px;"> Alamat :
+                                        {{ $anak->orangTua->alamat_lengkap ?? '-' }}</div>
+                                </div>
                             </div>
                         </div>
-                        <canvas id="ChartBeratBadan" class="chartjs-render-monitor col-12"></canvas>
                     </div>
                 </div>
-
+                <br>
                 <div class="card-header">
-                    <div class="card-title">Grafik Tinggi Badan</div>
+                    <div class="card-title">Kurva Berat Badan</div>
                 </div>
                 <div class="card-body">
                     <div class="chart-container">
                         <div class="chartjs-size-monitor"
-                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                        <div class="chartjs-size-monitor-expand"
-                        style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                            style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                            <div class="chartjs-size-monitor-expand"
+                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink"
+                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                            </div>
+                        </div>
+                        <div id="kurva-bb" class="chartjs-render-monitor col-12"></div>
                     </div>
-                    <div class="chartjs-size-monitor-shrink"
-                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                </div>
+
+                <div class="card-header">
+                    <div class="card-title">Kurva Tinggi Badan</div>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <div class="chartjs-size-monitor"
+                            style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                            <div class="chartjs-size-monitor-expand"
+                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink"
+                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                            </div>
+                        </div>
+                        <div id="kurva-pb-tb" class="col-12"></div>
+                    </div>
                 </div>
             </div>
-            <canvas id="ChartTinggiBadan" class="col-12"></canvas>
         </div>
     </div>
-{{--            <div class="card-header">--}}
-{{--                <div class="card-title">Riwayat Pengukuran</div>--}}
-{{--            </div>--}}
 
-{{--            <div class="card-body">--}}
-{{--                <table class="table table-bordered table-hover">--}}
-{{--                    <thead>--}}
-{{--                        <tr>--}}
-{{--                            <th>BLN</th>--}}
-{{--                            <th>TANGGAL UKUR</th>--}}
-{{--                            <th>BB</th>--}}
-{{--                            <th>BB ZSCORE</th>--}}
-{{--                            <th>BB STATUS</th>--}}
-{{--                            <th>TB</th>--}}
-{{--                            <th>TB ZSCORE</th>--}}
-{{--                            <th>TB STATUS</th>--}}
-{{--                            <th>LINGKAR KEPALA</th>--}}
-{{--                            <th>LILA</th>--}}
-{{--                        </tr>--}}
-{{--                    </thead>--}}
-{{--                    <tbody>--}}
-{{--                        <tr>--}}
-{{--                            <td>0</td>--}}
-{{--                            <td>-</td>--}}
-{{--                        </tr>--}}
-{{--                    </tbody>--}}
-{{--                </table>--}}
-{{--            </div>--}}
-
-</div>
-</div>
-</div>
+    <div class="modal fade" id="modal-detail-berat-badan">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Detail Kurva</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>Tanggal Ukur: <span id="tanggal-ukur"></span></div>
+                    <div>BB: <span id="bb"></span></div>
+                    <div>BB Z-SCORE: <span id="bb_zscore"></span></div>
+                    <div>Status: <span id="status"></span></div>
+                    <div>UMUR: <span id="umur"></span> Bulan</div>
+                </div>
+                <div class="modal-footer">
+                    <button id="detail-bb-close" class="btn btn-info">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="modal-detail-tinggi-badan">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Detail Kurva</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>Tanggal Ukur: <span id="tanggal-ukur"></span></div>
+                    <div>TB: <span id="bb"></span></div>
+                    <div>TB Z-SCORE: <span id="bb_zscore"></span></div>
+                    <div>Status: <span id="status"></span></div>
+                    <div>UMUR: <span id="umur"></span> Bulan</div>
+                </div>
+                <div class="modal-footer">
+                    <button id="detail-tb-close" class="btn btn-info">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 @endsection
 @push('scripts')
-<script>
-    ChartOptions1 = {
-        responsive: true,
-        layout: {
-            padding: {
-                top: 12,
-                left: 12,
-                bottom: 12,
-            },
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    borderDash: [],
-                },
-            }],
+    <script>
+        window.onload = function() {
 
-            yAxes: [{
-                gridLines: {
-                    borderDash: [],
+
+            $('#detail-bb-close').on('click', () => {
+                $('#modal-detail-berat-badan').modal('hide');
+                $('#modal-detail-berat-badan #tanggal-ukur').html('');
+                $('#modal-detail-berat-badan #bb').html('');
+                $('#modal-detail-berat-badan #bb_zscore').html('');
+                $('#modal-detail-berat-badan #umur').html('');
+                $('#modal-detail-berat-badan #status').html('');
+            })
+
+            $('#detail-tb-close').on('click', () => {
+                $('#modal-detail-tinggi-badan').modal('hide');
+                $('#modal-detail-tinggi-badan #tanggal-ukur').html('');
+                $('#modal-detail-tinggi-badan #bb').html('');
+                $('#modal-detail-tinggi-badan #bb_zscore').html('');
+                $('#modal-detail-tinggi-badan #umur').html('');
+                $('#modal-detail-tinggi-badan #status').html('');
+            })
+
+            async function detailKurvaPengukuranBB(d) {
+                const data = await fetch(
+                    `{{ route('ajax.detail_kurva_bb') }}?anak_id={{ $anak->id }}&bulan=${d.x}`);
+                const response = await data.json();
+                if (response.length != 0) {
+                    $('#modal-detail-berat-badan #tanggal-ukur').html(response.tanggal_ukur);
+                    $('#modal-detail-berat-badan #bb').html(response.bb + ' KG');
+                    $('#modal-detail-berat-badan #bb_zscore').html(response.bb_zscore);
+                    $('#modal-detail-berat-badan #umur').html(response.umur);
+                    $('#modal-detail-berat-badan #status').html(response.status);
+
+                } else {
+                    $('#modal-detail-berat-badan #tanggal-ukur').html('Belum ada pengukuran');
+                    $('#modal-detail-berat-badan #bb').html('Belum ada pengukuran');
+                    $('#modal-detail-berat-badan #bb_zscore').html('Belum ada pengukuran');
+                    $('#modal-detail-berat-badan #umur').html('Belum ada pengukuran');
+                    $('#modal-detail-berat-badan #status').html('Belum ada pengukuran');
+                }
+            }
+            async function detailKurvaPengukuranTb(d) {
+                const data = await fetch(
+                    `{{ route('ajax.detail_kurva_tb') }}?anak_id={{ $anak->id }}&bulan=${d.x}`);
+                const response = await data.json();
+                if (response.length != 0) {
+                    $('#modal-detail-tinggi-badan #tanggal-ukur').html(response.tanggal_ukur);
+                    $('#modal-detail-tinggi-badan #bb').html(response.tb + ' CM');
+                    $('#modal-detail-tinggi-badan #bb_zscore').html(response.tb_zscore);
+                    $('#modal-detail-tinggi-badan #umur').html(response.umur);
+                    $('#modal-detail-tinggi-badan #status').html(response.status);
+
+                } else {
+                    $('#modal-detail-tinggi-badan #tanggal-ukur').html('Belum ada pengukuran');
+                    $('#modal-detail-tinggi-badan #bb').html('Belum ada pengukuran');
+                    $('#modal-detail-tinggi-badan #bb_zscore').html('Belum ada pengukuran');
+                    $('#modal-detail-tinggi-badan #umur').html('Belum ada pengukuran');
+                    $('#modal-detail-tinggi-badan #status').html('Belum ada pengukuran');
+                }
+            }
+
+            var chart = c3.generate({
+                bindto: '#kurva-bb',
+                tooltip: {
+                    grouped: false,
                 },
-            }],
-        },
-        plugins: {
-            datalabels: {
-                display: true,
-                font: {
-                    style: ' bold',
+                point: {
+                    show: false,
                 },
-            },
-        },
-        legend: {
-            labels: {
-                generateLabels: function(chart) {
-                    return chart.data.datasets.map(function(dataset, i) {
-                        return {
-                            text: dataset.label,
-                            lineCap: dataset.borderCapStyle,
-                            lineDash: [],
-                            lineDashOffset: 0,
-                            lineJoin: dataset.borderJoinStyle,
-                            fillStyle: dataset.backgroundColor,
-                            strokeStyle: dataset.borderColor,
-                            lineWidth: dataset.pointBorderWidth,
-                            lineDash: dataset.borderDash,
+
+                zoom: {
+                    enabled: true
+                },
+                subchart: {
+                    show: false
+                },
+                data: {
+                    x: 'umur',
+                    columns: {!! json_encode($kurva_bb['data'], true) !!},
+                    onclick: function(d, element) {
+                        if (d.name === 'pengukuran') {
+                            $('#modal-detail-berat-badan').modal('show');
+                            detailKurvaPengukuranBB(d);
+
                         }
-                    })
+                    },
+                }
+            });
+
+            /** KURVA TB/PB BADAN **/
+            const chart2 = c3.generate({
+                bindto: '#kurva-pb-tb',
+                zoom: {
+                    enabled: true,
+                },
+                subchart: {
+                    show: false,
                 },
 
-            },
-        },
-
-        title: {
-            display: true,
-            text: 'Grafik Pertumbuhan Berat Badan',
-            fontColor: '#3498db',
-            fontSize: 22,
-            fontStyle: ' bold',
-        },
-        elements: {
-            arc: {},
-            point: {
-                pointStyle: 'circle',
-            },
-            line: {
-                tension: 0.05,
-                fill: false,
-                borderWidth: 1,
-            },
-            rectangle: {},
-        },
-        tooltips: {
-            backgroundColor: 'rgba(0,0,0,0.6)',
-            titleSpacing: 0,
-            cornerRadius: 5,
-        },
-        hover: {
-            mode: 'nearest',
-            animationDuration: 400,
-        },
-    };
-
-    var ChartDataBeratBadan = {
-        labels: {!! json_encode($umur) !!},
-        datasets: [{
-            data: {!! json_encode($bbsdmin3) !!},
-            backgroundColor: '#ff0000',
-            borderColor: '#ff0000',
-            pointBackgroundColor: '#ff0000',
-            label: "-3sd"
-        },
-
-        {
-            data: {!! json_encode($bbsdmin2) !!},
-            backgroundColor: '#d42d2d',
-            borderColor: '#d42d2d',
-            pointBackgroundColor: '#ff0000',
-            label: "-2sd"
-        },
-
-        {
-            data: {!! json_encode($bbsdmin1) !!},
-            backgroundColor: '#ffee00',
-            borderColor: '#ffee00',
-            pointBackgroundColor: '#ffee00',
-            label: "-1sd"
-        },
-
-        {
-            data: {!! json_encode($bbmedian) !!},
-            backgroundColor: '#00ff0d',
-            borderColor: '#00ff0d',
-            pointBackgroundColor: '#ff0000',
-            pointBorderColor: '#ffffff',
-            label: "Median"
-        },
-
-        {
-            data: {!! json_encode($bbsd1) !!},
-            backgroundColor: 'red',
-            borderColor: 'red',
-            pointBackgroundColor: 'red',
-            pointBorderColor: '#ffffff',
-            label: "1sd"
-        },
-
-        {
-            data: {!! json_encode($bbsd2) !!},
-            backgroundColor: '#d42d2d',
-            borderColor: '#d42d2d',
-            pointBackgroundColor: '#ff0000',
-            label: "2sd"
-        },
-
-        {
-            data: {!! json_encode($bbsd3) !!},
-            backgroundColor: '#ff0000',
-            borderColor: '#ffee00',
-            pointBackgroundColor: '#ff0000',
-            label: "3sd"
-        },
-
-        {
-            data: {!! json_encode($bbpengukuran) !!},
-            backgroundColor: '#0044ff',
-            borderColor: '#0044ff',
-            pointBackgroundColor: '#ff0000',
-            label: "Pengukuran"
-        },
-
-        ]
-    };
-
-
-    var myLine = new Chart(document.getElementById('ChartBeratBadan').getContext("2d"), {
-        type: 'line',
-        data: ChartDataBeratBadan,
-        options: ChartOptions1
-    });
-    document.getElementById('ChartBeratBadan').getContext("2d").stroke();
-
-    ChartOptions2 = {
-        responsive: true,
-        layout: {
-            padding: {
-                top: 12,
-                left: 12,
-                bottom: 12,
-            },
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    borderDash: [],
+                point: {
+                    show: false,
                 },
-            }],
+                tooltip: {
+                    grouped: false,
+                },
+                data: {
+                    x: 'umur',
+                    columns: {!! json_encode($kurva_pb_tb) !!},
+                    onclick: function(d, element) {
+                        if (d.name === 'pengukuran') {
+                            $('#modal-detail-tinggi-badan').modal('show');
+                            detailKurvaPengukuranTb(d);
 
-            yAxes: [{
-                gridLines: {
-                    borderDash: [],
-                },
-            }],
-        },
-        plugins: {
-            datalabels: {
-                display: true,
-                font: {
-                    style: ' bold',
-                },
-            },
-        },
-        legend: {
-            labels: {
-                generateLabels: function(chart) {
-                    return chart.data.datasets.map(function(dataset, i) {
-                        return {
-                            text: dataset.label,
-                            lineCap: dataset.borderCapStyle,
-                            lineDash: [],
-                            lineDashOffset: 0,
-                            lineJoin: dataset.borderJoinStyle,
-                            fillStyle: dataset.backgroundColor,
-                            strokeStyle: dataset.borderColor,
-                            lineWidth: dataset.pointBorderWidth,
-                            lineDash: dataset.borderDash,
                         }
-                    })
-                },
-
-            },
-        },
-
-        title: {
-            display: true,
-            text: 'Grafik Pertumbuhan Tinggi / Panjang Badan',
-            fontColor: '#3498db',
-            fontSize: 22,
-            fontStyle: ' bold',
-        },
-        elements: {
-            arc: {},
-            point: {
-                pointStyle: 'circle',
-            },
-            line: {
-                tension: 0.05,
-                fill: false,
-                borderWidth: 2,
-            },
-            rectangle: {},
-        },
-        tooltips: {
-            backgroundColor: 'rgba(0,0,0,0.6)',
-            titleSpacing: 0,
-            cornerRadius: 5,
-        },
-        hover: {
-            mode: 'nearest',
-            animationDuration: 400,
-        },
-    };
-
-
-    var ChartDataBeratBadan2 = {
-        labels: {!! json_encode($tbpbumur) !!},
-        datasets: [{
-            data: {!! json_encode($tbpbsdmin3) !!},
-            backgroundColor: '#ff0000',
-            borderColor: '#ff0000',
-            pointBackgroundColor: '#ff0000',
-            label: "-3sd"
-        },
-
-        {
-            data: {!! json_encode($tbpbsdmin2) !!},
-            backgroundColor: '#d42d2d',
-            borderColor: '#d42d2d',
-            pointBackgroundColor: '#ff0000',
-            label: "-2sd"
-        },
-
-        {
-            data: {!! json_encode($tbpbsdmin1) !!},
-            backgroundColor: '#ffee00',
-            borderColor: '#ffee00',
-            pointBackgroundColor: '#ffee00',
-            label: "-1sd"
-        },
-
-        {
-            data: {!! json_encode($tbpbmedian) !!},
-            backgroundColor: '#00ff0d',
-            borderColor: '#00ff0d',
-            pointBackgroundColor: '#ff0000',
-            pointBorderColor: '#ffffff',
-            label: "Median"
-        },
-
-        {
-            data: {!! json_encode($tbpbsd1) !!},
-            backgroundColor: 'red',
-            borderColor: 'red',
-            pointBackgroundColor: 'red',
-            pointBorderColor: '#ffffff',
-            label: "1sd"
-        },
-
-        {
-            data: {!! json_encode($tbpbsd2) !!},
-            backgroundColor: '#d42d2d',
-            borderColor: '#d42d2d',
-            pointBackgroundColor: '#ff0000',
-            label: "2sd"
-        },
-        {
-            data: {!! json_encode($tbpbsd3) !!},
-            backgroundColor: '#ff0000',
-            borderColor: '#ffee00',
-            pointBackgroundColor: '#ff0000',
-            label: "3sd"
-        },
-
-        {
-            data: {!! json_encode($tbpbpengukuran) !!},
-            backgroundColor: '#0044ff',
-            borderColor: '#0044ff',
-            pointBackgroundColor: '#ff0000',
-            label: "Pengukuran"
-        },
-
-        ]
-    };
-
-    var myLine2 = new Chart(document.getElementById('ChartTinggiBadan').getContext("2d"), {
-        type: 'line',
-        data: ChartDataBeratBadan2,
-        options: ChartOptions2
-    });
-    document.getElementById('ChartTinggiBadan').getContext("2d").stroke();
-</script>
+                    },
+                }
+            })
+        }
+    </script>
 @endpush

@@ -42,6 +42,8 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ assets('plugins') }}/select2/css/select2.min.css">
     <link rel="stylesheet" href="{{ assets('plugins') }}/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- c3js -->
+    <link rel="stylesheet" href="{{ assets('plugins/d3js/css/c3.css') }}">
     <style>
         *::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -239,6 +241,9 @@
     <script src="{{ assets('plugins') }}/toastr/toastr.min.js"></script>
     <!-- select2 -->
     <script src="{{ assets('plugins') }}/select2/js/select2.full.min.js"></script>
+    <script src="{{ assets('plugins/d3js/js/d3.js') }}"></script>
+    <script src="{{ assets('plugins/d3js/js/c3.js') }}"></script>
+    <script src="{{ assets('plugins/d3js/js/c3.js') }}"></script>
 
     <!-- toast setting -->
     <script>
