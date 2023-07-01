@@ -86,6 +86,18 @@
             <div class="card small-box">
                 <i class="fas fa-city"></i>
                 <div class="inner">
+                    <h3>{{ $kabupatenKota->count() }}</h3>
+                    <p>Total Kabupaten</p>
+                </div>
+                <a href="{{ route('dashboard.data-master.kabupaten_kota') }}" class="link-btn">Data Kabupaten / Kota<i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-12">
+            <!-- small box -->
+            <div class="card small-box">
+                <i class="fas fa-city"></i>
+                <div class="inner">
                     <h3>{{ $total_kecamatan }}</h3>
                     <p>Total Kecamatan</p>
                 </div>

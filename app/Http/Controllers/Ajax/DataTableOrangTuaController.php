@@ -16,7 +16,7 @@ class DataTableOrangTuaController extends Controller
         ->addColumn('no_kk',fn($row)=>$row->nomor_kk)->addColumn('action',function(){
 
         })->addColumn('kecamatan',fn($row)=>$row->kelurahanDesa->kecamatan->nama_kecamatan ?? '-')->addColumn('action',function(){
-
+        })->addColumn('kabupaten',fn($row)=>$row->kelurahanDesa->kecamatan->kabupatenKota->nama_kab_kota ?? '-')->addColumn('action',function(){
         })->addColumn('posyandu_pembina',fn($row)=>$row->posyandu->nama_posyandu ?? '-')->addColumn('action',function(){
 
         })->addColumn('action',function($row){

@@ -124,6 +124,16 @@
                 </div>
             </div>
 
+            <div wire:ignore class="form-group">
+                <label for="" class="form-label">Pilih Orang Tua</label>
+                <select class="form-control select2" name="" id="nik">
+                    <option value="">--Pilih Orang Tua</option>
+                    @foreach ($dataOrangTua as $item)
+                        <option value="{{ $item->nik }}">{{ $item->nama }} - {{ $item->nik }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="">NIK Orangtua</label>
                 <input wire:model='orang_tua.nik' type="text" @class([
@@ -219,18 +229,28 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
+
+
+            $('#nik').select2({
+                theme: 'bootstrap4'
+            })
+
+            $('#nik').on('change', (e) => {
+                @this.set('orang_tua.nik', e.target.value);
+            })
+
             window.addEventListener('notifikasi', function(e) {
                 if (e.detail.type == 'success') {
                     Toast.fire({
                         icon: 'success',
                         title: 'Sukses',
-                        text: e.detail.msg;
+                        text: e.detail.msg,
                     })
                 } else {
                     Toast.fire({
                         icon: 'danger',
                         title: 'Gagal',
-                        text: e.detail.msg;
+                        text: e.detail.msg,
                     })
                 }
             })

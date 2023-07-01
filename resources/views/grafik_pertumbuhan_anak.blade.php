@@ -85,7 +85,8 @@
                         <span>BB-ZSCORE: {{ $pengukuranTerakhir->bb_zscore ?? '-' }} </span>
                     </div>
                     <div>
-                        <span>TB-ZSCORE: {{ $pengukuranTerakhir->pb_zscore ?? ($pengukuranTerakhir->tb_zscore ?? '-') }}
+                        <span>TB-ZSCORE:
+                            {{ $pengukuranTerakhir->pb_zscore ?? ($pengukuranTerakhir->tb_zscore ?? '-') }}
                         </span>
                     </div>
                 </div>
@@ -97,7 +98,7 @@
                             <small>{!! kategoriStatusBb($pengukuranTerakhir->bb_zscore ?? null, true) ?? '' !!}</small>
                         </span></div>
                     <div class="col-6">Status BB (Pengukuran Terakhir) <span class="d-block">
-                            <small> {!! kategoriStatusPbTb($pengukuranTerakhir->pb_zscore ?? $pengukuranTerakhir->tb_zscore, true) ?? '' !!}
+                            <small> {!! kategoriStatusPbTb($pengukuranTerakhir->pb_zscore ?? ($pengukuranTerakhir->tb_zscore ?? null), true) ?? '' !!}
                             </small>
                         </span></div>
                 </div>

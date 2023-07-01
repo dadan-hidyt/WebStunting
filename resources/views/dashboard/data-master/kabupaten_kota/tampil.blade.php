@@ -23,6 +23,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Kab / Kota</th>
+                                <th>Total Kecamatan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -52,6 +53,10 @@
                         {
                             name: 'nama_kab_kota',
                             data: 'nama_kab_kota'
+                        },
+                        {
+                            name: 'jumlah_kecamatan',
+                            data: 'jumlah_kecamatan'
                         },
                         {
                             name: 'action',

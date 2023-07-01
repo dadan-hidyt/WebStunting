@@ -17,6 +17,7 @@ class FormTambahBalita extends Component
     public $data = [];
     public $orang_tua = [];
     public $posyandu = [];
+    public $dataOrangTua;
     public $desa_kelurahan = [];
     protected $rules = [
         'data.nik' => ['required', 'max:16', 'min:16', 'unique:anak,nik'],
@@ -39,6 +40,7 @@ class FormTambahBalita extends Component
     public function mount()
     {
         $this->desa_kelurahan = KelurahanDesa::all();
+        $this->dataOrangTua = OrangTua::all();
     }
     private function reloadPosandu()
     {

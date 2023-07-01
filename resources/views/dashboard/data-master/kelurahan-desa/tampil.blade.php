@@ -22,6 +22,7 @@
                             <th>No</th>
                             <th>Nama Desa</th>
                             <th>Kecamatan</th>
+                            <th>Jumlah Posyandu</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -49,6 +50,9 @@
                     {name: 'no', data: 'DT_RowIndex'},
                     {name: 'nama_desa', data: 'nama_desa'},
                     {name: 'kecamatan', data: 'kecamatan'},
+                    
+                    {name: 'jumlah_posyandu', data: 'jumlah_posyandu'},
+
                     {name: 'action', data: 'action'},
 
                 ]

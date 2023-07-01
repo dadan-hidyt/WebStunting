@@ -26,6 +26,7 @@
                                 <th>NIK</th>
                                 <th>No KK</th>
                                 <th>Nama</th>
+                                <th>Kabupaten / Kota</th>
                                 <th>Kecamatan</th>
                                 <th>Posyandu Pembina</th>
                                 <th>Alamat Lengkap</th>
@@ -72,6 +73,10 @@
                     {
                         data: 'nama',
                         name: 'nama'
+                    },
+                    {
+                        data : 'kabupaten',
+                        name : 'kabupaten'
                     },
                     {
                         data : 'kecamatan',

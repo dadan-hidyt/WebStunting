@@ -4,9 +4,10 @@
 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Sweetalert2 = factory());
-}(this, function () { 'use strict';
+    typeof define === 'function' && define.amd ? define(factory) :
+      (global = global || self, global.Sweetalert2 = factory());
+}(this, function () {
+  'use strict';
 
   const consolePrefix = 'SweetAlert2:';
   /**
@@ -296,18 +297,18 @@
   const focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
   const getFocusableElements = () => {
     const focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
-    .sort((a, b) => {
-      const tabindexA = parseInt(a.getAttribute('tabindex'));
-      const tabindexB = parseInt(b.getAttribute('tabindex'));
+      .sort((a, b) => {
+        const tabindexA = parseInt(a.getAttribute('tabindex'));
+        const tabindexB = parseInt(b.getAttribute('tabindex'));
 
-      if (tabindexA > tabindexB) {
-        return 1;
-      } else if (tabindexA < tabindexB) {
-        return -1;
-      }
+        if (tabindexA > tabindexB) {
+          return 1;
+        } else if (tabindexA < tabindexB) {
+          return -1;
+        }
 
-      return 0;
-    });
+        return 0;
+      });
     const otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(el => el.getAttribute('tabindex') !== '-1');
     return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible(el));
   };
@@ -1777,7 +1778,7 @@
 
   const iOSfix = () => {
     const iOS = // @ts-ignore
-    /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
 
     if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
       const offset = document.body.scrollTop;
@@ -1839,9 +1840,9 @@
     }
 
     if (!isScrollable(container) && target.tagName !== 'INPUT' && // #1603
-    target.tagName !== 'TEXTAREA' && // #2266
-    !(isScrollable(getHtmlContainer()) && // #1944
-    getHtmlContainer().contains(target))) {
+      target.tagName !== 'TEXTAREA' && // #2266
+      !(isScrollable(getHtmlContainer()) && // #1944
+        getHtmlContainer().contains(target))) {
       return true;
     }
 
@@ -2216,7 +2217,7 @@
   };
 
   const handleConfirmOrDenyWithInput = (instance, type
-  /* 'confirm' | 'deny' */
+    /* 'confirm' | 'deny' */
   ) => {
     const innerParams = privateProps.innerParams.get(instance);
 
@@ -2239,7 +2240,7 @@
   };
 
   const handleInputValidator = (instance, inputValue, type
-  /* 'confirm' | 'deny' */
+    /* 'confirm' | 'deny' */
   ) => {
     const innerParams = privateProps.innerParams.get(instance);
     instance.disableInput();
@@ -3388,4 +3389,4 @@
   return Swal;
 
 }));
-if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
+if (typeof this !== 'undefined' && this.Sweetalert2) { this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2 }

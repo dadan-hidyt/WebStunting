@@ -30,6 +30,7 @@
                 <th>No</th>
                 <th>Nama Kecamatan</th>
                 <th>Kabupaten/Kota</th>
+                <th>Jumlah Desa</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -58,6 +59,7 @@
                     {name : 'no',data : 'DT_RowIndex'},
                     {name : 'nama_kecamatan',data : 'nama_kecamatan'},
                     {name : 'kab_kota',data : 'kab_kota'},
+                    {name : 'jumlah_desa',data : 'jumlah_desa'},
                     {name : 'action',data : 'action'},
 
                 ]

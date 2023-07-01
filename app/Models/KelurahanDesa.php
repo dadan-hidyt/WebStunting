@@ -23,6 +23,4 @@ class KelurahanDesa extends Model
     public function orangTua(){
         return $this->hasMany(OrangTua::class);
     }
-
-
 }
