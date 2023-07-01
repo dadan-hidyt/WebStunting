@@ -78,7 +78,9 @@
 
     <div class="wrapper">
         <div class="preloader flex-column justify-content-center align-items-center">
-            <h4 class="animation__shake">E-KAMBING.COM</h4>
+            <h4 class="animation__bounce">
+                <img src="{{ asset('loading_24.gif') }}" alt="">
+            </h4>
         </div>
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
