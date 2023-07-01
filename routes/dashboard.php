@@ -7,6 +7,7 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\Dashboard\Pengukuran;
 use App\Http\Controllers\Dashboard\BalitaController;
 use App\Http\Controllers\Dashboard\ExportController;
+use App\Http\Controllers\Dashboard\IbuHamilController;
 use App\Http\Controllers\Dashboard\KabupatenKotaController;
 use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\PengukuranController;
@@ -91,4 +92,9 @@ Route::middleware(SuperAdminMiddleware::class)->group(function () {
         Route::get('/{user}/delete', [AkunController::class, 'delete'])->scopeBindings()->name('delete');
     Route::get('/{user}/change_active',[AkunController::class,'changeActive'])->name('change_active');
     });
+});
+
+Route::prefix('/ibu-hamil')->name('.ibu-hamil.')->group(function(){
+    Route::get('/', [IbuHamilController::class,'index'])->name('index');
+    Route::get('/tambah', [IbuHamilController::class,'tambah'])->name('tambah');
 });

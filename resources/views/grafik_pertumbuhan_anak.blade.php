@@ -155,20 +155,20 @@
                                         ->where('umur', $item)
                                         ->first();
                                 @endphp
-                                <td>{{ $dat->tanggal_ukur ?? '' }}</td>
-                                <td>{{ $dat->umur ?? '' }}</td>
-                                <td>{{ $dat->bb ?? '' }}</td>
+                                <td>{{ $dat->tanggal_ukur ?? '-' }}</td>
+                                <td>{{ $dat->umur ?? '-' }}</td>
+                                <td>{{ $dat->bb ?? '-' }}</td>
                                 <td>
-                                    {{ $dat->pb ?? ($dat->tb ?? '') }}
+                                    {{ $dat->pb ?? ($dat->tb ?? '-') }}
                                 </td>
                                 <td>
-                                    {{ $dat->bb_zscore ?? '' }}
+                                    {{ $dat->bb_zscore ?? '-' }}
                                 </td>
                                 <td>
-                                    {{ $dat->pb_zscore ?? ($dat->tb_zscore ?? '') }}
+                                    {{ $dat->pb_zscore ?? ($dat->tb_zscore ?? '-') }}
                                 </td>
-                                <td>{!! kategoriStatusBb($dat->bb_zscore ?? null) ?? '' !!}</td>
-                                <td>{!! kategoriStatusPbTb($dat->tb_zscore ?? null) ?? '' !!}</td>
+                                <td>{!! kategoriStatusBb($dat->bb_zscore ?? null) ?? '-' !!}</td>
+                                <td>{!! kategoriStatusPbTb($dat->tb_zscore ?? null) ?? '-' !!}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -189,8 +189,6 @@
         window.onload = function() {
             var chart = c3.generate({
                 bindto: '#kurva-bb',
-
-
                 tooltip: {
                     grouped: false,
                 },
@@ -205,14 +203,18 @@
                     show: false
                 },
                 data: {
+                    empty: {
+                        label: {
+                            text: "Tidak ada data!",
+                        }
+                    },
+
                     x: 'umur',
                     columns: {!! json_encode($kurva_bb['data'], true) !!},
                     onclick: function(d, element) {
                         if (d.name === 'pengukuran') {
                             document.getElementById('kg').innerHTML = d.value + " Kg";
-                            console.log(d);
                             document.getElementById('umur').innerHTML = d.x + " Bulan";
-                            console.log(d);
                         }
                     },
                 }
@@ -227,14 +229,21 @@
                 subchart: {
                     show: false,
                 },
-
+                
                 point: {
                     show: false,
+                   
                 },
                 tooltip: {
                     grouped: false,
                 },
                 data: {
+
+                    empty: {
+                        label: {
+                            text: "Tidak ada data!",
+                        }
+                    },
                     x: 'umur',
                     columns: {!! json_encode($kurva_pb_tb) !!},
                 }

@@ -4,6 +4,7 @@
 use App\Http\Controllers\Ajax\AnakAjaxController;
 use App\Http\Controllers\Ajax\DataTableAkunController;
 use App\Http\Controllers\Ajax\DataTableBalitaController;
+use App\Http\Controllers\Ajax\DataTableIbuHamilController;
 use App\Http\Controllers\Ajax\DataTableKecamatanController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Ajax\DataTableKelurahanDesa;
@@ -13,7 +14,7 @@ use App\Http\Controllers\Ajax\DataTablePosyanduController;
 use App\Http\Controllers\Ajax\GeneralAjaxHandlerController;
 use App\Http\Controllers\Dashboard\ExportController;
 use App\Http\Controllers\Global\StatistikController;
-
+Route::get('ibu-hamik/getData', [DataTableIbuHamilController::class,'index'])->name('.ibu-hamil.getData');
 Route::get('balita',[DataTableBalitaController::class,'index'])->name('.balita.semua');
 Route::get('hasil-pengukuran',[DataTablePengukuranController::class,'index'])->name('.pengukuran.semua');
 Route::get('balita/stunting',[DataTableBalitaController::class,'getDataStunting'])->name('.balita.getDataStunting');
