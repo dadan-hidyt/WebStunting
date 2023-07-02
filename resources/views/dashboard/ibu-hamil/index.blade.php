@@ -1,10 +1,25 @@
-@extends('layouts.authenticate')
+@extends('layouts.authenticate',['no_loader'=>true])
 
 @section('page-title', $title ?? 'Ibu Hamil')
 
 @section('content')
     <div class="row">
         <div class="col-12">
+
+            @if (session()->has('berhasil'))
+            
+            @push('scripts')
+                <script>
+                    Toast.fire({
+                        title : 'Berhasil',
+                        icon : 'success',
+                        text : " {{ session('berhasil') }}"
+                    })
+                </script>
+            @endpush
+
+            @endif
+
             <div class="card overflow-hidden">
                 <div class="table-header">
                     <a href="{{ route('dashboard.ibu-hamil.tambah') }}" class="btn-add-data">
@@ -19,6 +34,7 @@
                                 <th>No</th>
                                 <th>NIK</th>
                                 <th>Nama</th>
+                                <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>
                                 <th>Umur</th>
                                 <th>Kabupaten</th>
@@ -51,6 +67,7 @@
                     {name : 'DT_RowIndex', data : 'DT_RowIndex'},
                     {name : 'nik', data : 'nik'},
                     {name : 'nama', data : 'nama'},
+                    {name : 'tempat_lahir', data : 'tempat_lahir'},
                     {name : 'tanggal_lahir', data : 'tanggal_lahir'},
                     {name : 'umur', data : 'umur'},
                     {name : 'kabupaten', data : 'kabupaten'},

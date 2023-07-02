@@ -15,6 +15,7 @@ use App\Http\Controllers\Ajax\GeneralAjaxHandlerController;
 use App\Http\Controllers\Dashboard\ExportController;
 use App\Http\Controllers\Global\StatistikController;
 Route::get('ibu-hamik/getData', [DataTableIbuHamilController::class,'index'])->name('.ibu-hamil.getData');
+Route::get('ibu-hamik/{ibuHamil}-getPengukuran', [DataTableIbuHamilController::class,'getPengukuran'])->name('.ibu-hamil.getPengukuran');
 Route::get('balita',[DataTableBalitaController::class,'index'])->name('.balita.semua');
 Route::get('hasil-pengukuran',[DataTablePengukuranController::class,'index'])->name('.pengukuran.semua');
 Route::get('balita/stunting',[DataTableBalitaController::class,'getDataStunting'])->name('.balita.getDataStunting');

@@ -16,10 +16,15 @@ class IbuHamil extends Model
         'tempat_lahir',
         'tanggal_lahir',
         'kelurahan_desa_id',
+        'berat_badan_ideal_sebelum_hamil',
+        'tinggi_badan_sebelum_hamil',
         'berat_badan_sebelum_hamil',
         'nik',
         
     );
+    public function pengukuran(){
+        return $this->hasMany(PengukuranIbuHamil::class);
+    }
     public function kelurahanDesa(){
         return $this->belongsTo(KelurahanDesa::class);
     }

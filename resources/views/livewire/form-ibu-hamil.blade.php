@@ -58,11 +58,18 @@
     @enderror
 </div>
 <div class="form-group">
-    <label for="berat_badan_sebelum_hamil" wire:model.defer='data.berat_badan_sebelum_hamilpForm'
-        class="form-label">Berat Badan (Sebelum Hamil)</label>
+    <label for="berat_badan_sebelum_hamil" class="form-label">Berat Badan (Sebelum Hamil)</label>
     <input type="text" wire:model.defer='data.berat_badan_sebelum_hamil' id="berat_badan_sebelum_hamil"
         class="form-control">
     @error('data.berat_badan_sebelum_hamil')
+        <span class="invalid-feedback d-block">{{ $message }}</span>
+    @enderror
+</div>
+<div class="form-group">
+    <label for="berat_badan_sebelum_hamil" class="form-label">Berat Badan (Sebelum Hamil)</label>
+    <input type="text" wire:model.defer='data.tinggi_badan_sebelum_hamil' id="tinggi_badan_sebelum_hamil"
+        class="form-control">
+    @error('data.tinggi_badan_sebelum_hamil')
         <span class="invalid-feedback d-block">{{ $message }}</span>
     @enderror
 </div>
@@ -111,7 +118,7 @@
 </div>
 
 <div class="form-group">
-    <button class="btn btn-primary">TAMBAH</button>
+    <button class="btn btn-primary">SIMPAN</button>
 </div>
 </form>
 
@@ -122,14 +129,14 @@
                 Toast.fire({
                     title : 'Berhasil',
                     icon : 'success',
-                    text : "IBU Hamil Berhasil Di tambahkan"
+                    text : "IBU Hamil Berhasil Di simpan"
                 });
             })
             window.addEventListener('gagal',function(){
                 Toast.fire({
                     title : 'Gagal',
                     icon : 'error',
-                    text : "IBU Hamil Gagal Di tambahkan"
+                    text : "IBU Hamil Gagal Di simpan"
                 });
             })
         })

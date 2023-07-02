@@ -47,7 +47,8 @@
 
     <!-- datepicker -->
 
-    <link rel="stylesheet" href="{{assets('plugins/Zebra_Datepicker-master/dist/css/bootstrap/zebra_datepicker.css')}}">
+    <link rel="stylesheet"
+        href="{{ assets('plugins/Zebra_Datepicker-master/dist/css/bootstrap/zebra_datepicker.css') }}">
 
     <style>
         *::-webkit-scrollbar-track {
@@ -77,11 +78,14 @@
 <body @class(['hold-transition sidebar-mini layout-fixed']) style="height:auto;">
 
     <div class="wrapper">
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <h4 class="animation__bounce">
-                <img src="{{ asset('loading_24.gif') }}" alt="">
-            </h4>
-        </div>
+        @if (!isset($no_loader))
+            <div style="background: white!important;"
+                class="preloader flex-column justify-content-center align-items-center">
+                <h4 class="animation__bounce">
+                    <img src="{{ asset('loading_24.gif') }}" alt="">
+                </h4>
+            </div>
+        @endif
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -253,7 +257,7 @@
     <script src="{{ assets('plugins/d3js/js/c3.js') }}"></script>
     <!-- jebra datepicker -->
 
-    <script src="{{assets('plugins/Zebra_Datepicker-master/dist/zebra_datepicker.min.js')}}"></script>
+    <script src="{{ assets('plugins/Zebra_Datepicker-master/dist/zebra_datepicker.min.js') }}"></script>
 
     <!-- toast setting -->
     <script>

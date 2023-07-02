@@ -97,4 +97,7 @@ Route::middleware(SuperAdminMiddleware::class)->group(function () {
 Route::prefix('/ibu-hamil')->name('.ibu-hamil.')->group(function(){
     Route::get('/', [IbuHamilController::class,'index'])->name('index');
     Route::get('/tambah', [IbuHamilController::class,'tambah'])->name('tambah');
+    Route::get('/{ibuHamil}/edit', [IbuHamilController::class,'edit'])->name('edit');
+    Route::get('/{ibuHamil}/delete', [IbuHamilController::class,'delete'])->name('delete');
+    Route::get('/{ibuHamil}/pengukuran', [IbuHamilController::class,'pegukuran'])->name('pengukuran');
 });

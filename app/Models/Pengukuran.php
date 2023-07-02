@@ -13,6 +13,7 @@ class Pengukuran extends Model
     public function anak(){
         return $this->belongsTo(Anak::class);
     }
+ 
     public function anaks(){
         return $this->belongsTo(Anak::class);
     }
