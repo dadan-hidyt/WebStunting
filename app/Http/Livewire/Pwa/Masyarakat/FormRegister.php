@@ -7,6 +7,7 @@ use App\Models\OrangTua;
 use App\Models\PosyanduPembina;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -51,7 +52,7 @@ class FormRegister extends Component
         $ortu = collect([]);
         $akun->put('name', $this->data['name'] ?? null);
         $akun->put('password', Hash::make($this->data['password']));
-        $akun->put('hak_akases', $this->type);
+        $akun->put('hak_akses', convertHakAkses($this->type));
         $akun->put('email', $this->data['email'] ?? null);
         $akun->put('profile_picture', 'default.png');
 
@@ -66,10 +67,11 @@ class FormRegister extends Component
         try {
             if ($ortu = OrangTua::create($ortu->all())) {
                 $akun->put('orang_tua_id', $ortu->id);
-            };
+            }
 
-            if (User::create($akun->all())) {
+            if ($user = User::create($akun->all())) {
                 DB::commit();
+                Auth::login($user);
                 return Redirect::to(route('mobile.homepage'));
             } else {
                 $this->dispatchBrowserEvent('gagal');

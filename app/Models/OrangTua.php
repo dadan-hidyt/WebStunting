@@ -25,6 +25,9 @@ class OrangTua extends Model
     public function kelurahanDesa(){
         return $this->belongsTo(KelurahanDesa::class);
     }
+    public function user(){
+        return $this->hasOne(User::class);
+    }
     public function posyandu(){
         return $this->belongsTo(PosyanduPembina::class,'posyandu_pembina_id');
     }

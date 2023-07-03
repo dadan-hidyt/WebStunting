@@ -109,3 +109,8 @@ function textHakAkses(string $text): string
 {
     return str_replace(['super_admin', 'posyandu', 'petugas', 'orang_tua'], ['Super Admin', 'Posyandu', 'Petugas', 'Orang Tua'], $text);
 }
+
+
+function convertHakAkses($akses) {
+    return str_replace(['masyarakat','ortu'],['orang_tua','orang_tua'],$akses);
+}

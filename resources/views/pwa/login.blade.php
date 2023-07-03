@@ -16,18 +16,7 @@
                     <p>Selamat datang kembali e-Kambing</p>
                 </header>
                 <section class="auth-form">
-                    <form action="">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password">
-                            <div class="icon"><i class="fa-solid fa-lock"></i></div>
-                        </div>
-                        <button class="btn-submit">
-                            Login
-                        </button>
-                    </form>
+                    @livewire('pwa.form-login')
                     <div class="option">
                         Belum punya akun? <a href="{{ $register_url ?? '' }}">Daftar Sekarang</a>
                     </div>
