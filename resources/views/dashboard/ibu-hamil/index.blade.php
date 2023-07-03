@@ -62,6 +62,10 @@
                 scrollX : true,
                 serverSide : true,
                 processing : true,
+                fixedColumns: {
+                    left: 0,
+                    right: 1
+                },
                 ajax : "{{ route('ajax.ibu-hamil.getData') }}",
                 columns : [
                     {name : 'DT_RowIndex', data : 'DT_RowIndex'},

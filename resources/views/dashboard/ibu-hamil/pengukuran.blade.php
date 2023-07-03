@@ -43,6 +43,7 @@
                                 <th>BBIH</th>
                                 <th>IMT</th>
                                 <th>Kategori IMT</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -89,6 +90,10 @@
                 serverSide: true,
                 processing: true,
                 scrollX: true,
+                fixedColumns: {
+                    left: 0,
+                    right: 1
+                },
                 ajax: "{{ route('ajax.ibu-hamil.getPengukuran', $ibuHamil->id) }}",
                 columns: [{
                         name: 'DT_RowIndex',
@@ -130,6 +135,10 @@
                         name: 'kategori_imt',
                         data: 'kategori_imt',
                     },
+                    {
+                        name : 'action',
+                        data : 'action'
+                    }
                     
 
                 ]

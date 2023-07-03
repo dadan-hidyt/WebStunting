@@ -100,4 +100,5 @@ Route::prefix('/ibu-hamil')->name('.ibu-hamil.')->group(function(){
     Route::get('/{ibuHamil}/edit', [IbuHamilController::class,'edit'])->name('edit');
     Route::get('/{ibuHamil}/delete', [IbuHamilController::class,'delete'])->name('delete');
     Route::get('/{ibuHamil}/pengukuran', [IbuHamilController::class,'pegukuran'])->name('pengukuran');
+    Route::get('/{ibuHamil}/pengukuran/{pengukuranIbuHamil}/delete', [IbuHamilController::class,'deletePengukuran'])->name('deletePengukuran');
 });

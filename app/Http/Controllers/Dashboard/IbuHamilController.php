@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\IbuHamil;
+use App\Models\PengukuranIbuHamil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -25,5 +26,13 @@ class IbuHamilController extends Controller
     }
     public function pegukuran(IbuHamil $ibuHamil) {
         return view('dashboard.ibu-hamil.pengukuran',compact('ibuHamil'))->with('title',"Pengukuran");
+    }
+    public function deletePengukuran(IbuHamil $ibuHamil, PengukuranIbuHamil $pengukuranIbuHamil) {
+        if($pengukuranIbuHamil->ibu_hamil_id === $ibuHamil->id){
+            if($pengukuranIbuHamil->delete()) {
+                return Redirect::back()->with('berhasil',"Data Berhasil Di Hapus");
+            }
+        }
+        return Redirect::back()->with('gagal',"Sepertinya ada sedikit masalah");
     }
 }

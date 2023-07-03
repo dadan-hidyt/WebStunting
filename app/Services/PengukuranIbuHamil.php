@@ -8,7 +8,7 @@ class PengukuranIbuHamil
     {
         $tbDalamMeter = ($tinggiBadan / 100);
         $IMT = $beratBadan / ($tbDalamMeter * $tbDalamMeter);
-        return $IMT;
+        return round($IMT,2);
     }
     public function hitungBBIH($bbi, $uh)
     {
