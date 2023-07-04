@@ -27,7 +27,7 @@
                 <h2>Statistik</h2>
                 <div class="menu-group">
                     <a href="{{ route('mobile.masyarakat.riwayat_bb',$anak->id) }}" class="btn">Riwayat BB<i class="fa-solid fa-chevron-right"></i></a>
-                    <a href="riwayat-tb.html" class="btn">Riwayat TB/PB<i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="{{ route('mobile.masyarakat.riwayat_pb',$anak->id) }}" class="btn">Riwayat TB/PB<i class="fa-solid fa-chevron-right"></i></a>
                     <a href="kms.html" class="btn">KMS<i class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </section>

@@ -8,7 +8,7 @@
                     <a href="#" class="btn-back" onclick="history.back()">
                         <i class="fa-solid fa-chevron-left"></i>
                     </a>
-                    <h1>Riwayat BB</h1>
+                    <h1>Riwayat PB</h1>
                 </header>
                 <section class="detail-option-list">
                     <div class="child-info">
@@ -27,31 +27,31 @@
                     <div style="height: 400px;" id="chart"></div>
                     <h2>Riwayat Pengukuran</h2>
                     <div class="history-group">
-                       
+
                         @foreach ($anak->pengukuran as $item)
-                        <div class="card red">
-                            <header>
-                                <div class="general">
-                                    <p>{{ $item->tanggal_ukur }}</p>
-                                    <h4>Umur {{ $item->umur ?? '-' }} Bulan </h4>
-                                </div>
-                                <div class="status">
-                                    {!! kategoriStatusBb($item->bb_zscore,true) !!}
-                                </div>
-                            </header>
-                            <div class="card-footer">
-                                <div class="col">
-                                    <p>Berat Badan</p>
-                                    <h4>{{ $item->bb }} KG</h4>
-                                </div>
-                                <div class="col">
-                                    <p>Nilai Z-Score</p>
-                                    <h4>{{ $item->bb_zscore }} ZS</h4>
+                            <div class="card red">
+                                <header>
+                                    <div class="general">
+                                        <p>{{ $item->tanggal_ukur }}</p>
+                                        <h4>Umur {{ $item->umur ?? '-' }} Bulan </h4>
+                                    </div>
+                                    <div class="status">
+                                        {!! kategoriStatusPbTb($item->pb_zscore ?? $item->tb_zscore, true) !!}
+                                    </div>
+                                </header>
+                                <div class="card-footer">
+                                    <div class="col">
+                                        <p>Berat Badan</p>
+                                        <h4>{{ $item->tb ?? $item->pb }} KG</h4>
+                                    </div>
+                                    <div class="col">
+                                        <p>Nilai Z-Score</p>
+                                        <h4>{{ $item->tb_zscore ?? $item->pb_zscore }} ZS</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
-                       
+
                     </div>
                 </section>
                 <footer>
@@ -92,7 +92,7 @@
                     },
 
                     x: 'umur',
-                    columns: {!! json_encode($pengukuran_bb['data'], true) !!},
+                    columns: {!! json_encode($pengukuran_pb, true) !!},
                     onclick: function(d, element) {
 
                     },

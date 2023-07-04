@@ -24,4 +24,10 @@ class PageController extends Controller
             'pengukuran_bb' => $kurvaPertumbuhanService->getKurvaBb($anak),
         ]);
     }
+    public function riwayatPB(Anak $anak, KurvaPertumbuhanService $kurvaPertumbuhanService){
+        return view('pwa.masyarakat.riwayat_pb',[
+            'anak' => $anak,
+            'pengukuran_pb' => $kurvaPertumbuhanService->getKurvaPbBb($anak),
+        ]);   
+     }
 }
