@@ -16,6 +16,7 @@
     <link rel="manifest" href="{{ pwaAssets('/') }}/js/web.webmanifest">
     <link rel="apple-touch-icon" href="{{ pwaAssets('/') }}/img/icon.png">
     <link rel="stylesheet" href="{{ pwaAssets('/') }}/css/style.css">
+    <link rel="stylesheet" href="{{ assets('plugins/d3js/css/c3.css') }}">
     @livewireStyles
 </head>
 
@@ -23,6 +24,9 @@
     @yield('content')
     @livewireScripts
     <script src="{{ pwaAssets('/') }}/js/register.js"></script>
+    <script src="{{ assets('plugins/d3js/js/d3.js') }}"></script>
+    <script src="{{ assets('plugins/d3js/js/c3.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

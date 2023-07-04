@@ -638,7 +638,7 @@ html {
   background-color: rgba(231, 32, 32, 0.1254901961);
 }
 .detail-option-list .history-group .red header .status {
-  background-color: #e72020;
+  background-color: transparent;
 }
 .detail-option-list .history-group .yellow {
   background-color: rgba(255, 232, 27, 0.1882352941);
@@ -907,3 +907,26 @@ footer .yellow-ring .hole {
     border: 1px solid #ddd;
   }
 }/*# sourceMappingURL=style.css.map */
+
+
+.badge{
+  padding: 4px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.badge.badge-danger{
+  background-color: red;
+}
+.badge.badge-warning{
+  background-color: orange;
+}
+.badge.badge-success{
+  background-color: green;
+}
+
+
+
+
+

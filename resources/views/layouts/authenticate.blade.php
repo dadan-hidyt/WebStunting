@@ -254,7 +254,6 @@
     <script src="{{ assets('plugins') }}/select2/js/select2.full.min.js"></script>
     <script src="{{ assets('plugins/d3js/js/d3.js') }}"></script>
     <script src="{{ assets('plugins/d3js/js/c3.js') }}"></script>
-    <script src="{{ assets('plugins/d3js/js/c3.js') }}"></script>
     <!-- jebra datepicker -->
 
     <script src="{{ assets('plugins/Zebra_Datepicker-master/dist/zebra_datepicker.min.js') }}"></script>

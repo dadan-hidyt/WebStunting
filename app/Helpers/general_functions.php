@@ -34,7 +34,7 @@ function kategoriStatusPbTb($zScore, $badge = false)
     if (is_null($zScore)) {
         return;
     }
-    if ($badge) {
+    if ($badge === true) {
         if ($zScore < -3) {
             return "<span class='badge badge-danger'>Sangat pendek (severely stunted)</span>";
         } else if ($zScore >= -3 && $zScore < -2) {

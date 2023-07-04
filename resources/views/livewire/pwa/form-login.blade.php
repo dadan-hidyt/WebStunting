@@ -16,3 +16,11 @@
         Login
     </button>
 </form>
+
+@push('scripts')
+    <script>
+        window.addEventListener('login_gagal',()=>{
+            alert("Login gagal");
+        })
+    </script>
+@endpush

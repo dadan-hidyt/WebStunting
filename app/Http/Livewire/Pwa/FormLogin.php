@@ -20,6 +20,9 @@ class FormLogin extends Component
 
         if ( Auth::attempt($this->data) ) {
             return Redirect::to(route('mobile.homepage'));
+        } else {
+            //login gagal
+            $this->dispatchBrowserEvent('login_gagal');
         }
 
     }
