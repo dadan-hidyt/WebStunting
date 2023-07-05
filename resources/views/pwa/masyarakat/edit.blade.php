@@ -8,9 +8,14 @@
                     <a href="#" class="btn-back" onclick="history.back()">
                         <i class="fa-solid fa-chevron-left"></i>
                     </a>
-                    <h1>Data Anak</h1>
+                    <h1>Tambah Anak</h1>
                 </header>
-                @livewire('pwa.masyarakat.list-anak')
+                <section class="data-management-list">
+                    @livewire('pwa.masyarakat.form-anak', [
+                        'type' => 'edit',
+                        'anak' => $anak,
+                    ])
+                </section>
                 <footer>
                     <div class="blue-ring">
                         <div class="hole"></div>

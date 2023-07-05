@@ -10,6 +10,23 @@ use PhpParser\Node\Expr\Cast\Object_;
 
 class PengukuranService implements PengukuranInterface
 {
+    public function pengukuranPertama($anak){
+        $pengukuran = collect([]);
+        $pengukuran->put('bb', $anak->berat_lahir);
+        $pengukuran->put('bb_zscore', $this->ukurBeratBadanByUmur($anak->jenis_kelamin, $anak->umur, $pengukuran->get('bb'))->zscore ?? null);
+        $pengukuran->put('tanggal_ukur', now()->format('Y-m-d'));
+        $pengukuran->put('cara_ukur', $anak->umur <= 24 ? 'terlentang' : 'berdiri');
+        $pengukuran->put('umur', $anak->umur);
+        if ($pengukuran->get('cara_ukur') === 'berdiri' && $pengukuran->get('umur') >= 24) {
+            $pengukuran->put('tb', $anak->panjang_badan);
+            $pengukuran->put('tb_zscore', $this->ukurTinggiBadanByUmur($anak->jenis_kelamin, $anak->umur, $pengukuran->get('tb'))->zscore ?? null);
+        } else {
+            $pengukuran->put('pb', $anak->panjang_badan);
+            $pengukuran->put('pb_zscore', $this->ukurPanjangBadanByUmur($anak->jenis_kelamin, $anak->umur, $pengukuran->get('pb'))->zscore);
+        }
+        $pengukuran->put('anak_id', $anak->id);
+        return $pengukuran;
+    }
     public function kategoriStatusPbTb($zScore)
     {
         if ($zScore < -3) {

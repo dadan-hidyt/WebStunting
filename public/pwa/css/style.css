@@ -355,10 +355,63 @@ html {
 .data-management-list {
   margin-top: 40px;
 }
+.data-management-list form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 14px;
+}
+.data-management-list form .btn-group {
+  display: flex;
+  gap: 10px;
+}
+.data-management-list form .btn-group .btn-cancel {
+  padding: 15px 25px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #444;
+  font-size: 12px;
+  cursor: pointer;
+}
+.data-management-list form .btn-group .btn-save {
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: transparent;
+  outline: none;
+  float: inline-end;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #00B0FF;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
 .data-management-list form .form-group {
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
+}
+.data-management-list form .form-group input[type=date]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+.data-management-list form .form-group select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .data-management-list form .form-group .form-control {
   padding: 15px 25px;
@@ -372,23 +425,26 @@ html {
 .data-management-list form .form-group .icon {
   position: absolute;
   right: 25px;
+  pointer-events: none;
 }
 .data-management-list form .form-group .icon i {
   color: #00B0FF;
+  font-size: 14px;
 }
 .data-management-list form .btn-add {
   padding: 15px 25px;
   border-radius: 12px;
   border: transparent;
   outline: none;
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
   background: #00B0FF;
   display: block;
-  margin-top: 20px;
   color: #fff;
   text-decoration: none;
   font-size: 12px;
   text-align: center;
+  cursor: pointer;
 }
 .data-management-list h2 {
   font-size: 14px;
@@ -446,7 +502,7 @@ html {
   cursor: pointer;
 }
 .data-management-list .data-group .card .action i {
-  color: #e72020;
+  color: #00B0FF;
 }
 .data-management-list .data-group .card .action .count-btn {
   padding: 8px 16px;
@@ -494,15 +550,39 @@ html {
   color: #444;
   font-size: 10px;
 }
-.detail-option-list .child-info .action {
+.detail-option-list .child-info .btn-count {
   position: absolute;
   right: 25px;
   cursor: pointer;
 }
-.detail-option-list .child-info .action i {
+.detail-option-list .child-info .btn-count i {
+  color: #00B0FF;
+}
+.detail-option-list .child-info .btn-count .count-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #00B0FF;
+  color: #fff;
+  font-size: 10px;
+  text-decoration: none;
+}
+.detail-option-list .child-info .action-group {
+  display: flex;
+  gap: 15px;
+  position: absolute;
+  right: 25px;
+}
+.detail-option-list .child-info .action-group .action {
+  cursor: pointer;
+  padding: 6px 5px;
+}
+.detail-option-list .child-info .action-group .action:first-child i {
+  color: #ffc800;
+}
+.detail-option-list .child-info .action-group .action i {
   color: #e72020;
 }
-.detail-option-list .child-info .action .count-btn {
+.detail-option-list .child-info .action-group .action .count-btn {
   padding: 8px 16px;
   border-radius: 8px;
   background-color: #00B0FF;
@@ -551,6 +631,55 @@ html {
 .detail-option-list .child-status .status .card h6.blue {
   background-color: rgba(0, 176, 255, 0.1254901961);
   color: #00B0FF;
+}
+.detail-option-list form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 15px;
+}
+.detail-option-list form .form-group {
+  width: 100%;
+}
+.detail-option-list form .form-group .form-control {
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 12px;
+  border: transparent;
+  outline: none;
+  width: 100%;
+  background: rgba(0, 174, 255, 0.0784313725);
+}
+.detail-option-list form .btn-group {
+  display: flex;
+  gap: 10px;
+}
+.detail-option-list form .btn-group .btn-cancel {
+  padding: 15px 25px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #444;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.detail-option-list form .btn-group .btn-save {
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: transparent;
+  outline: none;
+  float: inline-end;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #00B0FF;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
 }
 .detail-option-list h2 {
   font-size: 14px;
@@ -638,7 +767,7 @@ html {
   background-color: rgba(231, 32, 32, 0.1254901961);
 }
 .detail-option-list .history-group .red header .status {
-  background-color: transparent;
+  background-color: #e72020;
 }
 .detail-option-list .history-group .yellow {
   background-color: rgba(255, 232, 27, 0.1882352941);
@@ -907,26 +1036,3 @@ footer .yellow-ring .hole {
     border: 1px solid #ddd;
   }
 }/*# sourceMappingURL=style.css.map */
-
-
-.badge{
-  padding: 4px;
-  border-radius: 2px;
-  box-sizing: border-box;
-  background-color: transparent;
-}
-
-.badge.badge-danger{
-  background-color: red;
-}
-.badge.badge-warning{
-  background-color: orange;
-}
-.badge.badge-success{
-  background-color: green;
-}
-
-
-
-
-

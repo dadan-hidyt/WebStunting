@@ -3,6 +3,7 @@
 use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\Pwa\IndexController;
 use App\Http\Controllers\Pwa\LoginController;
+use App\Http\Controllers\Pwa\Masyarakat\AnakController;
 use App\Http\Controllers\Pwa\Masyarakat\AuthController as MasyarakatAuthController;
 use App\Http\Controllers\Pwa\Masyarakat\PageController;
 use App\Http\Middleware\LogedinMasyarakatMiddleware;
@@ -22,4 +23,6 @@ Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->na
     Route::get('/detail_anak/{anak}',[PageController::class,'detailAnak'])->name('detail_anak');
     Route::get('/{anak}/riwayat_bb',[PageController::class,'riwayatBB'])->name('riwayat_bb');
     Route::get('/{anak}/riwayat_panjang_badan',[PageController::class,'riwayatPB'])->name('riwayat_pb');
+    Route::get('/anak/tambah_data', [AnakController::class,'tambah'])->name('tambah_anak');
+    Route::get('/anak/{anak}/edit', [AnakController::class,'edit'])->name('edit_anak');
 });

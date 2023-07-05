@@ -425,10 +425,64 @@ html {
     margin-top: 40px;
 
     form {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 14px;
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+
+            .btn-cancel {
+                padding: 15px 25px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                color: #444;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            .btn-save {
+                padding: 15px 25px;
+                border-radius: 12px;
+                border: transparent;
+                outline: none;
+                float: inline-end;
+                width: fit-content;
+                background: $primary-color;
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                font-size: 12px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+
         .form-group {
+            width: 100%;
             position: relative;
             display: flex;
             align-items: center;
+
+            input[type='date']::-webkit-calendar-picker-indicator {
+                background: transparent;
+                bottom: 0;
+                color: transparent;
+                cursor: pointer;
+                height: auto;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: auto;
+            }
+
+            select {
+                appearance: none;
+            }
 
             .form-control {
                 padding: 15px 25px;
@@ -443,9 +497,11 @@ html {
             .icon {
                 position: absolute;
                 right: 25px;
+                pointer-events: none;
 
                 i {
                     color: $primary-color;
+                    font-size: 14px;
                 }
             }
         }
@@ -455,14 +511,14 @@ html {
             border-radius: 12px;
             border: transparent;
             outline: none;
-            width: 100%;
+            width: fit-content;
             background: $primary-color;
             display: block;
-            margin-top: 20px;
             color: #fff;
             text-decoration: none;
             font-size: 12px;
             text-align: center;
+            cursor: pointer;
         }
     }
 
@@ -522,7 +578,7 @@ html {
                 cursor: pointer;
 
                 i {
-                    color: #e72020;
+                    color: $primary-color;
                 }
 
                 .count-btn {
@@ -578,22 +634,53 @@ html {
             }
         }
 
-        .action {
+        .btn-count {
+             position: absolute;
+                right: 25px;
+                cursor: pointer;
+
+                i {
+                    color: $primary-color;
+                }
+
+                .count-btn {
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    background-color: $primary-color;
+                    color: #fff;
+                    font-size: 10px;
+                    text-decoration: none;
+                }
+        }
+
+        .action-group {
+            display: flex;
+            gap: 15px;
             position: absolute;
             right: 25px;
-            cursor: pointer;
 
-            i {
-                color: #e72020;
-            }
+            .action {
+                cursor: pointer;
+                padding: 6px 5px;
 
-            .count-btn {
-                padding: 8px 16px;
-                border-radius: 8px;
-                background-color: $primary-color;
-                color: #fff;
-                font-size: 10px;
-                text-decoration: none;
+                &:first-child {
+                    i {
+                        color: #ffc800;
+                    }
+                }
+
+                i {
+                    color: #e72020;
+                }
+
+                .count-btn {
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    background-color: $primary-color;
+                    color: #fff;
+                    font-size: 10px;
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -642,6 +729,60 @@ html {
                     background-color: #00B0FF20;
                     color: $primary-color;
                 }
+            }
+        }
+    }
+
+    form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 15px;
+
+        .form-group {
+            width: 100%;
+
+            .form-control {
+                padding: 15px 25px;
+                border-radius: 12px;
+                font-size: 12px;
+                border: transparent;
+                outline: none;
+                width: 100%;
+                background: #00aeff14;
+            }
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+
+            .btn-cancel {
+                padding: 15px 25px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                color: #444;
+                font-size: 12px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .btn-save {
+                padding: 15px 25px;
+                border-radius: 12px;
+                border: transparent;
+                outline: none;
+                float: inline-end;
+                width: fit-content;
+                background: $primary-color;
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                font-size: 12px;
+                text-align: center;
+                cursor: pointer;
             }
         }
     }
@@ -931,6 +1072,7 @@ html {
         align-items: end;
         gap: 12px;
         margin-top: 15px;
+
         .form-group {
             width: 100%;
             position: relative;
@@ -976,6 +1118,7 @@ html {
 // Form Component
 .form-control {
     transition: all 400ms;
+
     &:focus {
         border: 1px solid $primary-color !important;
     }

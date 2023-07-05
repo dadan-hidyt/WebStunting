@@ -6,9 +6,9 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
-        <button class="btn-add">
+        <a href="{{ route('mobile.masyarakat.tambah_anak') }}" class="btn-add">
             Tambah Data
-        </button>
+        </a>
     </form>
     <h2>List data</h2>
     <div class="data-group">
@@ -28,7 +28,7 @@
                         <p>Tanggal lahir : {{ $item->tanggal_lahir }}</p>
                     </div>
                     <div class="action">
-                        <i class="fa-regular fa-trash-can"></i>
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 </a>
             @endforeach
