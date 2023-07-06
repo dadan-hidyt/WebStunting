@@ -38,7 +38,7 @@
                                     <h4>Umur {{ $item->umur ?? '-' }} Bulan </h4>
                                 </div>
                                 <div class="status">
-                                    {!! kategoriStatusBb($item->bb_zscore,true) !!}
+                                    {!! strip_tags(kategoriStatusBb($item->bb_zscore)) !!}
                                 </div>
                             </header>
                             <div class="card-footer">

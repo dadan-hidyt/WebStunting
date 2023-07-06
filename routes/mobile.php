@@ -20,6 +20,7 @@ Route::middleware(LogedinMasyarakatMiddleware::class)->get('/masyarkaat/register
 Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepage');
 
 Route::get('/ukur/{anak}', [PengukuranController::class, 'ukur'])->name('.ukur_bb_tb');
+Route::get('/full_report_pengukuran/{anak}', [PengukuranController::class,'full_report'])->name('.full_report');
 
 Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->name('.masyarakat.')->group(function () {
     Route::get('/data_anak',[PageController::class,'dataAnak'])->name('data_anak');
@@ -28,5 +29,5 @@ Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->na
     Route::get('/{anak}/riwayat_panjang_badan',[PageController::class,'riwayatPB'])->name('riwayat_pb');
     Route::get('/anak/tambah_data', [AnakController::class,'tambah'])->name('tambah_anak');
     Route::get('/anak/{anak}/edit', [AnakController::class,'edit'])->name('edit_anak');
-    Route::get('/full_report_pengukuran/{anak}', [PengukuranController::class,'full_report'])->name('full_report');
+    Route::get('/pengukuran', [PengukuranController::class,'pengukuran'])->name('pengukuran_anak');
 });

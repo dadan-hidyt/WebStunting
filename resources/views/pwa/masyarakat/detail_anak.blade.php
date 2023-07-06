@@ -38,7 +38,7 @@
                                 class="fa-solid fa-chevron-right"></i></a>
                         <a href="{{ route('mobile.masyarakat.riwayat_pb', $anak->id) }}" class="btn">Riwayat TB/PB<i
                                 class="fa-solid fa-chevron-right"></i></a>
-                        <a href="{{ route('mobile.masyarakat.full_report',$anak->id) }}" class="btn">KMS<i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="{{ route('mobile.full_report',$anak->id) }}" class="btn">KMS<i class="fa-solid fa-chevron-right"></i></a>
                     </div>
                 </section>
                 <footer>

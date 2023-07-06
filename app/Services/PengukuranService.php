@@ -17,8 +17,8 @@ class PengukuranService implements PengukuranInterface
         $pengukuran->put('tanggal_ukur', now()->format('Y-m-d'));
         $pengukuran->put('cara_ukur', $anak->umur <= 24 ? 'terlentang' : 'berdiri');
         $pengukuran->put('umur', $umur ? $umur : $anak->umur);
-        if ($pengukuran->get('cara_ukur') === 'berdiri' && $pengukuran->get('umur') >= 24) {
-            $pengukuran->put('tb', $anak->panjang_badan);
+        if ($pengukuran->get('umur') >= 24) {
+            $pengukuran->put('tb', $anak->tinggi);
             $pengukuran->put('tb_zscore', $this->ukurTinggiBadanByUmur($anak->jenis_kelamin, $anak->umur, $pengukuran->get('tb'))->zscore ?? null);
         } else {
             $pengukuran->put('pb', $anak->panjang_badan);

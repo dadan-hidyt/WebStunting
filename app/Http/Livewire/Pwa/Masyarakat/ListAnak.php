@@ -9,6 +9,7 @@ use Livewire\Component;
 class ListAnak extends Component
 {
     public $searchQuery;
+    public $type;
     public $anak;
     public function updated(){
         $result = [];

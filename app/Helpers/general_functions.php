@@ -36,7 +36,7 @@ function kategoriStatusPbTb($zScore, $badge = false)
     }
     if ($badge === true) {
         if ($zScore < -3) {
-            return "<span class='badge badge-danger'>Sangat pendek (severely stunted)</span>";
+            return "<span class='badge badge-danger'>Sangat pendek</span>";
         } else if ($zScore >= -3 && $zScore < -2) {
             return "<span class='badge badge-warning'>Pendek (Stunted)</span>";
         } else if ($zScore >= -2 && $zScore <= 3) {
@@ -46,7 +46,7 @@ function kategoriStatusPbTb($zScore, $badge = false)
         }
     } else {
         if ($zScore < -3) {
-            return "<span class='text-danger'>Sangat pendek (severely stunted)</span>";
+            return "<span class='text-danger'>Sangat pendek</span>";
         } else if ($zScore >= -3 && $zScore < -2) {
             return "<span class='text-warning'>Pendek (Stunted)</span>";
         } else if ($zScore >= -2 && $zScore <= 3) {
@@ -63,7 +63,7 @@ function kategoriStatusBb($zScore, $badge = false)
     }
     if ($badge === true) {
         if ($zScore < -3) {
-            return "<span class='badge badge-danger'>Sangat kurang (severely underweight)</span>";
+            return "<span class='badge badge-danger'>Sangat kurang</span>";
         } else if ($zScore >= -3 && $zScore < -2) {
             return "<span class='badge badge-warning'>kurang (underweight)</span>";
         } else if ($zScore >= -2 && $zScore <= 2) {
@@ -73,9 +73,9 @@ function kategoriStatusBb($zScore, $badge = false)
         }
     } else {
         if ($zScore < -3) {
-            return "<span class='text-danger'>Sangat kurang (severely underweight)</span>";
+            return "<span class='text-danger'>Sangat kurang</span>";
         } else if ($zScore >= -3 && $zScore < -2) {
-            return "<span class='text-danger'>kurang (underweight)</span>";
+            return "<span class='text-danger'>kurang</span>";
         } else if ($zScore >= -2 && $zScore <= 2) {
             return "<span class='text-success'>Normal</span>";
         } else if ($zScore > 2) {
@@ -90,7 +90,7 @@ function kategoriStatusBb($zScore, $badge = false)
     } else if ($zScore >= -3 && $zScore < -2) {
         return "yellow";
     } else if ($zScore >= -2 && $zScore <= 2) {
-        return "green";
+        return "blue";
     } else if ($zScore > 2) {
         return "yellow";
     }

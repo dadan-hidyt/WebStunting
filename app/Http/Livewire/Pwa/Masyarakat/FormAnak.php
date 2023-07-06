@@ -66,7 +66,7 @@ class FormAnak extends Component
         if(hitungBulan($anak->get('tanggal_lahir')) <= 24) {
             $anak->put('panjang_badan',$anak->get('tinggi'));
         } else {
-            $anak->put('tinggi',null);
+            $anak->put('tinggi',$anak->get('tinggi'));
         }
  
         DB::beginTransaction();
@@ -75,6 +75,7 @@ class FormAnak extends Component
         $pengukuranService = new PengukuranService();
           Pengukuran::create($pengukuranService->pengukuranPertama($insert)->all());
           DB::commit(); 
+          return Redirect::to(route('mobile.masyarakat.data_anak'));
        } else {
         DB::rollBack();
        }

@@ -27,10 +27,10 @@
                         </div>
                     </div>
                     <div style="height: 400px;" id="chart"></div>
-                    <h2>Riwayat Pengukuran</h2>
+                    <h2>Riwayat Pengukuran</h2> 
                     <div class="history-group">
-                        
                         @foreach ($anak->pengukuran as $item)
+                        {{ dd(colorKategori($item->tb_zscore ?? $item->pb_zscore)) }}
                             <div class="card {{ colorKategori($item->tb_zscore ?? $item->pb_zscore) }}">
                                 <header>
                                     <div class="general">
@@ -38,7 +38,7 @@
                                         <h4>Umur {{ $item->umur ?? '-' }} Bulan </h4>
                                     </div>
                                     <div class="status">
-                                        {!! kategoriStatusPbTb($item->pb_zscore ?? $item->tb_zscore, true) !!}
+                                        {!! strip_tags(kategoriStatusPbTb($item->pb_zscore ?? $item->tb_zscore)) !!}
                                     </div>
                                 </header>
                                 <div class="card-footer">
