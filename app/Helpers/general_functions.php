@@ -84,6 +84,19 @@ function kategoriStatusBb($zScore, $badge = false)
     }
 }
 
+ function colorKategori($zScore) {
+    if ($zScore < -3) {
+        return "red";
+    } else if ($zScore >= -3 && $zScore < -2) {
+        return "yellow";
+    } else if ($zScore >= -2 && $zScore <= 2) {
+        return "green";
+    } else if ($zScore > 2) {
+        return "yellow";
+    }
+}
+
+
 function rekomendasiDanSaranHidupSehatByZscore($z_score)
 {
     $text = "";

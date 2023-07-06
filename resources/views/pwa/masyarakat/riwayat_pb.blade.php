@@ -20,16 +20,18 @@
                             <p>Umur : {{ hitungBulan($anak->tanggal_lahir) }} Bln</p>
                             <p>Tanggal lahir : {{ $anak->tanggal_lahir }}</p>
                         </div>
-                        <div class="action">
-                            <i class="fa-regular fa-trash-can"></i>
+                        <div class="btn-count">
+                            <a href="{{ route('mobile.ukur_bb_tb',$anak) }}" class="count-btn">
+                               <i class="fa fa-plus"></i> <span>Tambah</span>
+                            </a>
                         </div>
                     </div>
                     <div style="height: 400px;" id="chart"></div>
                     <h2>Riwayat Pengukuran</h2>
                     <div class="history-group">
-
+                        
                         @foreach ($anak->pengukuran as $item)
-                            <div class="card red">
+                            <div class="card {{ colorKategori($item->tb_zscore ?? $item->pb_zscore) }}">
                                 <header>
                                     <div class="general">
                                         <p>{{ $item->tanggal_ukur }}</p>
@@ -42,7 +44,7 @@
                                 <div class="card-footer">
                                     <div class="col">
                                         <p>Berat Badan</p>
-                                        <h4>{{ $item->tb ?? $item->pb }} KG</h4>
+                                        <h4>{{ $item->tb ?? $item->pb }} CM</h4>
                                     </div>
                                     <div class="col">
                                         <p>Nilai Z-Score</p>
