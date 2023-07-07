@@ -29,5 +29,6 @@ Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->na
     Route::get('/{anak}/riwayat_panjang_badan',[PageController::class,'riwayatPB'])->name('riwayat_pb');
     Route::get('/anak/tambah_data', [AnakController::class,'tambah'])->name('tambah_anak');
     Route::get('/anak/{anak}/edit', [AnakController::class,'edit'])->name('edit_anak');
+    Route::get('/anak/{anak}/hapus', [AnakController::class,'hapus'])->name('hapus_anak');
     Route::get('/pengukuran', [PengukuranController::class,'pengukuran'])->name('pengukuran_anak');
 });

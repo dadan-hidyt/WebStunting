@@ -27,7 +27,7 @@
                             </div>
                            </a>
                             <div class="action">
-                                <i class="fa-regular fa-trash-can"></i>
+                                <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" href="{{ route('mobile.masyarakat.hapus_anak',$anak->id) }}"><i class="fa-regular fa-trash-can"></i></a>
                             </div>
                         </div>
                         
