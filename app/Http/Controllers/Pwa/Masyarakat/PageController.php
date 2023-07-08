@@ -24,6 +24,9 @@ class PageController extends Controller
             'pengukuran_bb' => $kurvaPertumbuhanService->getKurvaBb($anak),
         ]);
     }
+    public function cekIdeal(){
+        return view('pwa.cek_berat_badan_ideal');
+    }
     public function riwayatPB(Anak $anak, KurvaPertumbuhanService $kurvaPertumbuhanService){
         return view('pwa.masyarakat.riwayat_pb',[
             'anak' => $anak,

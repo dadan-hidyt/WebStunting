@@ -17,6 +17,7 @@ class GrafikPengukuranAnakController extends Controller
      */
     public function __invoke(Request $request, $hash = null, Anak $anak, KurvaPertumbuhanService $kurvaPertumbuhanService)
     {
+        //mendapatkan pengukuran
         $anak->with(['pengukuran', 'orangTua']);
         return view('grafik_pertumbuhan_anak', [
             'kurva_bb' => $kurvaPertumbuhanService->getKurvaBb($anak),
@@ -25,6 +26,7 @@ class GrafikPengukuranAnakController extends Controller
             'anak' => $anak,
         ]);
     }
+    //cari anak
     public function cariAnak()
     {
         $nik = FacadesRequest::post('nik');

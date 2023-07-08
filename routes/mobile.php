@@ -21,7 +21,7 @@ Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepa
 
 Route::get('/ukur/{anak}', [PengukuranController::class, 'ukur'])->name('.ukur_bb_tb');
 Route::get('/full_report_pengukuran/{anak}', [PengukuranController::class,'full_report'])->name('.full_report');
-
+Route::get('/cek_ideal',[PageController::class,'cekIdeal'])->name('.cek_ideal');
 Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->name('.masyarakat.')->group(function () {
     Route::get('/data_anak',[PageController::class,'dataAnak'])->name('data_anak');
     Route::get('/detail_anak/{anak}',[PageController::class,'detailAnak'])->name('detail_anak');
