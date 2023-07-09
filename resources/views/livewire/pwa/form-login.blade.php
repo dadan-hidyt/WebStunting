@@ -13,7 +13,7 @@
         <div class="icon"><i class="fa-solid fa-lock"></i></div>
     </div>
     <button class="btn-submit">
-        Login
+        Login <span wire:loading wire:target='login'></span>
     </button>
 </form>
 

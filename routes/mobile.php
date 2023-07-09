@@ -7,6 +7,7 @@ use App\Http\Controllers\Pwa\Masyarakat\AnakController;
 use App\Http\Controllers\Pwa\Masyarakat\AuthController as MasyarakatAuthController;
 use App\Http\Controllers\Pwa\Masyarakat\PageController;
 use App\Http\Controllers\Pwa\PengukuranController;
+use App\Http\Controllers\Pwa\Posyandu\PageController as PosyanduPageController;
 use App\Http\Middleware\LogedinMasyarakatMiddleware;
 use App\Http\Middleware\MobileMasyarakatMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -17,11 +18,16 @@ Route::middleware(LogedinMasyarakatMiddleware::class)->get('/login', [LoginContr
 
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/masyarkaat/register',MasyarakatAuthController::class)->name('.masyarakat.register');
 
-Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepage');
 
+
+
+Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepage');
 Route::get('/ukur/{anak}', [PengukuranController::class, 'ukur'])->name('.ukur_bb_tb');
 Route::get('/full_report_pengukuran/{anak}', [PengukuranController::class,'full_report'])->name('.full_report');
 Route::get('/cek_ideal',[PageController::class,'cekIdeal'])->name('.cek_ideal');
+
+
+
 Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->name('.masyarakat.')->group(function () {
     Route::get('/data_anak',[PageController::class,'dataAnak'])->name('data_anak');
     Route::get('/detail_anak/{anak}',[PageController::class,'detailAnak'])->name('detail_anak');
@@ -32,3 +38,11 @@ Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->na
     Route::get('/anak/{anak}/hapus', [AnakController::class,'hapus'])->name('hapus_anak');
     Route::get('/pengukuran', [PengukuranController::class,'pengukuran'])->name('pengukuran_anak');
 });
+
+
+Route::prefix('posyandu')->name('.posyandu.')->group(function(){
+    Route::get('data_orang_tua',[PosyanduPageController::class,'dataOrtu'])->name('data_orang_tua');
+    Route::get('data_orang_tua/new',[PosyanduPageController::class,'tambah'])->name('tambah_orang_tua');
+    Route::get('data_orang_tua/{orangTua}/edit',[PosyanduPageController::class,'edit'])->name('edit_orang_tua');
+    Route::get('data_orang_tua/{orangTua}/delete',[PosyanduPageController::class,'delete'])->name('delete_orang_tua');
+}); 

@@ -18,8 +18,8 @@
                     <h2>Menu</h2>
                     @if (auth()->user()->hak_akses === 'orang_tua')
                         @include('pwa.masyarakat.sections.menu')
-                    @elseif(false)
-                        dadan
+                    @elseif(auth()->user()->hak_akses === 'posyandu')
+                    @include('pwa.posyandu.sections.menu')
                     @endif
                 </section>
                 <footer>

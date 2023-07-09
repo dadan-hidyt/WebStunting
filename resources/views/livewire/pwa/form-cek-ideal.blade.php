@@ -16,31 +16,43 @@
         </select>
     </div>
     <div class="form-group">
-        <button wire:click="$emit('refresh') type="submit" class="btn-submit">Cek Ideal <span wire:loading
+        <button wire:click="$emit('refresh')" class="btn-submit">Cek Ideal <span wire:loading
                 wire:target='hitung'>Loading...</span> </button>
     </div>
 </form>
 
-@dump($datas);
 
 <div class="detail-box">
     <header>Detail</header>
     <div class="content">
         <div>
             <p>Umur :</p>
-            <p>{{ $data['umur'] ?? '' }}</p>
+            <p id="umur"></p>
         </div>
         <div>
             <p>Jenis kelamin :</p>
-            <p>{{ $data['jenis_kelamin'] ?? '' }}</p>
+            <p id="jenis_k">{{ $data['jenis_kelamin'] ?? '' }}</p>
         </div>
         <div>
             <p>BB Ideal :</p>
-            <p>{{ $datas['bb']['-3sd'] ?? '-' }} - {{ $datas['bb']['3sd'] ?? '-' }}</p>
+            <p id="bb_ideal"></p>
         </div>
         <div>
             <p>TB/PB Ideal :</p>
-            <p>{{ $datas['tb_pb']['-3sd'] ?? '-' }} - {{ $datas['tb_pb']['3sd'] ?? '-' }}</p>
+            <p id="pb_tb"></p>
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        window.addEventListener('data',function(val){
+           const data = val.detail ?? console.error("_tidak ada data");
+          document.getElementById('umur').innerHTML = data.umur+" Bulan";
+          document.getElementById('jenis_k').innerHTML = data.jenis_kelamin;
+          document.getElementById('bb_ideal').innerHTML = data.bb_ideal;
+          document.getElementById('pb_tb').innerHTML = data.tb_ideal;
+
+        });
+    </script>
+@endpush

@@ -18,7 +18,11 @@ class FormCekIdeal extends Component
     public function refresh(){
       $this->data_ideal = $this->datas;
     }
+    
     public function hitung(){
+        if ( !isset($this->data['jenis_kelamin']) && !isset($this->data['umur']) ) {
+            return;
+        }
         $idealBB = StandardAntropometriBbByUmur::where($this->data)->first()->toArray();
 
         if ( $this->data['umur'] >= 24 ) {
@@ -29,10 +33,18 @@ class FormCekIdeal extends Component
         }
 
 
+
+        $bb_ideal = $idealBB['-3sd']." Sampai ".$idealBB['3sd']." KG";
+        $tb = $bb_pb['-3sd']." Sampai ".$bb_pb['3sd']." CM";
+
+
         $this->datas = [
-            'bb' => $idealBB,
-            'tb_pb' => $bb_pb,
+            'umur' => $this->data['umur'] ?? null,
+            'jenis_kelamin' => $this->data['jenis_kelamin'] ?? null,
+            'bb_ideal' => $bb_ideal ?? '?',
+            'tb_ideal' => $tb,
         ];
+        $this->dispatchBrowserEvent('data',$this->datas);
 
     }
     public function render()

@@ -16,4 +16,7 @@ class PosyanduPembina extends Model
     public function orangTua(){
         return $this->hasMany(OrangTua::class);
     }
+    public function user(){
+        return $this->hasOne(User::class);
+    }
 }

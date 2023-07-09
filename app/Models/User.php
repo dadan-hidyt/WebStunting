@@ -53,4 +53,10 @@ class User extends Authenticatable
     public function orangTua(){
         return $this->belongsTo(OrangTua::class);
     }
+    public function posyandu(){
+        return $this->belongsTo(PosyanduPembina::class,'posyandu_pembina_id');
+    }
+    public function ibuHamil(){
+        return $this->belongsTo(IbuHamil::class);
+    }
 }
