@@ -41,7 +41,7 @@ class FormUkur extends Component
         $data->put('cara_ukur',hitungBulan($this->anak->tanggal_lahir) >= 24 ? 'berdiri' : 'terlentang');
 
         if ( Pengukuran::create($data->all()) ) {
-            return Redirect::to(route('mobile.masyarakat.riwayat_bb',$this->anak->id));
+            return Redirect::to(route('mobile.riwayat_bb',$this->anak->id));
         } else {
             $this->dispatchBrowserEvent('gagal');
         }

@@ -32,7 +32,9 @@ class FormOrangTua extends Component
     
     public function mount($type = 'tambah',$DataOrangTua = null){
         $this->DataOrangTua = $DataOrangTua;
-        $this->data = $DataOrangTua->toArray();
+        if($DataOrangTua) {
+            $this->data = $DataOrangTua->toArray();
+        }
     }
 
     public function edit(){

@@ -15,7 +15,6 @@ class PageController extends Controller
         return view('pwa.masyarakat.list-anak');
     }
     public function detailAnak(Anak $anak){
-        abort_if($anak->orang_tua_id != auth()->user()->orangTua->id,403);
         return view('pwa.masyarakat.detail_anak',compact('anak'));
     }
     public function riwayatBB(Anak $anak,KurvaPertumbuhanService $kurvaPertumbuhanService){

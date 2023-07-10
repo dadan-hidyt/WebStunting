@@ -54,6 +54,7 @@
 
 <div class="btn-group">
     <a href="#" class="btn-cancel" onclick="history.back()">Cancel</a><button type="submit"
-        class="btn-save">Simpan <span wire:loading wire:target='tambah'>Loading...</span><span wire:loading wire:target='edit'>Loading...</span></button>
+        class="btn-save">Simpan <span wire:loading wire:target='tambah'>Loading...</span><span wire:loading
+            wire:target='edit'>Loading...</span></button>
 </div>
 </form>

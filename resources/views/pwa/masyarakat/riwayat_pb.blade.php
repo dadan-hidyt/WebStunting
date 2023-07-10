@@ -30,7 +30,6 @@
                     <h2>Riwayat Pengukuran</h2> 
                     <div class="history-group">
                         @foreach ($anak->pengukuran as $item)
-                        {{ dd(colorKategori($item->tb_zscore ?? $item->pb_zscore)) }}
                             <div class="card {{ colorKategori($item->tb_zscore ?? $item->pb_zscore) }}">
                                 <header>
                                     <div class="general">
