@@ -22,7 +22,14 @@ class FormRegister extends Component
 
     public $data;
     public $kelurahanDesa;
-
+    protected $rules = [
+        'data.email' => ['required','unique:email,user'],
+        'data.password' => ['required'],
+        'data.nama_posyandu' => ['required'],
+        'data.kelurahan_desa_id' => ['required'],
+        'data.kontak' => ['required'],
+        'data.alamat_lengkap' => ['required'],
+    ];
     public $selector;
 
     protected function updated(){
@@ -36,6 +43,7 @@ class FormRegister extends Component
     }
 
     public function register(){
+        $this->validate();
         $posyandu = Collection::make(
             [
                 'nama_posyandu' => $this->data['nama_posyandu'],
