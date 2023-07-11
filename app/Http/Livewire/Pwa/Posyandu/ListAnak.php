@@ -38,7 +38,7 @@ class ListAnak extends Component
 
     public function mount(){
         $this->anak =  Anak::whereHas('orangTua.posyandu',function($row){
-            return $row->where('id',auth()->user()->posyandu->id);
+            return $row->where('id',auth()->user()->posyandu->id ?? null);
         })->get();
     }
 
