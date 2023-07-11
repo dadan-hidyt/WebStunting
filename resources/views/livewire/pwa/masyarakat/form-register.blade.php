@@ -97,9 +97,9 @@
             placeholder="Ketikan Ulang Password Anda">
         <div class="icon"><i class="fa-solid fa-lock"></i></div>
     </div>
-    <span wire:loading>Loading..</span>
     <button class="btn-submit">
-        Login
+        Login     <span wire:loading>Loading..</span>
+
     </button>
 </form>
 
