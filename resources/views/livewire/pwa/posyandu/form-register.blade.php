@@ -1,19 +1,46 @@
 <form wire:submit.prevent='register'>
-
+    @error('data.email')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
-        <input required  wire:model.defer='data.email' type="email" placeholder="Alamat Email" class="form-control">
+        <input required wire:model.defer='data.email' type="email" placeholder="Alamat Email" class="form-control">
     </div>
-
+    @error('data.nama_posyandu')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
-        <input required  type="text" wire:model.defer='data.nama_posyandu' placeholder="Nama Posyandu" class="form-control">
+        <input required type="text" wire:model.defer='data.nama_posyandu' placeholder="Nama Posyandu"
+            class="form-control">
     </div>
-
+    @error('data.kontak')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
-        <input required  type="text" placeholder="Kontak Posyandu" wire:model.defer='data.kontak' class="form-control">
+        <input required type="text" placeholder="Kontak Posyandu" wire:model.defer='data.kontak'
+            class="form-control">
     </div>
-
+    @error('data.alamat_lengkap')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
-        <input required  type="text" placeholder="Alamat Lengkap" wire:model.defer='data.alamat_lengkap' class="form-control">
+        <input required type="text" placeholder="Alamat Lengkap" wire:model.defer='data.alamat_lengkap'
+            class="form-control">
     </div>
 
     <div class="form-group">
@@ -35,7 +62,13 @@
         </select>
     </div>
 
-
+    @error('data.kelurahan_desa_id')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
         <select class="form-control" wire:model='data.kelurahan_desa_id' name="" id="">
             <option value="">--Pilih Desa--</option>
@@ -43,13 +76,26 @@
                 <option value="{{ $item->id }}">{{ $item->nama_desa }}</option>
             @endforeach
         </select>
-    </div>
-
+    </div> @error('data.password')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
-        <input required  type="text" wire:model.defer='data.password' placeholder="Password" class="form-control">
+        <input required type="text" wire:model.defer='data.password' placeholder="Password" class="form-control">
     </div>
+    @error('data.password_confirmation')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
     <div class="form-group">
-        <input required  type="text" wire:model.defer='data.ketikan_ulang' placeholder="Ketikan Ulang" class="form-control">
+        <input required type="text" wire:model.defer='data.ketikan_ulang' placeholder="Ketikan Ulang"
+            class="form-control">
     </div>
 
 
