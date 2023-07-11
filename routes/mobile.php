@@ -7,6 +7,7 @@ use App\Http\Controllers\Pwa\Masyarakat\AnakController;
 use App\Http\Controllers\Pwa\Masyarakat\AuthController as MasyarakatAuthController;
 use App\Http\Controllers\Pwa\Masyarakat\PageController;
 use App\Http\Controllers\Pwa\PengukuranController;
+use App\Http\Controllers\Pwa\Posyandu\AuthController as PosyanduAuthController;
 use App\Http\Controllers\Pwa\Posyandu\PageController as PosyanduPageController;
 use App\Http\Middleware\LogedinMasyarakatMiddleware;
 use App\Http\Middleware\MobileMasyarakatMiddleware;
@@ -17,7 +18,7 @@ Route::get('/', [IndexController::class, 'index'])->name('.index');
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/login', [LoginController::class, 'showLoginForm'])->name('.login');
 
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/masyarkaat/register',MasyarakatAuthController::class)->name('.masyarakat.register');
-Route::get('/posyandu/register',MasyarakatAuthController::class)->name('.posyandu.register');
+Route::get('/posyandu/register',[PosyanduAuthController::class,'daftarPosyandu'])->name('.posyandu.register');
 
 
 
