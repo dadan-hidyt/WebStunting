@@ -26,7 +26,13 @@ class ListOrangTua extends Component
     
 
     public function mount(){
-        $this->data =Auth::user()->posyandu->orangTua;
+        //get data with orang tua
+        $data = Auth::user()->posyandu->orangTua ?? null;
+        if ( $data ) {
+            $this->data = $data;
+        } else{
+            $this->data = [];
+        }
     }
 
     public function render()
