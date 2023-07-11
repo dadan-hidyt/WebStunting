@@ -34,7 +34,17 @@ class PageController extends Controller
     public function editAnak(Anak $anak){
         return view('pwa.posyandu.edit-anak')->with('anak',$anak);
     }
-
+    
+    function deleteAnak (Anak $anak) {
+        if ( $anak->orangTua->posyandu->id === auth()->user()->posyandu->id ) {
+           try {
+            $anak->delete();
+           return Redirect::route('mobile.posyandu.data_anak');
+           } catch (\Throwable $th) {
+                abort(500);
+           }
+        }
+    }
 
     function dataAnak() : View {
         return view( 'pwa.posyandu.data-anak' );

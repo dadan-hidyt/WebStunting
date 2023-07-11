@@ -63,7 +63,7 @@ class FormOrangTua extends Component
         $data->put('posyandu_pembina_id',$this->posyandu->id);
         $data->put('kelurahan_desa_id',$this->posyandu->kelurahan_desa_id);
 
-        if ( $this->orangTuaModel->update($data->all()) ) {
+        if ( $this->orangTuaModel->create($data->all()) ) {
            $this->dispatchBrowserEvent("di_tambahkan");
         } else {
             $this->dispatchBrowserEvent("gagal_tambah");

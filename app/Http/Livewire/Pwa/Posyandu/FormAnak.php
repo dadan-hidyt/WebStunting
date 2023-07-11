@@ -50,7 +50,6 @@ class FormAnak extends Component
     }
     public function mount($anak = null, $type = 'tambah'){
         $this->type = $type;
-        $this->nomor_kk = Auth::user()->orangTua->nomor_kk;
         if ($anak) {
             $this->data = $anak->toArray();
             $this->anak = $anak;

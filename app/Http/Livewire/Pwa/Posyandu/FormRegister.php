@@ -40,18 +40,20 @@ class FormRegister extends Component
             [
                 'nama_posyandu' => $this->data['nama_posyandu'],
                 'kontak' => $this->data['kontak'],
+                'email' => $this->data['email'],
                 'alamat_lengkap' => $this->data['alamat_lengkap'],
                 'kelurahan_desa_id' => $this->data['kelurahan_desa_id'],
             ]
         );
         DB::beginTransaction();
         if ($insert = PosyanduPembina::create($posyandu->all())) {
-            $user = Auth::create([
+            $user = User::create([
                 'name' => $insert->nama_posyandu,
                 'email' => $posyandu->get('email'),
                 'posyandu_pembina_id' => $insert->id,
                 'password' => Hash::make($posyandu->get('password')),
                 'hak_akses' => 'posyandu',
+                'profile_picture' => '',
                 'active' => 1,
             ]);
 

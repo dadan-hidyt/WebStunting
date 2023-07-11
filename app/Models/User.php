@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'orang_tua_id',
         'profile_picture',
+        'posyandu_pembina_id',
         'active',
         'hak_akses',
     ];
