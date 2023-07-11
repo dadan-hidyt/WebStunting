@@ -24,7 +24,7 @@ class ListAnak extends Component
     
 
     public function mount(){
-        $this->anak = Auth::user()->orangTua->anak;
+        $this->anak = Auth::user()->orangTua->anak ?? [];
     }
 
     public function render()

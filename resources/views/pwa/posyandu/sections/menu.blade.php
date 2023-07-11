@@ -1,4 +1,3 @@
-<div class="menu-group">
 
     <a href="{{ route('mobile.posyandu.data_orang_tua') }}" class="card">
         <div class="icon">
@@ -36,4 +35,3 @@
             <i class="fa-solid fa-chevron-right"></i>
         </div>
     </a>
-</div>

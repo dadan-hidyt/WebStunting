@@ -1,19 +1,19 @@
 <form wire:submit.prevent='register'>
 
     <div class="form-group">
-        <input wire:model.defer='data.email' type="email" placeholder="Alamat Email" class="form-control">
+        <input required  wire:model.defer='data.email' type="email" placeholder="Alamat Email" class="form-control">
     </div>
 
     <div class="form-group">
-        <input type="text" wire:model.defer='data.nama_posyandu' placeholder="Nama Posyandu" class="form-control">
+        <input required  type="text" wire:model.defer='data.nama_posyandu' placeholder="Nama Posyandu" class="form-control">
     </div>
 
     <div class="form-group">
-        <input type="text" placeholder="Kontak Posyandu" wire:model.defer='data.kontak' class="form-control">
+        <input required  type="text" placeholder="Kontak Posyandu" wire:model.defer='data.kontak' class="form-control">
     </div>
 
     <div class="form-group">
-        <input type="text" placeholder="Alamat Lengkap" wire:model.defer='data.alamat_lengkap' class="form-control">
+        <input required  type="text" placeholder="Alamat Lengkap" wire:model.defer='data.alamat_lengkap' class="form-control">
     </div>
 
     <div class="form-group">
@@ -46,10 +46,10 @@
     </div>
 
     <div class="form-group">
-        <input type="text" wire:model.defer='data.password' placeholder="Password" class="form-control">
+        <input required  type="text" wire:model.defer='data.password' placeholder="Password" class="form-control">
     </div>
     <div class="form-group">
-        <input type="text" wire:model.defer='data.ketikan_ulang' placeholder="Ketikan Ulang" class="form-control">
+        <input required  type="text" wire:model.defer='data.ketikan_ulang' placeholder="Ketikan Ulang" class="form-control">
     </div>
 
 

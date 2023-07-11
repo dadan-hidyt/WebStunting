@@ -9,18 +9,29 @@ use App\Http\Controllers\Pwa\Masyarakat\PageController;
 use App\Http\Controllers\Pwa\PengukuranController;
 use App\Http\Controllers\Pwa\Posyandu\AuthController as PosyanduAuthController;
 use App\Http\Controllers\Pwa\Posyandu\PageController as PosyanduPageController;
+use App\Http\Controllers\Pwa\ProfileController;
 use App\Http\Middleware\LogedinMasyarakatMiddleware;
 use App\Http\Middleware\MobileMasyarakatMiddleware;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', [IndexController::class, 'index'])->name('.index');
+Route::get('/logout', function(){
+    $hakAkses = Auth::user()->hak_akses ?? null;
+    Auth::logout();
+    Session::regenerate();
+    Session::regenerateToken();
+    return Redirect::to(route('mobile.homepage')."?_type=".textHakAkses($hakAkses));
+})->name('.logout');
 
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/login', [LoginController::class, 'showLoginForm'])->name('.login');
 
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/masyarkaat/register',MasyarakatAuthController::class)->name('.masyarakat.register');
 Route::get('/posyandu/register',[PosyanduAuthController::class,'daftarPosyandu'])->name('.posyandu.register');
 
-
+Route::get('setting_akun',ProfileController::class)->name('.setting_akun');
 
 
 Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepage');

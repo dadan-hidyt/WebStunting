@@ -1,4 +1,3 @@
-<div class="menu-group">
 
     <a href="{{ route('mobile.masyarakat.data_anak') }}" class="card">
         <div class="icon">
@@ -12,7 +11,7 @@
             <i class="fa-solid fa-chevron-right"></i>
         </div>
     </a>
-    <a href="{{ route('mobile.masyarakat.pengukuran_anak') }}" class="card">
+    <a href="{{ route('mobile.pengukuran_anak') }}" class="card">
         <div class="icon">
             <i class="fa-solid fa-calculator"></i>
         </div>
@@ -36,4 +35,3 @@
             <i class="fa-solid fa-chevron-right"></i>
         </div>
     </a>
-</div>
