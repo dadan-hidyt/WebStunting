@@ -8,6 +8,7 @@ use App\Http\Controllers\Pwa\Masyarakat\AuthController as MasyarakatAuthControll
 use App\Http\Controllers\Pwa\Masyarakat\PageController;
 use App\Http\Controllers\Pwa\PengukuranController;
 use App\Http\Controllers\Pwa\Posyandu\AuthController as PosyanduAuthController;
+use App\Http\Controllers\Pwa\Posyandu\ExportController;
 use App\Http\Controllers\Pwa\Posyandu\PageController as PosyanduPageController;
 use App\Http\Controllers\Pwa\ProfileController;
 use App\Http\Middleware\LogedinMasyarakatMiddleware;
@@ -30,9 +31,7 @@ Route::middleware(LogedinMasyarakatMiddleware::class)->get('/login', [LoginContr
 
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/masyarkaat/register',MasyarakatAuthController::class)->name('.masyarakat.register');
 Route::get('/posyandu/register',[PosyanduAuthController::class,'daftarPosyandu'])->name('.posyandu.register');
-
 Route::get('setting_akun',ProfileController::class)->name('.setting_akun');
-
 
 Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepage');
 Route::get('/ukur/{anak}', [PengukuranController::class, 'ukur'])->name('.ukur_bb_tb');
@@ -63,4 +62,9 @@ Route::prefix('posyandu')->name('.posyandu.')->group(function(){
     Route::get('data_anak/new',[PosyanduPageController::class,'tambahAnak'])->name('tambah_anak');
     Route::get('data_anak/{anak}/edit',[PosyanduPageController::class,'editAnak'])->name('edit_anak');
     Route::get('data_anak/{anak}/delete',[PosyanduPageController::class,'deleteAnak'])->name('hapus_anak');
+
+
+    Route::get('export_data', [PosyanduPageController::class,'exportData'])->name('export');
+    Route::get('export_pengukuran', [ExportController::class,'exportPengukuran'])->name('export_pengukuran');
+    Route::get('export_anak', [ExportController::class,'exportAnak'])->name('export_anak');
 }); 

@@ -35,3 +35,15 @@
             <i class="fa-solid fa-chevron-right"></i>
         </div>
     </a>
+    <a href="{{ route('mobile.posyandu.export') }}" class="card">
+        <div class="icon">
+            <i class="fa-solid fa-file-excel"></i>
+        </div>
+        <div class="title">
+            <h3>EXPORT</h3>
+            <p>Export data untuk laporan, Export data anak</p>
+        </div>
+        <div class="arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </a>

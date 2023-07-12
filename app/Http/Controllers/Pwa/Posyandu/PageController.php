@@ -23,6 +23,11 @@ class PageController extends Controller
     public function tambahAnak(){
         return view('pwa.posyandu.tambah-anak')->with('title','Tambah anak');
     }
+
+    public function exportData(){
+        return view('pwa.posyandu.export');
+    }
+
     public function deleteOrangTua(OrangTua $orangTua){
         if ($orangTua->delete()) {
             return Redirect::route('mobile.posyandu.data_orang_tua')->with('message','Data berhasil di hapuss');

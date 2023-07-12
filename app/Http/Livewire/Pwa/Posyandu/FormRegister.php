@@ -23,11 +23,12 @@ class FormRegister extends Component
     public $data;
     public $kelurahanDesa;
     protected $rules = [
-        'data.email' => ['required','unique:email,user'],
-        'data.password' => ['required'],
+        'data.email' => ['required','unique:users,email'],
+        'data.password' => ['required','confirmed','min:6'],
         'data.nama_posyandu' => ['required'],
         'data.kelurahan_desa_id' => ['required'],
         'data.kontak' => ['required'],
+        'data.password_confirmation' => ['required','min:6'],
         'data.alamat_lengkap' => ['required'],
     ];
     public $selector;

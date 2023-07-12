@@ -17,7 +17,7 @@ class ExportController extends Controller
         $this->style =  (new Style())->setFontBold()
         ->setBackgroundColor('0090f0')
         ->setShouldWrapText(true)
-        ->setFontColor('fffff')->setCellAlignment('center');;
+        ->setFontColor('fffff')->setCellAlignment('center');
     }
     public function exportPengukuran(){
         $kab_id = request()->kab_id ?? null;

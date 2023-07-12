@@ -94,7 +94,7 @@
         </div>
     @enderror
     <div class="form-group">
-        <input required type="text" wire:model.defer='data.ketikan_ulang' placeholder="Ketikan Ulang"
+        <input required type="text" wire:model.defer='data.password_confirmation' placeholder="Ketikan Ulang"
             class="form-control">
     </div>
 
