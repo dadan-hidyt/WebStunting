@@ -109,6 +109,6 @@
             alert("Pendaftarak akun gagal")
         });
 
-        
+
     }
 </script>
