@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IbuHamil\AuthController as IbuHamilAuthController;
 use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\Pwa\IbuHamil\PageController as IbuHamilPageController;
 use App\Http\Controllers\Pwa\IndexController;
@@ -34,6 +35,7 @@ Route::middleware(LogedinMasyarakatMiddleware::class)->get('/login', [LoginContr
 
 Route::middleware(LogedinMasyarakatMiddleware::class)->get('/masyarkaat/register',MasyarakatAuthController::class)->name('.masyarakat.register');
 Route::get('/posyandu/register',[PosyanduAuthController::class,'daftarPosyandu'])->name('.posyandu.register');
+Route::get('/ibu_hamil/register',[IbuHamilAuthController::class,'daftarIbuHamil'])->name('.ibu_hamil.register');
 Route::get('setting_akun',ProfileController::class)->name('.setting_akun');
 
 Route::get('/homepage', [IndexController::class, 'showHomePage'])->name('.homepage');

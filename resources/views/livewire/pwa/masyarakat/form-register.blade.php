@@ -98,7 +98,7 @@
         <div class="icon"><i class="fa-solid fa-lock"></i></div>
     </div>
     <button class="btn-submit">
-        Login     <span wire:loading>Loading..</span>
+        Daftar     <span wire:loading>Mendaftarkan..</span>
 
     </button>
 </form>

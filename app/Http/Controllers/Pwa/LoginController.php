@@ -13,7 +13,8 @@ class LoginController extends Controller
         $register_url = match ($loginType) {
             'masyarakat' => route('mobile.masyarakat.register'),
             'posyandu' => route('mobile.posyandu.register'),
-            'bumil' => route('mobile.bumil.register'),
+            'buhamil' => route('mobile.ibu_hamil.register'),
+            'ibu_hamil' => route('mobile.ibu_hamil.register'),
             default => '/'
         };
 

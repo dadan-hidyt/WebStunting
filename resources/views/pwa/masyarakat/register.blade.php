@@ -18,7 +18,7 @@
                 <section class="auth-form">
                     @livewire('pwa.masyarakat.form-register',['type'=>'masyarakat'])
                     <div class="option">
-                        Belum punya akun? <a href="{{ $register_url ?? '' }}">Daftar Sekarang</a>
+                        Sudah punya akun? <a href="{{ route('mobile.login') }}?_type=masyarakat">Login Sekarang</a>
                     </div>
                 </section>
                 <footer>

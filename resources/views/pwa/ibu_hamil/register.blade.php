@@ -12,13 +12,13 @@
                         </button>
                         <p>Back to Welcome</p>
                     </div>
-                    <h2>{{$title ?? "Daftar Posyandu"}}</h2>
-                    <p>Selamat datang Posyandu kembali e-Kambing</p>
+                    <h2>{{$title}}</h2>
+                    <p>Selamat datang Masyarakat kembali e-Kambing</p>
                 </header>
                 <section class="auth-form">
-                    @livewire('pwa.posyandu.form-register',['type'=>'posyandu'])
+                    @livewire('pwa.register-ibu-hamil')
                     <div class="option">
-                        Sudah punya akun? <a href="{{ route('mobile.login') }}?_type=posyandu">Login Sekarang</a>
+                        Sudah punya akun? <a href="{{ route('mobile.login') }}?_type=buhamil">Login Sekarang</a>
                     </div>
                 </section>
                 <footer>

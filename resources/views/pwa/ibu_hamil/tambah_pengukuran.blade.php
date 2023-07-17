@@ -40,7 +40,7 @@
                     <a href="#" class="btn-back" onclick="history.back()">
                         <i class="fa-solid fa-chevron-left"></i>
                     </a>
-                    <h1>Tambah Anak</h1>
+                    <h1>Tambah Pengukuran</h1>
                 </header>
                 <section class="data-management-list">
                     @livewire('form-pengukuran-ibu-hamil', [

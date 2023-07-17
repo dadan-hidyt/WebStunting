@@ -9,7 +9,7 @@
     <div class="form-group">
         <input required wire:model.defer='data.email' type="email" placeholder="Alamat Email" class="form-control">
     </div>
-    @error('data.nama_posyandu')
+    @error('data.nik')
         <div style="color: red;margin-top:0;">
             <small>
                 {{ $message }}
@@ -17,10 +17,9 @@
         </div>
     @enderror
     <div class="form-group">
-        <input required type="text" wire:model.defer='data.nama_posyandu' placeholder="Nama Posyandu"
-            class="form-control">
+        <input required wire:model.defer='data.nik' type="nik" placeholder="Nomor nik" class="form-control">
     </div>
-    @error('data.kontak')
+    @error('data.nama')
         <div style="color: red;margin-top:0;">
             <small>
                 {{ $message }}
@@ -28,20 +27,9 @@
         </div>
     @enderror
     <div class="form-group">
-        <input required type="text" placeholder="Kontak Posyandu" wire:model.defer='data.kontak'
-            class="form-control">
+        <input required type="text" wire:model.defer='data.nama' placeholder="Nama Lengkap" class="form-control">
     </div>
-    @error('data.alamat_lengkap')
-        <div style="color: red;margin-top:0;">
-            <small>
-                {{ $message }}
-            </small>
-        </div>
-    @enderror
-    <div class="form-group">
-        <input required type="text" placeholder="Alamat Lengkap" wire:model.defer='data.alamat_lengkap'
-            class="form-control">
-    </div>
+
 
     <div class="form-group">
         <select class="form-control" wire:model='selector.kabupaten'>
@@ -76,7 +64,73 @@
                 <option value="{{ $item->id }}">{{ $item->nama_desa }}</option>
             @endforeach
         </select>
-    </div> @error('data.password')
+    </div>
+    @error('data.alamat_lengkap')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
+    <div class="form-group">
+        <input type="text" wire:model.defer='data.alamat_lengkap' placeholder="Ketikan alamat lengkap"
+            class="form-control">
+    </div>
+    @error('data.kontak')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
+    <div class="form-group">
+        <input type="text" wire:model.defer='data.kontak' placeholder="Ketikan kontak anda" class="form-control">
+    </div>
+    @error('data.tempat_lahir')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
+    <div class="form-group">
+        <input type="text" wire:model.defer='data.tempat_lahir' placeholder="Ketikan tempat lahir"
+            class="form-control">
+    </div>
+    @error('data.berat_badan_sebelum_hamil')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
+    <div class="form-group">
+        <input type="text" wire:model.defer='data.berat_badan_sebelum_hamil'
+            placeholder="Berat badan sebelum hamil(kg)" class="form-control">
+    </div>
+    @error('data.tinggi_badan_sebelum_hamil')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
+    <div class="form-group">
+        <input type="text" wire:model.defer='data.tinggi_badan_sebelum_hamil'
+            placeholder="Tinggi badan sebelum hamil(cm)" class="form-control">
+    </div>
+    @error('data.tanggal_lahir')
+        <div style="color: red;margin-top:0;">
+            <small>
+                {{ $message }}
+            </small>
+        </div>
+    @enderror
+    <div class="form-group">
+        <input type="date" wire:model.defer='data.tanggal_lahir' placeholder="Ketikan tanggal lahir"
+            class="form-control">
+    </div>
+    @error('data.password')
         <div style="color: red;margin-top:0;">
             <small>
                 {{ $message }}
@@ -100,7 +154,7 @@
 
 
     <button class="btn-submit">
-        Daftar <span wire:loading>Mendaftarkan..</span>
+        Register <span wire:loading>Mendaftarkan..</span>
 
     </button>
 </form>
