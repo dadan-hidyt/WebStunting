@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Mobile\AuthController;
+use App\Http\Controllers\Pwa\IbuHamil\PageController as IbuHamilPageController;
 use App\Http\Controllers\Pwa\IndexController;
 use App\Http\Controllers\Pwa\LoginController;
 use App\Http\Controllers\Pwa\Masyarakat\AnakController;
@@ -11,8 +12,10 @@ use App\Http\Controllers\Pwa\Posyandu\AuthController as PosyanduAuthController;
 use App\Http\Controllers\Pwa\Posyandu\ExportController;
 use App\Http\Controllers\Pwa\Posyandu\PageController as PosyanduPageController;
 use App\Http\Controllers\Pwa\ProfileController;
+use App\Http\Middleware\IbuHamilMiddleware;
 use App\Http\Middleware\LogedinMasyarakatMiddleware;
 use App\Http\Middleware\MobileMasyarakatMiddleware;
+use App\Http\Middleware\PosyanduMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -52,7 +55,7 @@ Route::prefix('masyarakat')->middleware([MobileMasyarakatMiddleware::class])->na
 });
 
 
-Route::prefix('posyandu')->name('.posyandu.')->group(function(){
+Route::prefix('posyandu')->middleware(PosyanduMiddleware::class)->name('.posyandu.')->group(function(){
     Route::get('data_orang_tua',[PosyanduPageController::class,'dataOrtu'])->name('data_orang_tua');
     Route::get('data_orang_tua/new',[PosyanduPageController::class,'tambahOrangTua'])->name('tambah_orang_tua');
     Route::get('data_orang_tua/{orangTua}/edit',[PosyanduPageController::class,'editOrangTua'])->name('edit_orang_tua');
@@ -68,3 +71,10 @@ Route::prefix('posyandu')->name('.posyandu.')->group(function(){
     Route::get('export_pengukuran', [ExportController::class,'exportPengukuran'])->name('export_pengukuran');
     Route::get('export_anak', [ExportController::class,'exportAnak'])->name('export_anak');
 }); 
+
+
+
+Route::prefix('ibu_hamil')->middleware(IbuHamilMiddleware::class)->name('.ibu_hamil.')->group(function(){
+    Route::get('/riwayat_pengukuran',[IbuHamilPageController::class,'riwayat'])->name('riwayat_pengukuran');
+    Route::get('/tambah_pengukuran',[IbuHamilPageController::class,'tambah_pengukuran'])->name('tambah_pengukuran');
+});

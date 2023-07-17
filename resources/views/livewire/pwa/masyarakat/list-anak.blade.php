@@ -38,7 +38,7 @@
                 </div>
             </div>
                @else
-               <a href="{{ route('mobile.masyarakat.detail_anak',$item->id) }}" class="card">
+               <a href="{{ route('mobile.detail_anak',$item->id) }}" class="card">
                 <div class="icon">
                     <i class="fa-solid fa-user"></i>
                 </div>

@@ -34,4 +34,5 @@ class PengukuranIbuHamil
             return "Sangat Gemuk";
         }
     }
+    
 }

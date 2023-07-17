@@ -7,7 +7,8 @@
                 <header class="home-header">
                     <div class="blue-shade-top-sm"></div>
                     <div class="user-greeting">
-                        <h2>Hai, {{ auth()->user()->name ?? '?' }} - {{ textHakAkses(auth()->user()->hak_akses ?? '') }}</h2>
+                        <h2>Hai, {{ auth()->user()->name ?? '?' }} - {{ textHakAkses(auth()->user()->hak_akses ?? '') }}
+                        </h2>
                         <p>Selamat datang di e-Kambing</p>
                     </div>
                     <a href="" class="btn-setting">
@@ -17,23 +18,25 @@
                 <section class="menu-selection">
                     <h2>Menu</h2>
                     <div class="menu-group">
-                    @if (auth()->user()->hak_akses === 'orang_tua')
-                        @include('pwa.masyarakat.sections.menu')
-                    @elseif(auth()->user()->hak_akses === 'posyandu')
-                    @include('pwa.posyandu.sections.menu')
-                    @endif
-                    <a href="{{ route('mobile.setting_akun') }}" class="card">
-                        <div class="icon">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="title">
-                            <h3>Pengaturan Akun</h3>
-                            <p>Ubah Nama, Email, Kata sandi</p>
-                        </div>
-                        <div class="arrow">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
-                    </a>
+                        @if (auth()->user()->hak_akses === 'orang_tua')
+                            @include('pwa.masyarakat.sections.menu')
+                        @elseif(auth()->user()->hak_akses === 'posyandu')
+                            @include('pwa.posyandu.sections.menu')
+                        @elseif(auth()->user()->hak_akses === 'ibu_hamil')
+                            @include('pwa.ibu_hamil.sections.menu')
+                        @endif
+                        <a href="{{ route('mobile.setting_akun') }}" class="card">
+                            <div class="icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="title">
+                                <h3>Pengaturan Akun</h3>
+                                <p>Ubah Nama, Email, Kata sandi</p>
+                            </div>
+                            <div class="arrow">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
                     </div>
                 </section>
                 <footer>

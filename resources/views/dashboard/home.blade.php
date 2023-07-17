@@ -96,12 +96,12 @@
         <div class="col-lg-3 col-12">
             <!-- small box -->
             <div class="card small-box">
-                <i class="fas fa-city"></i>
+                <i class="fas fa-users"></i>
                 <div class="inner">
-                    <h3>{{ $total_kecamatan }}</h3>
-                    <p>Total Kecamatan</p>
+                    <h3>{{ $total_ibu_hamil }}</h3>
+                    <p>Total Ibu Hamil</p>
                 </div>
-                <a href="{{ route('dashboard.data-master.kecamatan') }}" class="link-btn">Data Kecamatan<i
+                <a href="{{ route('dashboard.data-master.kecamatan') }}" class="link-btn">Ibu Hamil<i
                         class="fas fa-arrow-right"></i></a>
             </div>
         </div>

@@ -26,7 +26,7 @@
     <small style="color: red;font-size:9px;"><i>{{ $message }}</i></small>
 @enderror
 <div class="form-group">
-    <input type="text" wire:model='data.tempat_lahir' class="form-control" placeholder="No KK">
+    <input type="text" wire:model='data.tempat_lahir' class="form-control" placeholder="Tempat Lahir">
 </div>
 @error('data.tanggal_lahir')
 <small style="color: red;font-size:9px;"><i>{{ $message }}</i></small>
@@ -71,6 +71,6 @@
 </div>
 <div class="btn-group">
     <a href="#" class="btn-cancel" onclick="history.back()">Cancel</a><button type="submit"
-        class="btn-save">Simpan</button>
+        class="btn-save">Simpan <span wire:loading wire:target='tambah'>Menyimpan...</span>  <span wire:loading wire:target='edit'>Menyimpan...</span> </button>
 </div>
 </form>
