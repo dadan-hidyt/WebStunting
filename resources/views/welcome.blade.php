@@ -43,15 +43,22 @@
                                 </div>
                             </li>
                         </a>
-                        <a href="pages/" class="decoration-transparent group">
+                        {{-- <a href="pages/" class="decoration-transparent group">
                             <li class="text-gray-400 relative w-fit">Galeri
                                 <div
                                     class="underline absolute h-[2px] w-[0px] group-hover:w-full bg-primary -bottom-1 transition-all duration-300">
                                 </div>
                             </li>
-                        </a>
-                        <a href="pages/" class="decoration-transparent group">
+                        </a> --}}
+                        <a href="https://e-kambing.com/blog" class="decoration-transparent group">
                             <li class="text-gray-400 relative w-fit">Berita
+                                <div
+                                    class="underline absolute h-[2px] w-[0px] group-hover:w-full bg-primary -bottom-1 transition-all duration-300">
+                                </div>
+                            </li>
+                        </a>
+                        <a href="{{ route('mobile.index') }}" class="decoration-transparent group">
+                            <li class="text-gray-400 relative w-fit">Mobile App
                                 <div
                                     class="underline absolute h-[2px] w-[0px] group-hover:w-full bg-primary -bottom-1 transition-all duration-300">
                                 </div>
@@ -96,10 +103,14 @@
                                 mockups
                             </p>
                             <div class="flex gap-3 mt-4 flex-wrap">
-                                <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white">Laporkan
-                                    Kasus</a><a href=""
-                                    class="py-3 px-7 rounded-lg bg-white text-sm text-primary border border-primary hover:bg-primary hover:text-white transition-all duration-500">Download
-                                    EduStunting App</a>
+                                <a href="" class="py-3 px-7 rounded-lg bg-primary text-sm text-white">
+                                    Login Petugas    
+                                </a>
+                                
+                                <a href="https://e-kambing.com/blog/2023/07/17/cara-install-aplikasi-ekambing-di-android/"
+                                    class="py-3 px-7 rounded-lg bg-white text-sm text-primary border border-primary hover:bg-primary hover:text-white transition-all duration-500">
+                                    Cara Install Di Android
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -235,7 +246,7 @@
             </div>
             <div class="lg:mx-16 py-10 px-12 rounded-lg bg-white shadow-lg my-14">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-5">
-                    <img src="src/assets/image/undraw_growing.svg" alt="">
+                    <img src="{{ asset('lp/src/assets/image/undraw_growing.svg') }}" alt="">
                     <form action="{{ route('grafik_pengukuran.cariAnak') }}" method="POST">
                         @csrf
                         <h4 class="text-xl lg:text-3xl font-semibold text-primary max-sm:text-center">Pantau Tumbuh
@@ -538,10 +549,10 @@
                     <p class="text-sm text-white font-medium mt-2 w-[300px] text-opacity-80">solusi terdepan dalam
                         pencegahan dan pencatatan
                         stunting</p>
-                    <a href="" class="relative block overflow-hidden mt-4 w-[160px] h-fit">
+                    {{-- <a href="" class="relative block overflow-hidden mt-4 w-[160px] h-fit">
                         <img src="{{ asset('lp/src/assets/image/new-get-it-on-google-play-png-logo-20.png') }}"
                             class="w-full object-cover">
-                    </a>
+                    </a> --}}
                 </div>
                 <div>
                     <p class="text-white font-medium">Didukung oleh;</p>
@@ -556,7 +567,7 @@
                 </div>
             </div>
             <div class="py-9">
-                <p class="text-xs text-white font-medium">©Copyright 2023 Arka Mega Nusantara. All Rights Reserved</p>
+                <p class="text-xs text-white font-medium">©Copyright 2023 Nusa Agency. All Rights Reserved</p>
             </div>
         </div>
     </footer>

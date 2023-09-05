@@ -1,7 +1,7 @@
 {
-    "name": "Testing PWA",
-    "short_name": "PWA",
-    "description": "Membuat Aplikasi PWA Pertama",
+    "name": "EKAMBING APP",
+    "short_name": "E-KAMBING",
+    "description": "Cek pertumbuhan perkembangan anak di aplikasi ekambing",
     "icons": [
         {
             "src": "../img/icon.png",
